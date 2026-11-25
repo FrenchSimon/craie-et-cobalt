@@ -1,7 +1,9 @@
 ---
 /* Pictogrammes des prestations : trait cobalt 1,5 px, angles vifs, comme un relevé. Décoratifs. */
+import type { NomPicto } from '../data/prestations';
+
 interface Props {
-  nom: 'visite' | 'conception' | 'chantier' | 'pro';
+  nom: NomPicto;
   class?: string;
 }
 

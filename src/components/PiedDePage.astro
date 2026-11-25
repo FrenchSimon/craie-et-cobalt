@@ -76,6 +76,15 @@
     margin-inline: 12px;
   }
 
+  /* Deux colonnes, celle de droite partagée avec l'appel à l'action : son bouton s'aligne sur les liens */
+  @media (min-width: 1100px) {
+    .pied__colonnes {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--colonne-pied);
+      gap: var(--pas-5);
+    }
+  }
+
   @media (max-width: 899.98px) {
     .pied__colonnes {
       flex-direction: column;

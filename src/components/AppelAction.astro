@@ -39,4 +39,17 @@ const { titre, texte } = Astro.props;
     margin-top: 12px;
     color: var(--gris-clair);
   }
+
+  /* Même grille que le pied de page : bouton au début de la colonne des liens, à côté de son texte */
+  @media (min-width: 1100px) {
+    .appel-action__contenu {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--colonne-pied);
+      gap: var(--pas-5);
+    }
+
+    .appel-action__contenu .bouton {
+      justify-self: start;
+    }
+  }
 </style>

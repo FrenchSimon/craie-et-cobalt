@@ -1,5 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import TetePage from '../components/TetePage.astro';
+import Picto from '../components/Picto.astro';
+import AppelAction from '../components/AppelAction.astro';
+import { prestations } from '../data/prestations';
 
 const title = "Prestations — Craie & Cobalt, architecte d'intérieur à Lyon";
 const description =
@@ -7,10 +11,190 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <section class="section">
-    <div class="conteneur">
-      <h1>Nos prestations</h1>
-      <p class="chapeau">Chaque projet est différent. Vous pouvez faire appel au studio pour un conseil ponctuel ou pour l'ensemble du projet, du premier croquis à la remise des clés.</p>
-    </div>
-  </section>
+  <TetePage
+    titre="Nos prestations"
+    chapeau="Chaque projet est différent. Vous pouvez faire appel au studio pour un conseil ponctuel ou pour l'ensemble du projet, du premier croquis à la remise des clés."
+  />
+
+  <div class="prestations-detail conteneur">
+    <ol class="liste-nue">
+      {prestations.map((prestation, index) => (
+        <li class="prestation-detail" id={prestation.id}>
+          <article aria-labelledby={`titre-${prestation.id}`}>
+            <div class="prestation-detail__tete">
+              <Picto nom={prestation.picto} class="prestation-detail__picto" />
+              <div class="prestation-detail__nom">
+                <span class="numero" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h2 id={`titre-${prestation.id}`}>{prestation.titre}</h2>
+              </div>
+            </div>
+
+            {/* Fiche : intitulé en Plex Mono à gauche, contenu à droite, filets entre les lignes */}
+            <dl class="prestation-detail__fiche">
+              <div class="prestation-detail__ligne">
+                <dt>Pour qui</dt>
+                <dd>{prestation.pourQui}</dd>
+              </div>
+              <div class="prestation-detail__ligne">
+                <dt>Inclus</dt>
+                <dd>
+                  <ul class="prestation-detail__inclus liste-nue">
+                    {prestation.inclus.map((element) => <li>{element}</li>)}
+                  </ul>
+                </dd>
+              </div>
+              <div class="prestation-detail__ligne">
+                <dt>{prestation.intituleHonoraires}</dt>
+                <dd>
+                  {prestation.montant && <span class="prestation-detail__montant">{prestation.montant}</span>}
+                  {prestation.honoraires}
+                </dd>
+              </div>
+            </dl>
+          </article>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <AppelAction titre="Comment sont calculés nos honoraires" bouton="Demander un devis">
+    <p>Après la visite, vous recevez un devis détaillé : ce qui est inclus, le montant des honoraires et le calendrier. Rien n'est engagé avant votre signature.</p>
+    <p>Le studio est assuré en responsabilité civile professionnelle et en garantie décennale.</p>
+  </AppelAction>
 </Base>
+
+<style>
+  /* Les 4 prestations les unes sous les autres, entre filets : nom à gauche (5/12), fiche à droite (7/12) */
+  .prestations-detail {
+    padding-block: var(--pas-6) var(--espace-section);
+  }
+
+  .prestation-detail {
+    padding-block: 56px;
+    border-top: 1px solid var(--filet);
+    /* L'ancre ne colle pas au bord haut de l'écran */
+    scroll-margin-top: var(--pas-3);
+  }
+
+  .prestation-detail:last-child {
+    border-bottom: 1px solid var(--filet);
+  }
+
+  .prestation-detail article {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--pas-5) var(--pas-3);
+  }
+
+  /* Le nom accompagne la lecture de la fiche, qui est plus longue que lui */
+  .prestation-detail__tete {
+    position: sticky;
+    top: var(--pas-4);
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-3);
+  }
+
+  .prestation-detail__nom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .prestation-detail__ligne {
+    display: grid;
+    grid-template-columns: 136px minmax(0, 1fr);
+    gap: var(--pas-1) var(--pas-3);
+    padding-block: 20px;
+    border-top: 1px solid var(--filet);
+  }
+
+  .prestation-detail__ligne:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .prestation-detail__ligne:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Intitulé de fiche : Plex Mono 11 px, capitales, gris cote ; calé sur la première ligne du texte */
+  .prestation-detail dt {
+    padding-top: 7px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  /* Éléments inclus : tiret au trait gris cote, comme un relevé */
+  .prestation-detail__inclus {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .prestation-detail__inclus li {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .prestation-detail__inclus li::before {
+    content: '';
+    position: absolute;
+    top: 0.8em;
+    left: 0;
+    width: 12px;
+    height: 1px;
+    background: var(--gris);
+  }
+
+  /* Chiffre clé : Archivo 500 22 px */
+  .prestation-detail__montant {
+    margin-right: 4px;
+    font-family: var(--titre);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  @media (max-width: 899.98px) {
+    .prestations-detail {
+      padding-top: var(--pas-5);
+    }
+
+    .prestation-detail {
+      padding-block: 40px;
+    }
+
+    .prestation-detail article {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+
+    /* Pictogramme à gauche du numéro et du nom */
+    .prestation-detail__tete {
+      position: static;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .prestation-detail :global(.prestation-detail__picto) {
+      width: 44px;
+      height: 44px;
+    }
+
+    .prestation-detail__ligne {
+      grid-template-columns: minmax(0, 1fr);
+      padding-block: 16px;
+    }
+
+    .prestation-detail dt {
+      padding-top: 0;
+    }
+  }
+</style>

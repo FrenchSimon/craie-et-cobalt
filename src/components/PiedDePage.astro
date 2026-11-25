@@ -25,7 +25,8 @@
 
 <style>
   .pied {
-    padding-block: 56px;
+    /* 96 px en bureau, 64 px en mobile */
+    padding-block: clamp(64px, 6.5vw, 96px);
     font-family: var(--titre);
     font-size: 14px;
     font-weight: 400;

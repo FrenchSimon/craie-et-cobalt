@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.4 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : appel à l'action commun à toutes les pages sauf Contact, libellés du tableau des prestations pour les lecteurs d'écran)
+> Version 1.5 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -18,12 +18,6 @@ Studio fictif — Site réalisé par Simon Dabin · [Voir le code](https://githu
 ### Navigation
 
 Logo **Craie & Cobalt** (lien vers l'accueil) · Prestations · Réalisations · Le studio · **Parlons de votre projet** (bouton → Contact)
-
-### Appel à l'action (toutes les pages sauf Contact, juste avant le pied de page)
-
-**Titre :** Un projet en tête ?
-**Texte :** Racontez-nous votre lieu et vos envies. Nous vous répondons sous 48 heures ouvrées.
-**Bouton :** Parlons de votre projet
 
 ### Pied de page
 
@@ -115,6 +109,12 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 *Avis fictifs (démo).*
 
 **Lien :** Lire tous nos avis sur Google ↗ — étiquette « Fictif », lien désactivé
+
+### Appel à l'action
+
+**Titre :** Un projet en tête ?
+**Texte :** Racontez-nous votre lieu et vos envies. Nous vous répondons sous 48 heures ouvrées.
+**Bouton :** Parlons de votre projet
 
 ---
 

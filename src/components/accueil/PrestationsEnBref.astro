@@ -32,7 +32,7 @@ const prestations = [
 ] as const;
 ---
 
-<section class="section" aria-labelledby="titre-prestations">
+<section class="section fond-graphite prestations-sombre" aria-labelledby="titre-prestations">
   <div class="conteneur">
     <TeteSection surtitre="Prestations" titre="Du conseil ponctuel au projet clé en main" id="titre-prestations" />
 
@@ -52,13 +52,29 @@ const prestations = [
     </ol>
 
     <div class="section-pied">
-      <a class="bouton" href={contact.href}>Demander un devis</a>
+      <a class="bouton bouton--craie" href={contact.href}>Demander un devis</a>
       <a class="lien ui" href="/prestations">Le détail des prestations<span aria-hidden="true"> →</span></a>
     </div>
   </div>
 </section>
 
 <style>
+  /* Section sur fond graphite, cartes craie claire. Le cobalt reste dans les cartes
+     (pictogrammes, numéros) ; hors des cartes, surtitre en gris clair. */
+  .prestations-sombre :global(.surtitre) {
+    color: var(--gris-clair);
+  }
+
+  .prestations-sombre .lien {
+    color: var(--craie);
+    text-decoration-color: var(--craie);
+  }
+
+  .prestations-sombre .lien:hover {
+    color: var(--gris-clair);
+    text-decoration-color: var(--gris-clair);
+  }
+
   .prestations {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -71,8 +87,9 @@ const prestations = [
     grid-template-rows: auto auto 1fr auto;
     gap: var(--pas-1) 28px;
     padding: 36px 36px 28px;
-    border: 1px solid var(--filet);
+    border: 0;
     background: var(--craie-claire);
+    color: var(--graphite);
   }
 
   .prestation :global(.prestation__picto) {

@@ -50,9 +50,10 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 8. [ ] **Mentions légales et confidentialité.**
 9. [ ] **Plan du site** (`/plan-du-site`) : liste de toutes les pages et des 6 fiches projet, lien dans le pied de page (second système de navigation, critère 12.1 du RGAA). Ses textes (title, description, titre, intitulé du lien) sont à ajouter à `textes.md` après accord.
 10. [ ] **Page 404.**
-11. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
-12. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
-13. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
+11. [ ] **Bouton haut de page :** sur toutes les pages, lien vers le haut (`#haut`, utilisable sans JavaScript), visible au clavier avec focus net, cible de 44 × 44 px au moins, sans masquer de contenu en mobile ; défilement doux désactivé avec `prefers-reduced-motion`. Son intitulé est à ajouter à `textes.md` après accord.
+12. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
+13. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
+14. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.
 

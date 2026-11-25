@@ -147,11 +147,18 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
       background: var(--craie);
     }
 
+    /* Logo et bouton gardent leur ligne de 88 px sous le bandeau, le menu prend la suite */
     .en-tete--menu-ouvert .en-tete__barre {
-      flex-wrap: wrap;
-      align-content: flex-start;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: 88px auto;
+      align-items: center;
+      align-content: start;
       flex: 1;
-      border-top: 0;
+    }
+
+    .en-tete--menu-ouvert .menu {
+      grid-column: 1 / -1;
     }
 
     /* Menu masqué tant que le bouton ne l'a pas ouvert (sans JS : sans-js.css le laisse visible) */

@@ -1,20 +1,34 @@
 ---
 /*
- * Carte d'une réalisation sur l'accueil : photo 4:3, « Type · Lieu », titre et fiche technique.
- * Toute la carte se clique, mais le lien ne porte que le titre (nom accessible court) :
- * sa zone cliquable est étendue à la carte par un pseudo-élément.
+ * Carte d'une réalisation : photo 4:3, « Type · Lieu », titre et fiche technique.
+ * Accueil : le titre (H3) est un lien vers la fiche, nom accessible court.
+ * Réalisations : titre H2 et bouton « Voir la fiche + », qui ouvre le panneau latéral.
+ * Dans les deux cas, toute la carte se clique : la zone du lien ou du bouton est étendue
+ * à la carte par un pseudo-élément.
  */
 import Photo from './Photo.astro';
 import type { Projet } from '../data/projets';
 
 interface Props {
   projet: Projet;
+  /** Réalisations : H2 et bouton qui ouvre la fiche (accueil par défaut : H3 et lien). */
+  fiche?: boolean;
+  /** Première carte de la page Réalisations : photo chargée tout de suite (LCP en mobile). */
+  prioritaire?: boolean;
+  /** Largeur affichée de la photo selon l'écran (par défaut : grille de 3 colonnes de l'accueil). */
+  sizes?: string;
 }
 
-const { projet } = Astro.props;
-const titre = projet.phare?.titre ?? projet.titre;
-const lieu = projet.phare?.lieu ?? projet.lieu;
+const {
+  projet,
+  fiche = false,
+  prioritaire = false,
+  sizes = '(min-width: 1440px) 411px, (min-width: 900px) calc((100vw - 11vw - 48px) / 3), calc(100vw - 11vw)',
+} = Astro.props;
+const titre = fiche ? projet.titre : (projet.phare?.titre ?? projet.titre);
+const lieu = fiche ? projet.lieu : (projet.phare?.lieu ?? projet.lieu);
 const photo = projet.photos[0];
+const Titre = fiche ? 'h2' : 'h3';
 ---
 
 <article class="carte-projet">
@@ -22,13 +36,14 @@ const photo = projet.photos[0];
     src={photo.src}
     alt={photo.alt}
     widths={[400, 640, 860, 1240]}
-    sizes="(min-width: 1440px) 411px, (min-width: 900px) calc((100vw - 11vw - 48px) / 3), calc(100vw - 11vw)"
+    sizes={sizes}
+    prioritaire={prioritaire}
     class="carte-projet__photo"
   />
   <p class="etiquette carte-projet__type">{projet.categorie} · {lieu}</p>
-  <h3 class="carte-projet__titre">
-    <a class="carte-projet__lien" href={`/realisations#${projet.id}`}>{titre}</a>
-  </h3>
+  <Titre class="carte-projet__titre">
+    {fiche ? titre : <a class="carte-projet__lien" href={`/realisations#${projet.id}`}>{titre}</a>}
+  </Titre>
   <dl class="fiche-technique">
     <div>
       <dt>Surface</dt>
@@ -39,6 +54,18 @@ const photo = projet.photos[0];
       <dd>{projet.duree}</dd>
     </div>
   </dl>
+  {fiche && (
+    <button
+      class="carte-projet__lien carte-projet__bouton lien ui"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls={`fiche-${projet.id}`}
+      data-ouvre={projet.id}
+    >
+      Voir la fiche<span class="visuellement-masque"> : {projet.titre}</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0v12M0 6h12" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+    </button>
+  )}
 </article>
 
 <style>
@@ -71,6 +98,38 @@ const photo = projet.photos[0];
 
   .carte-projet:hover .carte-projet__lien {
     color: var(--cobalt);
+  }
+
+  /* Même taille de titre sur l'accueil (H3) et sur Réalisations (H2) */
+  .carte-projet__titre {
+    font-size: 24px;
+    line-height: 1.2;
+    transition: color var(--transition);
+  }
+
+  /* Réalisations : titre cobalt au survol, comme le lien de l'accueil */
+  .carte-projet:hover h2.carte-projet__titre {
+    color: var(--cobalt);
+  }
+
+  /* Bouton « Voir la fiche + » : lien souligné, croix à droite, cible de 44 px */
+  .carte-projet__bouton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    min-height: 44px;
+    margin-top: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-decoration: underline 2px var(--graphite);
+    text-underline-offset: 6px;
+    cursor: pointer;
+  }
+
+  .carte-projet:hover .carte-projet__bouton {
+    text-decoration-color: var(--cobalt);
   }
 
   /* Survol : encadré cobalt de 1 px (comme les boutons) autour de toute la carte, dans la gouttière */

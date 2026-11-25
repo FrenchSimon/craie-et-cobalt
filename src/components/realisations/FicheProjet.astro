@@ -1,0 +1,342 @@
+---
+/*
+ * Fiche d'un projet : panneau latéral (<dialog> modal) ouvert par le bouton de sa carte.
+ * Haut : repère « Projet 01 sur 06 » et bouton fermer. Corps défilant : étiquette, titre,
+ * fiche technique, texte, photos, bouton vers Contact. Pied : projets précédent et suivant.
+ * En mobile, les photos passent en carrousel (une photo 4:3 à la fois).
+ * Sans JavaScript, la fiche s'affiche sous sa carte (sans-js.css).
+ */
+import Photo from '../Photo.astro';
+import { contact } from '../../data/navigation';
+import type { Projet } from '../../data/projets';
+
+interface Props {
+  projet: Projet;
+  /** Rang du projet et nombre de projets, pour le repère « Projet 01 sur 06 » (mis à jour par le filtre). */
+  rang: number;
+  total: number;
+}
+
+const { projet, rang, total } = Astro.props;
+const deuxChiffres = (nombre: number) => String(nombre).padStart(2, '0');
+const carrousel = projet.photos.length > 1;
+---
+
+<dialog class="fiche" id={`fiche-${projet.id}`} aria-labelledby={`fiche-titre-${projet.id}`} data-projet={projet.id}>
+  <div class="fiche__barre">
+    <p class="etiquette fiche__repere">Projet {deuxChiffres(rang)} sur {deuxChiffres(total)}</p>
+    <button class="fiche__fermer bouton-carre" type="button" aria-label="Fermer la fiche">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2 2 14" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+    </button>
+  </div>
+
+  <div class="fiche__corps">
+    <p class="etiquette">{projet.categorie} · {projet.lieu}</p>
+    <h2 class="fiche__titre" id={`fiche-titre-${projet.id}`}>{projet.titre}</h2>
+
+    <dl class="fiche__technique">
+      <div>
+        <dt>Surface</dt>
+        <dd>{projet.surface}</dd>
+      </div>
+      <div>
+        <dt>Durée des travaux</dt>
+        <dd>{projet.duree}</dd>
+      </div>
+      <div>
+        <dt>Budget travaux</dt>
+        <dd>{projet.budget}</dd>
+      </div>
+    </dl>
+
+    <p class="fiche__texte">{projet.texte}</p>
+
+    <div class="fiche__photos">
+      <ul class="fiche__images liste-nue">
+        {projet.photos.map((photo, index) => (
+          <li class:list={['fiche__image', { 'fiche__image--actuelle': index === 0 }]}>
+            <Photo
+              src={photo.src}
+              alt={photo.alt}
+              widths={[400, 640, 860, 1120]}
+              sizes="(min-width: 900px) 556px, calc(100vw - 40px)"
+            />
+          </li>
+        ))}
+      </ul>
+
+      {/* Carrousel du mobile : flèches, numéros, glisser ; rien ne défile tout seul */}
+      {carrousel && (
+        <div class="fiche__carrousel">
+          <button class="bouton-carre" type="button" data-photo="-1" aria-label="Photo précédente">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3 5 9l6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+          </button>
+          <div class="fiche__numeros">
+            {projet.photos.map((_, index) => (
+              <button
+                class="fiche__numero"
+                type="button"
+                data-index={index}
+                aria-label={`Photo ${index + 1} sur ${projet.photos.length}`}
+                aria-current={index === 0 ? 'true' : undefined}
+              >
+                <span class="numero" aria-hidden="true">{deuxChiffres(index + 1)}</span>
+              </button>
+            ))}
+          </div>
+          <p class="fiche__compteur visuellement-masque" aria-live="polite">Photo 1 sur {projet.photos.length}</p>
+          <button class="bouton-carre" type="button" data-photo="1" aria-label="Photo suivante">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="m7 3 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+          </button>
+        </div>
+      )}
+    </div>
+
+    <p class="fiche__action"><a class="bouton" href={contact.href}>{contact.texte}</a></p>
+  </div>
+
+  <nav class="fiche__navigation ui" aria-label="Autres projets">
+    <button class="lien fiche__voisin" type="button" data-sens="-1"><span aria-hidden="true">←&nbsp;</span>Projet précédent</button>
+    <button class="lien fiche__voisin" type="button" data-sens="1">Projet suivant<span aria-hidden="true">&nbsp;→</span></button>
+  </nav>
+</dialog>
+
+<style>
+  /* Panneau de 620 px collé à droite, fond craie claire, filet à gauche ; plein écran en mobile */
+  .fiche {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(620px, 100%);
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid var(--filet);
+    background: var(--craie-claire);
+    color: var(--graphite);
+    flex-direction: column;
+    transition: transform 250ms ease-out;
+  }
+
+  .fiche[open] {
+    display: flex;
+  }
+
+  /* Entrée : glissé de 40 px depuis la droite (désactivé avec prefers-reduced-motion) */
+  @starting-style {
+    .fiche[open] {
+      transform: translateX(40px);
+    }
+  }
+
+  .fiche::backdrop {
+    background: rgb(30 34 41 / 50%);
+  }
+
+  /* Page dessous figée tant qu'une fiche est ouverte */
+  :global(html:has(.fiche[open])) {
+    overflow: hidden;
+  }
+
+  /* Bouton carré 44 × 44 au contour cobalt 1 px (fermer, flèches du carrousel) */
+  .bouton-carre {
+    display: inline-grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--cobalt);
+    background: none;
+    color: var(--cobalt);
+    cursor: pointer;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .bouton-carre:hover {
+    background: var(--cobalt);
+    color: var(--craie);
+  }
+
+  .fiche__barre,
+  .fiche__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pas-2);
+    padding: 12px var(--pas-4);
+  }
+
+  .fiche__barre {
+    border-bottom: 1px solid var(--filet);
+  }
+
+  .fiche__navigation {
+    border-top: 1px solid var(--filet);
+  }
+
+  .fiche__corps {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--pas-4);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .fiche__titre {
+    font-size: clamp(28px, 2.6vw, 36px);
+  }
+
+  /* Fiche technique : 3 colonnes entre deux filets, séparées par un filet vertical */
+  .fiche__technique {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--pas-2);
+    margin-block: 4px;
+    padding-block: var(--pas-2);
+    border-block: 1px solid var(--filet);
+  }
+
+  .fiche__technique div + div {
+    padding-left: var(--pas-2);
+    border-left: 1px solid var(--filet);
+  }
+
+  .fiche__technique dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  .fiche__technique dd {
+    margin-top: 6px;
+    font-family: var(--titre);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  /* Bureau : photos les unes sous les autres, proportions d'origine */
+  .fiche__photos,
+  .fiche__images {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fiche__photos {
+    margin-block: 8px;
+  }
+
+  .fiche__image :global(img) {
+    width: 100%;
+  }
+
+  .fiche__carrousel {
+    display: none;
+  }
+
+  .fiche__action {
+    margin-top: 8px;
+  }
+
+  .fiche__voisin {
+    min-height: 44px;
+    white-space: nowrap;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .fiche__navigation[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 899.98px) {
+    .fiche {
+      width: 100%;
+      border-left: 0;
+    }
+
+    .fiche__barre,
+    .fiche__navigation {
+      padding: 8px var(--marge);
+    }
+
+    .fiche__corps {
+      padding: var(--pas-3) var(--marge);
+    }
+
+    /* Fiche technique en 2 colonnes : le budget passe dessous, sans filet vertical */
+    .fiche__technique {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fiche__technique div + div:nth-child(3) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    /* Carrousel : une photo 4:3 à la fois ; glisser à l'horizontale, défilement vertical gardé */
+    .fiche__images {
+      touch-action: pan-y;
+    }
+
+    .fiche__image:not(.fiche__image--actuelle) {
+      display: none;
+    }
+
+    .fiche__image :global(img) {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .fiche__carrousel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .fiche__numeros {
+      display: flex;
+      gap: 4px;
+    }
+
+    /* Numéros 01–03 soulignés, comme la démarche de l'accueil */
+    .fiche__numero {
+      display: inline-grid;
+      place-items: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 6px;
+      border: 0;
+      border-bottom: 2px solid var(--filet);
+      background: none;
+      cursor: pointer;
+    }
+
+    .fiche__numero .numero {
+      color: var(--gris);
+    }
+
+    .fiche__numero[aria-current='true'] {
+      border-bottom-color: var(--cobalt);
+    }
+
+    .fiche__numero:hover .numero,
+    .fiche__numero[aria-current='true'] .numero {
+      color: var(--cobalt);
+    }
+  }
+</style>

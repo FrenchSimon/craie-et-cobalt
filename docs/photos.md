@@ -2,7 +2,7 @@
 
 > Version 1 — 2026-11-25 · Statut : **validé** (25/11)
 > Source : Unsplash uniquement, sous licence Unsplash gratuite. Aucune photo Unsplash+ : toutes viennent de `images.unsplash.com`, pas de `plus.unsplash.com`.
-> Originaux dans `contenu/photos/`, **non versionnés** (ignorés par Git, pour garder le dépôt léger) : 3000 px de large, JPEG qualité 85, téléchargés le 25/11/2026 ; on les retrouve par les liens ci-dessous (`https://unsplash.com/photos/<id>/download?w=3000`). Seules les versions optimisées (AVIF/WebP, plusieurs tailles) seront versionnées, à l'étape Réalisation.
+> Originaux dans `contenu/photos/`, **non versionnés** (ignorés par Git, pour garder le dépôt léger) : 3000 px de large, JPEG qualité 85, téléchargés le 25/11/2026 ; on les retrouve par les liens ci-dessous (`https://unsplash.com/photos/<id>/download?w=3000`). Seuls les masters étalonnés sont versionnés (`src/assets/photos/`, 1 600 px au plus, 1,8 Mo pour les 12) : `npm run photos` les produit depuis les originaux, et Astro en tire les versions AVIF et WebP de chaque taille à la construction.
 > Planche contact des candidates : `contenu/photos/planche.html`.
 
 ## Fil conducteur
@@ -32,7 +32,7 @@ Les cartes des trois réalisations phares de l'accueil reprennent la 1re photo d
 
 - Fiches projet sans avant/après : une à trois photos du résultat (voir `textes.md`).
 - Portrait de face pour la fondatrice ; la même personne apparaît sur la photo de l'atelier, ce qui rend le studio crédible.
-- Boutique : la 1re photo choisie (sol en pierre, galerie marchande) est écartée, car l'enseigne d'une autre boutique y était visible. La photo retenue montre en tranche le titre d'un beau livre (« Louis Vuitton ») : à recadrer ou effacer à l'étape Réalisation (la licence Unsplash autorise ces modifications).
+- Boutique : la 1re photo choisie (sol en pierre, galerie marchande) est écartée, car l'enseigne d'une autre boutique y était visible. La photo retenue montre en tranche le titre d'un beau livre (« Louis Vuitton ») : effacé par le script d'étalonnage le 25/11 (la licence Unsplash autorise ces modifications).
 - Bureaux : les deux premières candidates sont des images de synthèse 3D, écartées au profit d'une vraie photo.
 - Portrait et atelier : une petite plaque en portugais (« Coisas boas levam tempo ») reste visible ; elle ne renvoie à aucune entreprise.
 

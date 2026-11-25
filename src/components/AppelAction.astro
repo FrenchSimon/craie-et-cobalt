@@ -16,13 +16,14 @@ const { titre, texte } = Astro.props;
       <h2 id="titre-appel-action">{titre}</h2>
       {texte && <p class="appel-action__texte">{texte}</p>}
     </div>
-    <a class="bouton bouton--craie" href={contact.href}>{contact.texte}</a>
+    <a class="bouton bouton--craie-plein" href={contact.href}>{contact.texte}</a>
   </div>
 </section>
 
 <style>
+  /* Moins d'espace en bas : le pied de page, graphite lui aussi, prend la suite sans rupture */
   .appel-action {
-    padding-block: var(--espace-section);
+    padding-block: var(--espace-section) clamp(48px, 5vw, 72px);
   }
 
   .appel-action__contenu {

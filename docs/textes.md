@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.5 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement)
+> Version 1.7 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -106,7 +106,7 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 > « Des plans d'une précision rare et un budget tenu à l'euro près. »
 > — Julien, maison à Caluire-et-Cuire
 
-*Avis fictifs (démo).*
+*Avis fictifs.*
 
 **Lien :** Lire tous nos avis sur Google ↗ — étiquette « Fictif », lien désactivé
 
@@ -185,7 +185,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 **Bouton d'ouverture :** Voir la fiche
 **Fiche (panneau latéral, plein écran en mobile) :** repère « Projet 01 sur 06 » · bouton « Fermer la fiche » (lecteurs d'écran) · type et lieu · nom · surface · durée des travaux · budget travaux · texte · une à trois photos du résultat (l'état d'avant est raconté par le texte) · bouton « Parlons de votre projet » · navigation « Autres projets » (lecteurs d'écran) : « ← Projet précédent » · « Projet suivant → »
 **Carrousel des photos (mobile) :** « Photo 1 sur 3 » · boutons « Photo précédente » et « Photo suivante »
-**Mention sous la galerie :** *Projets fictifs (démo) : les photos proviennent de banques d'images libres de droits.*
+**Mention sous la galerie :** *Projets fictifs : les photos proviennent de banques d'images libres de droits.*
 
 **Textes alternatifs des photos** (validés le 25/11, fichiers dans `docs/photos.md`) :
 
@@ -220,7 +220,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 Diplômée en architecture intérieure, Margaux a travaillé huit ans en agence à Lyon et à Paris avant de fonder Craie & Cobalt en 2019, sur les pentes de la Croix-Rousse.
 Le nom du studio résume sa manière de faire : la craie pour la clarté et les matières brutes, le cobalt pour la touche de couleur qui donne du caractère à un lieu.
 
-### Notre démarche
+### La démarche
 
 - **Partir de vos usages.** Avant de parler style, on parle de la façon dont vous vivez ou travaillez dans le lieu.
 - **Dessiner chaque détail.** Un plan précis, c'est un chantier sans surprise.
@@ -238,6 +238,8 @@ Menuisier, électricien, plombier, peintre, carreleur : une équipe d'artisans l
 Lyon et la métropole : Villeurbanne, Caluire-et-Cuire, Écully, Tassin-la-Demi-Lune, Sainte-Foy-lès-Lyon… Au-delà, sur demande.
 
 **Bouton :** Parlons de votre projet
+
+**Mention en bas de page :** *Studio fictif : Margaux Delorme n'existe pas, les photos proviennent de banques d'images libres de droits.*
 
 ---
 

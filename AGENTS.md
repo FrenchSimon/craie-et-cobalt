@@ -8,7 +8,7 @@ Site vitrine **complet (5 pages)** de Craie & Cobalt, studio **fictif** de Marga
 
 - **Étapes et avancement :** `docs/ROADMAP.md`. Contexte et décisions : fiche `~/Local Sites/portfolio/docs/demo-architecte.md` (cocher ses cases à chaque étape) et journal de `~/Local Sites/portfolio/ROADMAP.md`.
 - **Textes validés :** `docs/textes.md` (v1.0). Ne pas les modifier sans mon accord.
-- **Tout reste fictif :** coordonnées, réseaux, réalisations et avis (marqués « Avis fictifs (démo) ») ; liens externes désactivés ; bandeau « Studio fictif — Site réalisé par Simon Dabin » + « Voir le code » sur toutes les pages ; formulaire de démo qui n'envoie rien. Jamais le nom, le logo ou les réalisations d'un vrai studio.
+- **Tout reste fictif :** coordonnées, réseaux, réalisations et avis (marqués « Avis fictifs ») ; liens externes désactivés ; bandeau « Studio fictif — Site réalisé par Simon Dabin » + « Voir le code » sur toutes les pages ; formulaire de démo qui n'envoie rien. Jamais le nom, le logo ou les réalisations d'un vrai studio.
 - **Photos :** Unsplash ou Pexels uniquement, créditées dans `docs/photos.md` ; AVIF/WebP, plusieurs tailles, dimensions explicites.
 
 ## Workflow

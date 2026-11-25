@@ -10,5 +10,13 @@
     display: inline-block;
     margin-left: 4px;
     vertical-align: 0.05em;
+    transition: transform var(--transition);
+  }
+
+  /* Survol du lien : la flèche part vers le haut et la droite (immobile si mouvement réduit) */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(a:hover) .fleche-sortante {
+      transform: translate(2px, -2px);
+    }
   }
 </style>

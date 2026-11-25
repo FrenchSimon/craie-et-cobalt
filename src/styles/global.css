@@ -227,7 +227,7 @@ textarea {
 }
 
 /*
- * Boutons, angles droits, contour 2 px. Trois niveaux : bouton principal plein, bouton
+ * Boutons, angles droits, contour 1 px. Trois niveaux : bouton principal plein, bouton
  * secondaire au contour, lien souligné. Au survol, le plein se vide et le contour se remplit.
  */
 
@@ -239,7 +239,7 @@ textarea {
   justify-content: center;
   min-height: 46px;
   padding: 0 22px;
-  border: 2px solid var(--cobalt);
+  border: 1px solid var(--cobalt);
   background: var(--cobalt);
   color: var(--craie);
   font-family: var(--titre);
@@ -321,7 +321,7 @@ textarea {
 /* Lien fictif désactivé : même aspect, sans survol, suivi de l'étiquette « FICTIF » */
 
 .lien-fictif {
-  text-decoration: underline 2px;
+  text-decoration: underline 1px;
   text-underline-offset: 6px;
 }
 

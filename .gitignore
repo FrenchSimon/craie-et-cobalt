@@ -11,3 +11,6 @@ dist/
 
 # Suivi interne du temps passé (non public)
 docs/TEMPS-PASSE.md
+
+# Originaux des photos (retéléchargeables depuis les liens de docs/photos.md)
+contenu/photos/*.jpg

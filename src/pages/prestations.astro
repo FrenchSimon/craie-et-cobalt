@@ -34,13 +34,13 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
                 <span class="numero" aria-hidden="true">{numero(index)}</span>
               </div>
               <h3 class="carte-prestation__titre">{prestation.titre}</h3>
-              <p class="carte-prestation__tarif">
-                <span class="carte-prestation__intitule">{prestation.intituleHonoraires}</span>
-                <span class:list={['carte-prestation__montant', { 'carte-prestation__montant--chiffre': prestation.montant }]}>
-                  {prestation.montant ?? prestation.tarif}
-                </span>
-              </p>
             </div>
+            <p class="carte-prestation__tarif">
+              <span class="carte-prestation__intitule">{prestation.intituleHonoraires}</span>
+              <span class:list={['carte-prestation__montant', { 'carte-prestation__montant--chiffre': prestation.montant }]}>
+                {prestation.montant ?? prestation.tarif}
+              </span>
+            </p>
             <div class="carte-prestation__case">
               <p class="carte-prestation__intitule">Pour qui</p>
               <p>{prestation.pourQui}</p>
@@ -100,7 +100,7 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
     padding-block: clamp(72px, 8.5vw, 120px);
   }
 
-  /* Bureau : 4 colonnes ; chaque carte occupe 4 rangées partagées (sous-grille), d'où des lignes alignées */
+  /* Bureau : 4 colonnes ; chaque carte occupe 5 rangées partagées (sous-grille), d'où des lignes alignées */
   .comparatif__liste {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -116,7 +116,7 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
 
   .carte-prestation {
     display: grid;
-    grid-row: span 4;
+    grid-row: span 5;
     grid-template-rows: subgrid;
     row-gap: 0;
     background: var(--craie-claire);
@@ -131,14 +131,16 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
     padding: 24px clamp(20px, 2.2vw, 28px);
   }
 
-  .carte-prestation > * + * {
+  .carte-prestation__case {
     border-top: 1px solid var(--filet);
   }
 
+  /* Tête en deux rangées de la sous-grille : nom, puis tarif. Les intitulés « Prix » et
+     « Honoraires » partent ainsi tous de la même ligne, sous le nom le plus long. */
   .carte-prestation__tete {
     gap: 0;
     padding-top: 36px;
-    padding-bottom: 28px;
+    padding-bottom: 0;
   }
 
   .carte-prestation__repere {
@@ -153,13 +155,10 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
     line-height: 1.15;
   }
 
-  /* Tarif calé en bas de la tête : les tarifs s'alignent même si un nom passe sur deux lignes */
-  .carte-prestation__tarif {
-    display: flex;
-    flex-direction: column;
+  .carte-prestation > .carte-prestation__tarif {
     gap: 6px;
-    margin-top: auto;
     padding-top: 20px;
+    padding-bottom: 28px;
   }
 
   .carte-prestation__intitule {
@@ -282,6 +281,11 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
 
     .carte-prestation__tete {
       padding-top: 28px;
+      padding-bottom: 0;
+    }
+
+    .carte-prestation > .carte-prestation__tarif {
+      padding-top: 18px;
     }
 
     .carte-prestation :global(.carte-prestation__picto) {

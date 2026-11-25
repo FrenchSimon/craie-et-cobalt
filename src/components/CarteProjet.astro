@@ -73,9 +73,9 @@ const photo = projet.photos[0];
     color: var(--cobalt);
   }
 
-  /* Survol : encadré cobalt autour de toute la carte (dans la gouttière, sans décaler la grille) */
+  /* Survol : encadré cobalt de 1 px (comme les boutons) autour de toute la carte, dans la gouttière */
   .carte-projet__lien::after {
-    outline: 2px solid transparent;
+    outline: 1px solid transparent;
     outline-offset: 10px;
     transition: outline-color var(--transition);
   }
@@ -89,7 +89,9 @@ const photo = projet.photos[0];
     outline: none;
   }
 
+  /* Focus clavier : 2 px, comme partout, pour rester bien visible */
   .carte-projet__lien:focus-visible::after {
+    outline-width: 2px;
     outline-color: var(--focus);
   }
 

@@ -7,7 +7,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 |---|---|---|---|---|
 | 1 | Textes | `docs/textes.md` | 0,5 j | ✅ validé le 25/11 (PR #1) |
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
-| 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ⏳ à venir |
+| 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ⏳ à venir |
 | 5 | Réalisation | Site complet en local | 5 j | ⏳ à venir |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
@@ -24,14 +24,14 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 
 ## 3. Direction artistique — `docs/direction-artistique`
 
-- [ ] Ambiance : 2 ou 3 pistes courtes (mots-clés, références de style, pas de copie d'un vrai studio). Piste de départ : blanc craie, un seul accent bleu cobalt.
-- [ ] Palette avec contrastes AA vérifiés pour chaque paire texte/fond, en particulier cobalt sur blanc et l'inverse.
-- [ ] Typographies libres et auto-hébergeables (titre + texte), avec sous-ensembles latins.
-- [ ] Logo typographique « Craie & Cobalt » et favicon (vectorisés dans `contenu/logo/`).
-- [ ] Composants : boutons, liens, champs, cartes de projet, filtres, fiche dépliable, bandeau démo, états de focus.
-- [ ] Étalonnage commun des photos : 2 ou 3 réglages (blancs, noirs, saturation) accordés à la palette, sur une planche avant/après des 12 photos ; le cobalt reste la seule couleur vive.
-- [ ] **Livrable :** planche de style + maquettes de l'accueil et de la page Réalisations, en mobile et en bureau.
-- [ ] Mesurer ce qui est repris de Pistil & Ronce et ce qui est fait sur mesure (point ouvert de l'offre : niveau de design).
+- [x] Ambiance : 2 ou 3 pistes courtes (mots-clés, références de style, pas de copie d'un vrai studio). Piste de départ : blanc craie, un seul accent bleu cobalt.
+- [x] Palette avec contrastes AA vérifiés pour chaque paire texte/fond, en particulier cobalt sur blanc et l'inverse.
+- [x] Typographies libres et auto-hébergeables (titre + texte), avec sous-ensembles latins.
+- [x] Logo typographique « Craie & Cobalt » et favicon (vectorisés dans `contenu/logo/`).
+- [x] Composants : boutons, liens, champs, cartes de projet, filtres, fiche dépliable, bandeau démo, états de focus.
+- [x] Étalonnage commun des photos : 2 ou 3 réglages (blancs, noirs, saturation) accordés à la palette, sur une planche avant/après des 12 photos ; le cobalt reste la seule couleur vive.
+- [x] **Livrable :** planche de style + maquettes de l'accueil et de la page Réalisations, en mobile et en bureau.
+- [x] Mesurer ce qui est repris de Pistil & Ronce et ce qui est fait sur mesure (point ouvert de l'offre : niveau de design).
 
 ## 4. Stack — `docs/stack.md`
 
@@ -83,5 +83,5 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 
 - [x] Fiches projet : photos du résultat seulement, l'avant raconté par le texte (décidé le 25/11).
 - [x] Image de la fondatrice : portrait de face, pris sur une banque d'images ; la page précise que le studio est fictif (décidé le 25/11).
-- [ ] Fiches projet : dépliées dans la page Réalisations, ou une page courte par projet (URL partageables).
+- [x] Fiches projet : panneau latéral (`<dialog>`) dans la page Réalisations, ouvrable par l'adresse `realisations#<projet>` (décidé le 25/11).
 - [ ] Adresse du site : sous-domaine Vercel `craie-et-cobalt.vercel.app`, comme Pistil & Ronce.

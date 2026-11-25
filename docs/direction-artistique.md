@@ -16,16 +16,18 @@ Le carnet d'une architecte d'intérieur : papier craie, mine graphite, cotes à 
 
 ## Logo et favicon
 
+Revu le 25/11 à la réalisation de l'accueil : l'ancien logo (capitales en Archivo 600, largeur 125 %, sur une ligne de cote) était trop épais pour un site plutôt fin. Variante B retenue parmi 5.
+
 | Fichier (`contenu/logo/`) | Usage |
 |---|---|
-| `logo.svg` | Logo complet : « CRAIE & COBALT » et, dessous, la ligne de cote « ARCHITECTURE INTÉRIEURE · LYON » ; esperluette cobalt |
+| `logo.svg` | Logo complet : « Craie & Cobalt » et, dessous, « ARCHITECTURE INTÉRIEURE · LYON » en cobalt ; esperluette cobalt |
 | `logo-craie.svg` | Même logo tout en craie, sur fond cobalt ou graphite |
-| `mot-symbole.svg` | Version courte de l'en-tête : le nom sur une ligne de cote sans texte |
+| `mot-symbole.svg` | Version de l'en-tête : le nom seul |
 | `favicon.svg` | Esperluette craie sur carré cobalt à coins arrondis (seule exception aux angles droits) |
 
-- Lettres en tracés (aucune police à charger). Polices d'origine : Archivo 600, largeur 125 %, +0,03 em pour le nom ; IBM Plex Mono 500 pour la légende.
+- Lettres en tracés (aucune police à charger), produites par `node scripts/logo.mjs <Archivo[wdth,wght].ttf>`. Nom en minuscules, Archivo **300**, largeur 112 % (celle des titres), +0,015 em, **sans ligne de cote** ; légende en IBM Plex Mono 500 ; favicon en Archivo 500, plus lisible que le 300 en 16 px.
 - Zone de protection : la hauteur du « C » tout autour. Jamais déformé, jamais posé sur une photo.
-- Dans l'en-tête : mot-symbole à la taille d'un texte de 20 px, lien vers l'accueil (`aria-label="Craie & Cobalt, accueil"`).
+- Dans l'en-tête : mot-symbole de 226 px de large (200 px sous 900 px), lien vers l'accueil (`aria-label="Craie & Cobalt, accueil"`).
 
 ## Palette
 

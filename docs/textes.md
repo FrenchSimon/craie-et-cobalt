@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.7 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio et de Réalisations)
+> Version 1.7 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -106,7 +106,7 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 > « Des plans d'une précision rare et un budget tenu à l'euro près. »
 > — Julien, maison à Caluire-et-Cuire
 
-*Avis fictifs (démo).*
+*Avis fictifs.*
 
 **Lien :** Lire tous nos avis sur Google ↗ — étiquette « Fictif », lien désactivé
 

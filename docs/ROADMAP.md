@@ -42,7 +42,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 
 1. [x] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
 2. [x] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
-3. [x] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
+3. [x] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs »), appel à l'action.
 4. [x] **Prestations :** tableau comparatif des 4 prestations (lignes alignées en sous-grille, carrousel en mobile), honoraires et bouton « Demander un devis ».
 5. [x] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), cartes alignées en sous-grille, fiches en panneau latéral (`<dialog>`) ouvertes au clavier et par l'adresse, carrousel des photos en mobile, passage entre fiches animé, images différées (170 à 250 Ko au chargement).
 6. [x] **Le studio :** fondatrice (portrait prioritaire), démarche en 4 principes sur fond graphite avec la photo de l'atelier, artisans partenaires et zone d'intervention, bouton vers Contact, mention « Studio fictif ».

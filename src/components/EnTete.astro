@@ -88,9 +88,10 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
     text-decoration-color: currentColor;
   }
 
+  /* Page Contact : bouton au contour (l'inverse de son état habituel) */
   .menu__contact[aria-current='page'] {
-    background: var(--cobalt);
-    color: var(--craie);
+    background: transparent;
+    color: var(--cobalt);
   }
 
   .en-tete__bouton-menu {

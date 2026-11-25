@@ -225,7 +225,12 @@ textarea {
   line-height: 1.5;
 }
 
-/* Bouton : contour cobalt 2 px, angles droits ; survol fond cobalt */
+/*
+ * Boutons, angles droits, contour 2 px. Trois niveaux : bouton principal plein, bouton
+ * secondaire au contour, lien souligné. Au survol, le plein se vide et le contour se remplit.
+ */
+
+/* Principal sur fond clair : plein cobalt, texte craie ; survol au contour cobalt */
 
 .bouton {
   display: inline-flex;
@@ -234,8 +239,8 @@ textarea {
   min-height: 46px;
   padding: 0 22px;
   border: 2px solid var(--cobalt);
-  background: transparent;
-  color: var(--cobalt);
+  background: var(--cobalt);
+  color: var(--craie);
   font-family: var(--titre);
   font-size: 15px;
   font-weight: 500;
@@ -250,8 +255,8 @@ textarea {
 }
 
 .bouton:hover {
-  background: var(--cobalt);
-  color: var(--craie);
+  background: transparent;
+  color: var(--cobalt);
 }
 
 .bouton--petit {
@@ -260,9 +265,34 @@ textarea {
   font-size: 14px;
 }
 
-/* Variante sur fond graphite : contour et texte craie, survol fond craie */
+/* Secondaire sur fond clair : contour graphite ; survol plein graphite */
+.bouton--graphite {
+  border-color: var(--graphite);
+  background: transparent;
+  color: var(--graphite);
+}
+
+.bouton--graphite:hover {
+  background: var(--graphite);
+  color: var(--craie);
+}
+
+/* Principal sur fond graphite : plein craie, texte graphite ; survol au contour craie */
+.bouton--craie-plein {
+  border-color: var(--craie);
+  background: var(--craie);
+  color: var(--graphite);
+}
+
+.bouton--craie-plein:hover {
+  background: transparent;
+  color: var(--craie);
+}
+
+/* Secondaire sur fond graphite : contour craie ; survol plein craie */
 .bouton--craie {
   border-color: var(--craie);
+  background: transparent;
   color: var(--craie);
 }
 

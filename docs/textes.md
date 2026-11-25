@@ -73,7 +73,7 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 
 ### Démarche
 
-**Titre :** Quatre étapes, un seul interlocuteur
+**Titre :** Quatre étapes, une seule interlocutrice
 
 1. **Rencontre** — On visite le lieu, on parle de vos usages, de vos envies et de votre budget.
 2. **Conception** — Esquisse, puis plans détaillés, vues 3D et sélection des matériaux, validés ensemble.
@@ -174,7 +174,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 ## 4. Le studio
 
 **Title :** Le studio — Margaux Delorme, architecte d'intérieur à Lyon
-**Meta description :** Craie & Cobalt est le studio de Margaux Delorme, architecte d'intérieur à Lyon. Une démarche précise, des artisans de confiance et un seul interlocuteur.
+**Meta description :** Craie & Cobalt est le studio de Margaux Delorme, architecte d'intérieur à Lyon. Une démarche précise, des artisans de confiance et une seule interlocutrice.
 
 **Titre :** Le studio
 
@@ -190,7 +190,7 @@ Le nom du studio résume sa manière de faire : la craie pour la clarté et les 
 - **Partir de vos usages.** Avant de parler style, on parle de la façon dont vous vivez ou travaillez dans le lieu.
 - **Dessiner chaque détail.** Un plan précis, c'est un chantier sans surprise.
 - **Tenir le budget.** Le budget est fixé au départ et suivi à chaque étape.
-- **Un seul interlocuteur.** Du premier rendez-vous à la remise des clés, c'est Margaux qui suit votre projet.
+- **Une seule interlocutrice.** Du premier rendez-vous à la remise des clés, c'est Margaux qui suit votre projet.
 
 ### Nos artisans partenaires
 

@@ -25,7 +25,7 @@
 
 <style>
   .pied {
-    padding-block: 40px;
+    padding-block: 56px;
     font-family: var(--titre);
     font-size: 14px;
     font-weight: 400;
@@ -36,7 +36,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: var(--pas-3) var(--pas-5);
+    gap: var(--pas-4) var(--pas-5);
+  }
+
+  /* Chaque ligne du pied de page séparée de la suivante */
+  .pied__studio,
+  .pied__liens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   address {
@@ -65,7 +73,7 @@
   }
 
   .pied__separateur {
-    margin-inline: 4px;
+    margin-inline: 12px;
   }
 
   @media (max-width: 899.98px) {
@@ -80,6 +88,7 @@
 
     .pied__copyright {
       display: block;
+      margin-top: 10px;
     }
   }
 </style>

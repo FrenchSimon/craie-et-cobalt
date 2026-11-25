@@ -1,0 +1,85 @@
+---
+/* Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau. */
+---
+
+<footer class="pied fond-graphite">
+  <div class="pied__colonnes conteneur">
+    <div class="pied__studio">
+      <p><b>Craie &amp; Cobalt</b> — Architecture intérieure à Lyon</p>
+      <address>
+        12 rue des Tisseuses, <span class="pied__insecable">69004 Lyon</span> · <span class="pied__insecable">04 65 71 38 12</span> · <span class="pied__insecable">bonjour@craie-et-cobalt.fr</span> <span class="pied__fictif">(fictifs)</span>
+      </address>
+      <p>Sur rendez-vous, du lundi au vendredi</p>
+    </div>
+
+    <div class="pied__liens">
+      <p>Instagram · LinkedIn <span class="pied__fictif">(fictifs, liens désactivés)</span></p>
+      <p>
+        <a href="/mentions-legales">Mentions légales et confidentialité</a>
+        <span class="pied__separateur" aria-hidden="true">·</span>
+        <span class="pied__copyright">© 2026 Craie &amp; Cobalt — studio fictif</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .pied {
+    padding-block: 40px;
+    font-family: var(--titre);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .pied__colonnes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--pas-3) var(--pas-5);
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  .pied__insecable {
+    white-space: nowrap;
+  }
+
+  .pied__fictif {
+    color: var(--gris-clair);
+  }
+
+  /* Cible de 24 px de haut au moins (WCAG 2.5.8) */
+  .pied a {
+    display: inline-block;
+    min-height: 24px;
+    text-decoration: underline 2px;
+    text-underline-offset: 4px;
+    transition: color var(--transition);
+  }
+
+  .pied a:hover {
+    color: var(--gris-clair);
+  }
+
+  .pied__separateur {
+    margin-inline: 4px;
+  }
+
+  @media (max-width: 899.98px) {
+    .pied__colonnes {
+      flex-direction: column;
+    }
+
+    /* Copyright à la ligne sous le lien, sans le point médian */
+    .pied__separateur {
+      display: none;
+    }
+
+    .pied__copyright {
+      display: block;
+    }
+  }
+</style>

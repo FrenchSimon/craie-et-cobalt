@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import sansJs from '../styles/sans-js.css?url';
+import favicon from '../../contenu/logo/favicon.svg?url';
+import policeTitre from '../assets/fonts/archivo-latin-400-600-largeur-112.woff2?url';
+import LienEvitement from '../components/LienEvitement.astro';
+import EnTete from '../components/EnTete.astro';
+import PiedDePage from '../components/PiedDePage.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Faux pour la page 404 : pas de lien canonique. */
+  canonique?: boolean;
+}
+
+const { title, description, canonique = true } = Astro.props;
+
+const site = Astro.site ?? Astro.url;
+const url = new URL(Astro.url.pathname.replace(/\.html$/, ''), site).href;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {/* Démo : ne doit jamais apparaître dans les résultats de recherche. */}
+    <meta name="robots" content="noindex" />
+    {canonique && <link rel="canonical" href={url} />}
+    <meta name="theme-color" content="#1E2229" />
+    <link rel="icon" href={favicon} type="image/svg+xml" />
+    {/* Police des titres préchargée : elle sert au titre de l'accroche. */}
+    <link rel="preload" href={policeTitre} as="font" type="font/woff2" crossorigin />
+    <noscript><link rel="stylesheet" href={sansJs} /></noscript>
+    <slot name="head" />
+  </head>
+  <body>
+    <LienEvitement />
+    <EnTete />
+    <main id="contenu">
+      <slot />
+    </main>
+    <PiedDePage />
+  </body>
+</html>

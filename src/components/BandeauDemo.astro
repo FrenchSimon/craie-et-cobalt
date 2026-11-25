@@ -1,0 +1,44 @@
+---
+import LienSortant from './LienSortant.astro';
+---
+
+<p class="bandeau-demo fond-graphite">
+  <span>Studio fictif</span><span class="bandeau-demo__tiret"> — </span><span>Site réalisé par Simon Dabin · <LienSortant
+      href="https://github.com/FrenchSimon/craie-et-cobalt"
+      texte="Voir le code"
+    /></span>
+</p>
+
+<style>
+  .bandeau-demo {
+    padding: 9px 16px;
+    font-family: var(--titre);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .bandeau-demo :global(a) {
+    display: inline-block;
+    min-height: 24px;
+    padding-block: 3px;
+    text-decoration: underline 2px;
+    text-underline-offset: 4px;
+  }
+
+  .bandeau-demo :global(a:hover) {
+    color: var(--gris-clair);
+  }
+
+  /* Mobile : deux lignes, sans le tiret */
+  @media (max-width: 899.98px) {
+    .bandeau-demo > span:not(.bandeau-demo__tiret) {
+      display: block;
+    }
+
+    .bandeau-demo__tiret {
+      display: none;
+    }
+  }
+</style>

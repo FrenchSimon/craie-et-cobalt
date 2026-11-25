@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 0.1 — 2026-11-25 · Statut : **à valider**
+> Version 1.0 — 2026-11-25 · Statut : **validé** (25/11)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -147,7 +147,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 ## 3. Réalisations
 
 **Title :** Réalisations — Craie & Cobalt, architecte d'intérieur à Lyon
-**Meta description :** Appartements, maisons, boutiques et bureaux rénovés à Lyon et dans la métropole : avant, après, surface, durée et budget de chaque projet.
+**Meta description :** Appartements, maisons, boutiques et bureaux rénovés à Lyon et dans la métropole : photos, surface, durée et budget de chaque projet.
 
 **Titre :** Réalisations
 **Introduction :** Une sélection de projets menés à Lyon et dans la métropole.
@@ -164,7 +164,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 | 5 | **Boutique de prêt-à-porter** | Professionnels | Lyon 2e | 70 m² | 5 semaines | 48 000 € | Un parcours client en boucle, des cabines plus grandes, et un comptoir en terrazzo qui est devenu la signature du lieu. Travaux réalisés en août, boutique fermée deux semaines seulement. |
 | 6 | **Bureaux d'un cabinet de conseil** | Professionnels | Part-Dieu, Lyon 3e | 220 m² | 2 mois | 140 000 € | Plateau ouvert, quatre salles de réunion vitrées, cabines téléphoniques et une cuisine où l'équipe a envie de déjeuner. |
 
-**Fiche dépliée :** photos avant / après · texte · surface · durée · budget travaux · « Voir le projet suivant »
+**Fiche dépliée :** une à trois photos du résultat (l'état d'avant est raconté par le texte) · texte · surface · durée · budget travaux · « Voir le projet suivant »
 **Mention sous la galerie :** *Projets fictifs (démo) : les photos proviennent de banques d'images libres de droits.*
 
 **Appel à l'action :** Votre projet pourrait être le prochain. · **Bouton :** Parlons de votre projet

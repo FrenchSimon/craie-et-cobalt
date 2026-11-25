@@ -66,7 +66,7 @@ Règles :
 
 | Rôle | Police (variable) | Graisses · axes |
 |---|---|---|
-| Titres, interface, chiffres | Archivo (`--titre`) | 500, 600 · largeur 112 % (125 % pour le logo) |
+| Titres, interface, chiffres | Archivo (`--titre`) | 400 (titres), 500 (interface, chiffres), 600 (noms en gras) · largeur 112 % |
 | Texte courant, chapeaux, avis | Newsreader (`--texte`) | 400, 600 · romain seulement |
 | Étiquettes, numéros, intitulés de fiche | IBM Plex Mono (`--mono`) | 500 |
 
@@ -74,13 +74,13 @@ Poids mesuré des trois familles en sous-ensemble : **151 Ko**. Pas d'italique (
 
 | Style | Police · taille / interligne | Remarque |
 |---|---|---|
-| H1 | Archivo 600 · `clamp(40px, 4.4vw, 64px)` / 1,04, −0,01 em | `text-wrap: balance` |
-| H2 | Archivo 600 · `clamp(30px, 2.8vw, 40px)` / 1,08 | |
-| H3, titre de carte | Archivo 600 · 24 / 1,2 | |
+| H1 | Archivo 400 · `clamp(40px, 4.4vw, 64px)` / 1,04, −0,01 em | `text-wrap: balance` |
+| H2 | Archivo 400 · `clamp(30px, 2.8vw, 40px)` / 1,08 | |
+| H3, titre de carte | Archivo 400 · 24 / 1,2 | |
 | Chapeau | Newsreader 400 · 21–22 / 1,5 | 32 em de large au plus ; gris cote sur l'accueil |
 | Texte | Newsreader 400 · 19 / 1,55 (18 sous 900 px) | 68 caractères par ligne au plus ; gras en 600 |
 | Interface (menu, boutons, liens) | Archivo 500 · 15, +0,02 em | classe `ui` |
-| Chiffre clé | Archivo 500–600 · 20–22 | surface, durée, budget, tarifs |
+| Chiffre clé | Archivo 500 · 20–22 | surface, durée, budget, tarifs |
 | Étiquette, surtitre | IBM Plex Mono 500 · 12, capitales, +0,16 em | gris cote, ou cobalt pour les surtitres |
 | Intitulé de fiche (`dt`) | IBM Plex Mono 500 · 11, capitales, +0,14 em | gris cote |
 | Numéro (01, 02…) | IBM Plex Mono 500 · 13, +0,16 em | cobalt |
@@ -129,7 +129,7 @@ Les 12 photos reçoivent un étalonnage commun, appliqué par script (`sharp`) �
 - **Boutons** (revus le 25/11 à la réalisation de l'accueil) : 46 px de haut, 0 22 px, contour 2 px, angles droits. Trois niveaux : **principal plein** (cobalt, texte craie ; sur fond graphite : craie, texte graphite), **secondaire au contour** (graphite ; sur fond graphite : craie), puis le lien souligné. Au survol, le plein se vide (contour seul) et le contour se remplit. Les liens secondaires d'une section (« Voir les réalisations », « Toutes les réalisations », « Le détail des prestations ») sont des boutons secondaires, avec la flèche « → ». En-tête : « Parlons de votre projet » plein, au contour sur la page Contact.
 - **Lien** (variante B validée) : texte graphite souligné graphite 2 px, décalé de 6 px ; survol : texte et souligné cobalt. Flèche « → » pour les liens qui mènent ailleurs. Lien fictif désactivé (« Lire tous nos avis sur Google ↗ ») : même aspect, sans survol, suivi de l'étiquette « FICTIF » (Plex Mono 10 px, cadre gris cote 1 px).
 - **Surtitre** : étiquette cobalt, sans ligne de cote devant (retirée le 25/11 à la réalisation de l'accueil).
-- **Carte projet** (accueil et Réalisations) : photo 4:3 ; étiquette « Type · Lieu » ; titre (H3 sur l'accueil, H2 sur Réalisations) ; **fiche technique** : filet dessus, deux colonnes Surface | Durée séparées par un filet vertical, intitulé Plex Mono 11 px, chiffre Archivo 600 22 px. Sur l'accueil, toute la carte est un lien vers `realisations#<projet>` ; au survol, titre cobalt et encadré cobalt 2 px autour de la carte (décalé de 10 px), sans zoom de l'image. Liens secondaires d'une section (« Toutes les réalisations », « Le détail des prestations ») en fin de section, centrés avec le bouton (modifié le 25/11).
+- **Carte projet** (accueil et Réalisations) : photo 4:3 ; étiquette « Type · Lieu » ; titre (H3 sur l'accueil, H2 sur Réalisations) ; **fiche technique** : filet dessus, deux colonnes Surface | Durée séparées par un filet vertical, intitulé Plex Mono 11 px, chiffre Archivo 500 22 px. Sur l'accueil, toute la carte est un lien vers `realisations#<projet>` ; au survol, titre cobalt et encadré cobalt 2 px autour de la carte (décalé de 10 px), sans zoom de l'image. Liens secondaires d'une section (« Toutes les réalisations », « Le détail des prestations ») en fin de section, centrés avec le bouton (modifié le 25/11).
 - **Prestations (accueil)** : section sur fond graphite (titre et lien craie, surtitre gris clair, bouton variante craie ; validé le 25/11 pour casser le rythme), 4 cartes en 2 × 2 (1 colonne sous 900 px), fond craie claire, sans bordure ; pictogramme au trait cobalt 1,5 px (56 px, angles vifs : loupe, équerre et crayon, carnet coché, devanture), numéro 01–04, titre, texte, puis filet et ligne « HONORAIRES » + tarif court. Bouton « Demander un devis » centré dessous.
 - **Démarche (accueil)** : croquis à gauche (7/12), liste des 4 étapes à droite (5/12) en **onglets** (`tablist` vertical, flèches du clavier, Début/Fin) ; l'onglet actif a un trait cobalt à gauche et déplie son texte. Sous 900 px : **carrousel manuel** (flèche, numéros 01–04 soulignés, flèche ; glisser sur le croquis ; légende de l'étape sous le croquis), jamais automatique. Bouton « Commencer par une visite-conseil ».
 - **Avis** : 3 cartes craie claire, guillemet « » en cobalt (Newsreader 600, 56 px), citation Newsreader 21 px, filet puis auteur (Archivo 14 px, nom en 600). Dessous : « Avis fictifs (démo). » et le lien Google fictif.

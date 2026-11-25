@@ -1,14 +1,16 @@
 ---
-/* Tête des pages intérieures : titre H1 et chapeau en gris cote, comme l'accroche de l'accueil. */
+/* Tête des pages intérieures : surtitre facultatif, titre H1 et chapeau en gris cote, comme l'accroche de l'accueil. */
 interface Props {
+  surtitre?: string;
   titre: string;
   chapeau: string;
 }
 
-const { titre, chapeau } = Astro.props;
+const { surtitre, titre, chapeau } = Astro.props;
 ---
 
 <header class="tete-page conteneur">
+  {surtitre && <p class="etiquette surtitre tete-page__surtitre">{surtitre}</p>}
   <h1>{titre}</h1>
   <p class="chapeau tete-page__chapeau">{chapeau}</p>
 </header>
@@ -19,6 +21,11 @@ const { titre, chapeau } = Astro.props;
     flex-direction: column;
     gap: 28px;
     padding-block: clamp(56px, 8vw, 120px) clamp(56px, 6.5vw, 96px);
+  }
+
+  /* Surtitre collé au titre (14 px, comme les têtes de section) */
+  .tete-page__surtitre {
+    margin-bottom: -14px;
   }
 
   .tete-page__chapeau {

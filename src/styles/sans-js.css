@@ -1,0 +1,23 @@
+/*
+ * Chargée seulement dans <noscript> : sans JavaScript, rien ne reste caché.
+ * Le menu mobile est affiché en liste sous l'en-tête et le bouton qui l'ouvre disparaît.
+ */
+
+@media (max-width: 899.98px) {
+  .en-tete__bouton-menu {
+    display: none !important;
+  }
+
+  .en-tete__barre {
+    flex-wrap: wrap;
+    padding-block: var(--pas-2);
+  }
+
+  .menu {
+    display: flex !important;
+    position: static !important;
+    flex-basis: 100%;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+}

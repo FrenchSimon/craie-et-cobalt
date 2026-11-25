@@ -52,8 +52,8 @@ const prestations = [
     </ol>
 
     <div class="section-pied">
-      <a class="bouton bouton--craie" href={contact.href}>Demander un devis</a>
-      <a class="lien ui" href="/prestations">Le détail des prestations<span aria-hidden="true"> →</span></a>
+      <a class="bouton bouton--craie-plein" href={contact.href}>Demander un devis</a>
+      <a class="bouton bouton--craie" href="/prestations">Le détail des prestations<span aria-hidden="true">&nbsp;→</span></a>
     </div>
   </div>
 </section>
@@ -63,16 +63,6 @@ const prestations = [
      (pictogrammes, numéros) ; hors des cartes, surtitre en gris clair. */
   .prestations-sombre :global(.surtitre) {
     color: var(--gris-clair);
-  }
-
-  .prestations-sombre .lien {
-    color: var(--craie);
-    text-decoration-color: var(--craie);
-  }
-
-  .prestations-sombre .lien:hover {
-    color: var(--gris-clair);
-    text-decoration-color: var(--gris-clair);
   }
 
   .prestations {

@@ -10,7 +10,7 @@ Site vitrine **complet (5 pages)** d'une architecte d'intérieur **fictive** à 
 - **Style visé :** contemporain et graphique, haut de gamme.
 - **Pages :** Accueil, Prestations, Réalisations, Le studio, Contact (+ mentions légales et 404, hors compte).
 - **Suivi :** fiche du projet dans `~/Local Sites/portfolio/docs/demo-architecte.md` (cocher ses cases à la fin de chaque étape) ; décisions importantes dans le journal de `~/Local Sites/portfolio/ROADMAP.md`.
-- **Contenu validé :** `docs/textes.md` (à venir). Ne pas modifier un texte validé sans mon accord.
+- **Contenu validé :** `docs/textes.md` (v1.0, validé le 25/11). Ne pas modifier un texte validé sans mon accord.
 
 ### Tout est fictif, et doit le rester
 

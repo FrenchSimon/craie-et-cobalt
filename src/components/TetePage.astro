@@ -1,0 +1,27 @@
+---
+/* Tête des pages intérieures : titre H1 et chapeau en gris cote, comme l'accroche de l'accueil. */
+interface Props {
+  titre: string;
+  chapeau: string;
+}
+
+const { titre, chapeau } = Astro.props;
+---
+
+<header class="tete-page conteneur">
+  <h1>{titre}</h1>
+  <p class="chapeau tete-page__chapeau">{chapeau}</p>
+</header>
+
+<style>
+  .tete-page {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-block: clamp(64px, 8vw, 120px) 0;
+  }
+
+  .tete-page__chapeau {
+    color: var(--gris);
+  }
+</style>

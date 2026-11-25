@@ -362,7 +362,7 @@ textarea {
 }
 
 /* Bas de page : grille de 12 colonnes partagée par l'appel à l'action (accueil) et le pied de page,
-   pour que le bouton de l'un s'aligne sur la colonne « Pages » de l'autre */
+   pour que le bouton de l'un s'aligne sur la colonne « Studio » de l'autre */
 
 .grille-pied {
   display: grid;

@@ -1,6 +1,6 @@
 ---
 /*
- * Pied de page (piste G, 26/11) : fond graphite ; mot-symbole à gauche, pages et studio
+ * Pied de page (piste G, 26/11) : fond graphite ; mot-symbole à gauche, studio et pages
  * à droite, puis la ligne légale et les réseaux sous un filet.
  * Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau.
  */
@@ -20,15 +20,6 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
         <p class="pied__accroche">Architecture intérieure à Lyon</p>
       </div>
 
-      <nav class="pied__pages" aria-labelledby="titre-pied-pages">
-        <p class="etiquette pied__intitule" id="titre-pied-pages">Pages</p>
-        <ul class="liste-nue">
-          {pages.map(({ href, texte }) => (
-            <li><a href={href}>{texte}</a></li>
-          ))}
-        </ul>
-      </nav>
-
       <div class="pied__studio">
         <p class="etiquette pied__intitule">Studio</p>
         <address>
@@ -39,6 +30,15 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
         </address>
         <p>Sur rendez-vous, du lundi au vendredi</p>
       </div>
+
+      <nav class="pied__pages" aria-labelledby="titre-pied-pages">
+        <p class="etiquette pied__intitule" id="titre-pied-pages">Pages</p>
+        <ul class="liste-nue">
+          {pages.map(({ href, texte }) => (
+            <li><a href={href}>{texte}</a></li>
+          ))}
+        </ul>
+      </nav>
     </div>
 
     <div class="pied__legal">
@@ -61,7 +61,7 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
     line-height: 1.6;
   }
 
-  /* Mot-symbole sur 6 colonnes, pages et studio sur 3 chacun (grille-pied : global.css, partagée avec l'appel à l'action) */
+  /* Mot-symbole sur 6 colonnes, studio et pages sur 3 chacun (grille-pied : global.css, partagée avec l'appel à l'action) */
   .pied__marque {
     grid-column: span 6;
     display: flex;
@@ -178,7 +178,7 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
     }
   }
 
-  /* Tablette et mobile : mot-symbole sur toute la largeur, pages et studio côte à côte */
+  /* Tablette et mobile : mot-symbole sur toute la largeur, studio et pages côte à côte */
   @media (max-width: 899.98px) {
     .pied__marque {
       grid-column: 1 / -1;
@@ -200,7 +200,7 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
     }
   }
 
-  /* Petits écrans : studio sous les pages (l'e-mail ne tient pas dans une demi-largeur) */
+  /* Petits écrans : studio sur toute la largeur, pages dessous (l'e-mail ne tient pas dans une demi-largeur) */
   @media (max-width: 599.98px) {
     .pied__studio {
       grid-column: 1 / -1;

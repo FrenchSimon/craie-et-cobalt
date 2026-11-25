@@ -69,6 +69,10 @@
  * Sans doublons (étiquette, titre, première photo, fiche technique courte) ni commandes du panneau.
  */
 
+.galerie__projet {
+  display: block !important;
+}
+
 .fiche {
   display: block !important;
   position: static !important;

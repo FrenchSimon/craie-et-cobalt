@@ -1,7 +1,7 @@
 ---
-/* Tête de section : surtitre cobalt et titre H2. Les liens secondaires vont en fin de section. */
+/* Tête de section : surtitre cobalt (facultatif) et titre H2. Les liens secondaires vont en fin de section. */
 interface Props {
-  surtitre: string;
+  surtitre?: string;
   titre: string;
   /** Identifiant du H2, qui nomme la section (aria-labelledby). */
   id: string;
@@ -11,7 +11,7 @@ const { surtitre, titre, id } = Astro.props;
 ---
 
 <div class="tete-section">
-  <p class="etiquette surtitre">{surtitre}</p>
+  {surtitre && <p class="etiquette surtitre">{surtitre}</p>}
   <h2 id={id}>{titre}</h2>
 </div>
 

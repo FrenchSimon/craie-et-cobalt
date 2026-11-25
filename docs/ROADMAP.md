@@ -6,7 +6,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | # | Étape | Livrable à valider | Estimation | Statut |
 |---|---|---|---|---|
 | 1 | Textes | `docs/textes.md` | 0,5 j | ✅ validé le 25/11 (PR #1) |
-| 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ⏳ à venir |
+| 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ⏳ à venir |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ⏳ à venir |
 | 5 | Réalisation | Site complet en local | 5 j | ⏳ à venir |
@@ -16,11 +16,11 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 
 ## 2. Photos — `docs/photos`
 
-- [ ] Lister les besoins : accroche de l'accueil (1, format large), 6 projets (1 à 3 photos du résultat chacun, dont les 3 réalisations phares), portrait ou image de la fondatrice (1), atelier du studio (1), image de partage Open Graph (1).
-- [ ] Chercher sur Unsplash / Pexels une série cohérente (lumière, tons, style contemporain et graphique) : 2 ou 3 candidates par emplacement.
-- [ ] Vérifier que les photos collent aux textes (canut à poutres et mezzanine, haussmannien à moulures, maison des années 30 à verrière, boutique, bureaux) et qu'aucune ne montre l'enseigne ou le logo d'une vraie entreprise.
-- [ ] Noter auteur, source et URL dans `docs/photos.md`. Adapter les textes alternatifs (accord requis, texte validé).
-- [ ] **Livrable :** planche contact des choix, puis originaux dans `contenu/photos/` après validation.
+- [x] Lister les besoins : accroche de l'accueil (1, format large), 6 projets (1 à 3 photos du résultat chacun, dont les 3 réalisations phares), portrait ou image de la fondatrice (1), atelier du studio (1), image de partage Open Graph (1).
+- [x] Chercher sur Unsplash / Pexels une série cohérente (lumière, tons, style contemporain et graphique) : 2 ou 3 candidates par emplacement.
+- [x] Vérifier que les photos collent aux textes (canut à poutres et mezzanine, haussmannien à moulures, maison des années 30 à verrière, boutique, bureaux) et qu'aucune ne montre l'enseigne ou le logo d'une vraie entreprise.
+- [x] Noter auteur, source et URL dans `docs/photos.md`. Adapter les textes alternatifs (accord requis, texte validé).
+- [x] **Livrable :** planche contact des choix, puis originaux dans `contenu/photos/` après validation (non versionnés).
 
 ## 3. Direction artistique — `docs/direction-artistique`
 
@@ -80,6 +80,6 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 ## Décisions ouvertes
 
 - [x] Fiches projet : photos du résultat seulement, l'avant raconté par le texte (décidé le 25/11).
-- [ ] Image de la fondatrice : portrait de face (une vraie personne présentée comme fictive) ou image plus neutre (de dos, mains, atelier).
+- [x] Image de la fondatrice : portrait de face, pris sur une banque d'images ; la page précise que le studio est fictif (décidé le 25/11).
 - [ ] Fiches projet : dépliées dans la page Réalisations, ou une page courte par projet (URL partageables).
 - [ ] Adresse du site : sous-domaine Vercel `craie-et-cobalt.vercel.app`, comme Pistil & Ronce.

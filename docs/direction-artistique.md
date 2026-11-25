@@ -6,7 +6,7 @@
 ## Pour l'agent qui réalise le site
 
 - Respecter `AGENTS.md` (étapes, validation, Git, sécurité, qualité). Étape suivante de `docs/ROADMAP.md` : **4. Stack**, à proposer avant d'écrire le site.
-- Textes : **uniquement** `docs/textes.md` (v1.3), mot pour mot. Photos : `contenu/photos/` (originaux locaux) et `docs/photos.md` (auteurs, textes alternatifs).
+- Textes : **uniquement** `docs/textes.md` (v1.4), mot pour mot. Photos : `contenu/photos/` (originaux locaux) et `docs/photos.md` (auteurs, textes alternatifs).
 - Fichiers de la direction artistique versionnés : logo et favicon dans `contenu/logo/`, croquis au crayon dans `contenu/croquis/`.
 - Toutes les couleurs, polices et tailles ci-dessous deviennent des variables CSS (noms entre parenthèses) ; aucune autre couleur dans le site.
 

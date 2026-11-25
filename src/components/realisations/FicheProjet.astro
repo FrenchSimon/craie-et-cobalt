@@ -135,19 +135,19 @@ const carrousel = projet.photos.length > 1;
 
   /*
    * Passage au projet précédent ou suivant : le panneau reste en place, le repère et le contenu
-   * entrent en fondu avec un glissé de 32 px, depuis la droite (suivant) ou la gauche (précédent).
+   * entrent en fondu avec un glissé de 200 px, depuis la droite (suivant) ou la gauche (précédent).
    */
   .fiche[data-entree='suivant'] {
-    --decalage-entree: 32px;
+    --decalage-entree: 200px;
   }
 
   .fiche[data-entree='precedent'] {
-    --decalage-entree: -32px;
+    --decalage-entree: -200px;
   }
 
   .fiche[data-entree] .fiche__repere,
   .fiche[data-entree] .fiche__corps {
-    animation: fiche-entree 320ms ease-out;
+    animation: fiche-entree 650ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   @keyframes fiche-entree {

@@ -43,7 +43,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 1. [x] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
 2. [x] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
 3. [x] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
-4. [x] **Prestations :** tableau comparatif des 4 prestations (lignes alignées en sous-grille, carrousel en mobile), honoraires, appel à l'action commun à toutes les pages sauf Contact.
+4. [x] **Prestations :** tableau comparatif des 4 prestations (lignes alignées en sous-grille, carrousel en mobile), honoraires et bouton « Demander un devis ».
 5. [ ] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), fiches dépliables au clavier, images différées, poids de la page surveillé.
 6. [ ] **Le studio :** fondatrice, démarche, artisans partenaires, zone d'intervention.
 7. [ ] **Contact :** formulaire accessible, validation, erreurs reliées aux champs, message de démo annoncé (`aria-live`), aucun envoi.

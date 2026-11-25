@@ -73,14 +73,24 @@ const photo = projet.photos[0];
     color: var(--cobalt);
   }
 
+  /* Survol : encadré cobalt autour de toute la carte (dans la gouttière, sans décaler la grille) */
+  .carte-projet__lien::after {
+    outline: 2px solid transparent;
+    outline-offset: 10px;
+    transition: outline-color var(--transition);
+  }
+
+  .carte-projet:hover .carte-projet__lien::after {
+    outline-color: var(--cobalt);
+  }
+
   /* Focus : contour autour de toute la carte, pas seulement du titre */
   .carte-projet__lien:focus-visible {
     outline: none;
   }
 
   .carte-projet__lien:focus-visible::after {
-    outline: 2px solid var(--focus);
-    outline-offset: 3px;
+    outline-color: var(--focus);
   }
 
   /* Fiche technique : deux colonnes séparées par un filet vertical */

@@ -1,39 +1,25 @@
 ---
-/* Tête de section : surtitre cobalt à ligne de cote, titre H2 et, à droite, un lien facultatif. */
-import type { Lien } from '../data/navigation';
-
+/* Tête de section : surtitre cobalt et titre H2. Les liens secondaires vont en fin de section. */
 interface Props {
   surtitre: string;
   titre: string;
   /** Identifiant du H2, qui nomme la section (aria-labelledby). */
   id: string;
-  lien?: Lien;
 }
 
-const { surtitre, titre, id, lien } = Astro.props;
+const { surtitre, titre, id } = Astro.props;
 ---
 
 <div class="tete-section">
-  <div class="tete-section__titres">
-    <p class="etiquette surtitre">{surtitre}</p>
-    <h2 id={id}>{titre}</h2>
-  </div>
-  {lien && <a class="lien ui" href={lien.href}>{lien.texte}<span aria-hidden="true"> →</span></a>}
+  <p class="etiquette surtitre">{surtitre}</p>
+  <h2 id={id}>{titre}</h2>
 </div>
 
 <style>
   .tete-section {
     display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    justify-content: space-between;
-    gap: var(--pas-2) var(--pas-4);
-    margin-bottom: 40px;
-  }
-
-  .tete-section__titres {
-    display: flex;
     flex-direction: column;
     gap: 14px;
+    margin-bottom: var(--pas-5);
   }
 </style>

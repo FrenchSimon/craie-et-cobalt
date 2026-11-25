@@ -37,7 +37,7 @@
   --pas-6: 72px;
   --marge: clamp(20px, 5.5vw, 80px);
   --largeur-contenu: 1280px;
-  --espace-section: clamp(72px, 8.5vw, 120px);
+  --espace-section: clamp(96px, 11vw, 160px);
   --transition: 150ms;
 }
 
@@ -211,22 +211,10 @@ textarea {
   color: var(--gris);
 }
 
-/* Surtitre : étiquette cobalt précédée d'une petite ligne de cote (32 px entre deux bornes) */
+/* Surtitre : étiquette cobalt */
 
 .surtitre {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   color: var(--cobalt);
-}
-
-.surtitre::before {
-  content: '';
-  flex: none;
-  width: 32px;
-  height: 11px;
-  border-inline: 1.5px solid currentColor;
-  background: linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
 }
 
 /* Chapeau : Newsreader 21–22 px, 32 em au plus */
@@ -331,11 +319,14 @@ textarea {
   color: var(--cobalt);
 }
 
-/* Bouton centré sous une section */
+/* Fin de section : bouton et liens secondaires, centrés */
 
-.section-bouton {
+.section-pied {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
+  gap: var(--pas-3) var(--pas-4);
   margin-top: 56px;
 }
 

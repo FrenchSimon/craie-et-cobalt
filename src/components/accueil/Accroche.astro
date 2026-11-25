@@ -47,7 +47,7 @@ import { contact } from '../../data/navigation';
     align-items: center;
     /* Accroche à la hauteur de l'écran, sous le bandeau et l'en-tête */
     min-height: min(780px, calc(100svh - 124px));
-    padding-block: 40px;
+    padding-block: var(--pas-6);
   }
 
   .accroche__texte {
@@ -103,7 +103,6 @@ import { contact } from '../../data/navigation';
     .accroche__grille {
       grid-template-columns: minmax(0, 1fr);
       min-height: 0;
-      padding-block: var(--pas-5);
     }
 
     .ligne-cote {

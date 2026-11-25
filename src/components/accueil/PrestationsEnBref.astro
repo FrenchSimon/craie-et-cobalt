@@ -34,12 +34,7 @@ const prestations = [
 
 <section class="section" aria-labelledby="titre-prestations">
   <div class="conteneur">
-    <TeteSection
-      surtitre="Prestations"
-      titre="Du conseil ponctuel au projet clé en main"
-      id="titre-prestations"
-      lien={{ href: '/prestations', texte: 'Le détail des prestations' }}
-    />
+    <TeteSection surtitre="Prestations" titre="Du conseil ponctuel au projet clé en main" id="titre-prestations" />
 
     <ol class="prestations liste-nue">
       {prestations.map((prestation, index) => (
@@ -56,7 +51,10 @@ const prestations = [
       ))}
     </ol>
 
-    <p class="section-bouton"><a class="bouton" href={contact.href}>Demander un devis</a></p>
+    <div class="section-pied">
+      <a class="bouton" href={contact.href}>Demander un devis</a>
+      <a class="lien ui" href="/prestations">Le détail des prestations<span aria-hidden="true"> →</span></a>
+    </div>
   </div>
 </section>
 

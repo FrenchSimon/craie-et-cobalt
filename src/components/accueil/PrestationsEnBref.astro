@@ -3,33 +3,7 @@
 import TeteSection from '../TeteSection.astro';
 import Picto from '../Picto.astro';
 import { contact } from '../../data/navigation';
-
-const prestations = [
-  {
-    picto: 'visite',
-    titre: 'Visite-conseil',
-    texte: 'Deux heures chez vous pour poser les bonnes questions et repartir avec des pistes concrètes.',
-    tarif: '250 €',
-  },
-  {
-    picto: 'conception',
-    titre: 'Conception complète',
-    texte: 'Plans, vues 3D, matériaux et mobilier : votre projet dessiné dans le moindre détail.',
-    tarif: 'Forfait selon la surface',
-  },
-  {
-    picto: 'chantier',
-    titre: 'Suivi de chantier',
-    texte: 'Les artisans coordonnés, le planning tenu, une seule interlocutrice.',
-    tarif: 'Pourcentage des travaux',
-  },
-  {
-    picto: 'pro',
-    titre: 'Lieux professionnels',
-    texte: 'Boutiques, bureaux, restaurants : un espace qui sert votre activité et votre image.',
-    tarif: 'Sur devis',
-  },
-] as const;
+import { prestations } from '../../data/prestations';
 ---
 
 <section class="section fond-graphite prestations-sombre" aria-labelledby="titre-prestations">

@@ -9,7 +9,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
-| 5 | Réalisation | Site complet en local | 5 j | 🚧 en cours (socle, photos et accueil validés le 25/11) |
+| 5 | Réalisation | Site complet en local | 5 j | 🚧 en cours (socle, photos, accueil et prestations validés le 25/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
@@ -43,16 +43,17 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 1. [x] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
 2. [x] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
 3. [x] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
-4. [ ] **Prestations :** 4 prestations, honoraires, appel à l'action.
+4. [x] **Prestations :** tableau comparatif des 4 prestations (lignes alignées en sous-grille, carrousel en mobile), honoraires, appel à l'action commun à toutes les pages sauf Contact.
 5. [ ] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), fiches dépliables au clavier, images différées, poids de la page surveillé.
 6. [ ] **Le studio :** fondatrice, démarche, artisans partenaires, zone d'intervention.
 7. [ ] **Contact :** formulaire accessible, validation, erreurs reliées aux champs, message de démo annoncé (`aria-live`), aucun envoi.
 8. [ ] **Mentions légales et confidentialité.**
 9. [ ] **Plan du site** (`/plan-du-site`) : liste de toutes les pages et des 6 fiches projet, lien dans le pied de page (second système de navigation, critère 12.1 du RGAA). Ses textes (title, description, titre, intitulé du lien) sont à ajouter à `textes.md` après accord.
 10. [ ] **Page 404.**
-11. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
-12. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
-13. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
+11. [ ] **Bouton haut de page :** sur toutes les pages, lien vers le haut (`#haut`, utilisable sans JavaScript), visible au clavier avec focus net, cible de 44 × 44 px au moins, sans masquer de contenu en mobile ; défilement doux désactivé avec `prefers-reduced-motion`. Son intitulé est à ajouter à `textes.md` après accord.
+12. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
+13. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
+14. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.
 

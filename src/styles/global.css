@@ -38,6 +38,8 @@
   --marge: clamp(20px, 5.5vw, 80px);
   --largeur-contenu: 1280px;
   --espace-section: clamp(96px, 11vw, 160px);
+  /* Colonne de droite du bas de page (liens du pied, bouton de l'appel à l'action), alignés dès 1100 px */
+  --colonne-pied: 540px;
   --transition: 150ms;
 }
 

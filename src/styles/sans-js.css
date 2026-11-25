@@ -21,3 +21,45 @@
     border: 0 !important;
   }
 }
+
+/* Démarche de l'accueil : les 4 étapes en liste, texte compris, sans flèches ni légende */
+
+.demarche__onglet {
+  cursor: default !important;
+}
+
+.demarche__texte {
+  display: block !important;
+}
+
+.demarche__fleche,
+.demarche__legende {
+  display: none !important;
+}
+
+@media (max-width: 899.98px) {
+  .demarche__onglets {
+    flex-direction: column !important;
+  }
+
+  .demarche__onglet {
+    display: grid !important;
+    grid-template-columns: 40px minmax(0, 1fr);
+    place-items: baseline start !important;
+    padding: 16px 0 !important;
+    border-bottom: 0 !important;
+    border-top: 1px solid var(--filet) !important;
+  }
+
+  .demarche__onglet .numero {
+    color: var(--cobalt) !important;
+  }
+
+  .demarche__libelle {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+  }
+}

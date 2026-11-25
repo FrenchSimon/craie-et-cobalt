@@ -1,0 +1,281 @@
+---
+/*
+ * Démarche : la même pièce dessinée en 4 états, un par étape.
+ * Bureau : croquis à gauche, onglets verticaux à droite (l'onglet actif déplie son texte).
+ * Mobile : carrousel manuel (flèches, numéros, glisser sur le croquis), jamais automatique.
+ * Sans JavaScript : les 4 étapes en liste, texte compris (styles/sans-js.css).
+ */
+import TeteSection from '../TeteSection.astro';
+import releve from '../../../contenu/croquis/salle-1-releve.svg?url';
+import esquisse from '../../../contenu/croquis/salle-2-esquisse.svg?url';
+import chantier from '../../../contenu/croquis/salle-3-chantier.svg?url';
+import livraison from '../../../contenu/croquis/salle-4-livraison.svg?url';
+
+const etapes = [
+  {
+    id: 'rencontre',
+    nom: 'Rencontre',
+    texte: 'On visite le lieu, on parle de vos usages, de vos envies et de votre budget.',
+    croquis: releve,
+  },
+  {
+    id: 'conception',
+    nom: 'Conception',
+    texte: 'Esquisse, puis plans détaillés, vues 3D et sélection des matériaux, validés ensemble.',
+    croquis: esquisse,
+  },
+  {
+    id: 'chantier',
+    nom: 'Chantier',
+    texte: 'Les artisans partenaires interviennent ; un point chaque semaine sur place.',
+    croquis: chantier,
+  },
+  {
+    id: 'livraison',
+    nom: 'Livraison',
+    texte: 'Réception des travaux, reprise des derniers détails, mise en place du mobilier.',
+    croquis: livraison,
+  },
+];
+
+const numero = (index: number) => String(index + 1).padStart(2, '0');
+---
+
+<section class="section" aria-labelledby="titre-demarche">
+  <div class="conteneur">
+    <TeteSection surtitre="Démarche" titre="Quatre étapes, une seule interlocutrice" id="titre-demarche" />
+
+    <div class="demarche">
+      {/* Croquis décoratifs (alt vide) : l'onglet voisin donne le nom et le texte de l'étape */}
+      <div class="demarche__croquis">
+        {etapes.map((etape, index) => (
+          <div
+            class="demarche__panneau"
+            role="tabpanel"
+            id={`etape-${etape.id}`}
+            aria-labelledby={`onglet-${etape.id}`}
+            hidden={index > 0}
+          >
+            <img src={etape.croquis} width="640" height="440" alt="" loading="lazy" draggable="false" />
+          </div>
+        ))}
+      </div>
+
+      <div class="demarche__navigation">
+        <button class="demarche__fleche" type="button" data-sens="-1" aria-label="Étape précédente">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3 5 9l6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+        </button>
+
+        <div class="demarche__onglets" role="tablist" aria-label="Les quatre étapes" aria-orientation="vertical">
+          {etapes.map((etape, index) => (
+            <button
+              class="demarche__onglet"
+              type="button"
+              role="tab"
+              id={`onglet-${etape.id}`}
+              aria-controls={`etape-${etape.id}`}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-labelledby={`numero-${etape.id} nom-${etape.id}`}
+              aria-describedby={`texte-${etape.id}`}
+              tabindex={index === 0 ? 0 : -1}
+            >
+              <span class="numero" id={`numero-${etape.id}`}>{numero(index)}</span>
+              <span class="demarche__libelle">
+                <span class="demarche__nom ui" id={`nom-${etape.id}`}>{etape.nom}</span>
+                <span class="demarche__texte" id={`texte-${etape.id}`}>{etape.texte}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <button class="demarche__fleche" type="button" data-sens="1" aria-label="Étape suivante">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="m7 3 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+        </button>
+      </div>
+
+      {/* Mobile : nom et texte de l'étape sous le croquis, copie visuelle de l'onglet (déjà lu par les lecteurs d'écran) */}
+      <p class="demarche__legende" aria-hidden="true">
+        <span class="demarche__nom ui">{etapes[0].nom}</span>
+        <span class="demarche__texte">{etapes[0].texte}</span>
+      </p>
+    </div>
+
+    <p class="section-bouton"><a class="bouton" href="/contact">Commencer par une visite-conseil</a></p>
+  </div>
+</section>
+
+<script>
+  import '../../scripts/demarche';
+</script>
+
+<style>
+  .demarche {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--pas-5);
+    align-items: center;
+  }
+
+  /* Glisser horizontal réservé au carrousel ; le défilement vertical reste au navigateur */
+  .demarche__croquis {
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  .demarche__panneau[hidden] {
+    display: none;
+  }
+
+  .demarche__panneau img {
+    width: 100%;
+  }
+
+  .demarche__fleche,
+  .demarche__legende {
+    display: none;
+  }
+
+  .demarche__onglets {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--filet);
+  }
+
+  .demarche__onglet {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 0 12px;
+    align-items: baseline;
+    width: 100%;
+    padding: 20px 0 20px 18px;
+    border: 0;
+    border-top: 1px solid var(--filet);
+    border-left: 2px solid transparent;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      border-color var(--transition),
+      color var(--transition);
+  }
+
+  .demarche__nom {
+    display: block;
+    font-size: 20px;
+    transition: color var(--transition);
+  }
+
+  .demarche__texte {
+    display: none;
+    margin-top: var(--pas-1);
+    font-family: var(--texte);
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .demarche__onglet:hover .demarche__nom,
+  .demarche__onglet[aria-selected='true'] .demarche__nom {
+    color: var(--cobalt);
+  }
+
+  /* Onglet actif : trait cobalt à gauche, texte déplié */
+  .demarche__onglet[aria-selected='true'] {
+    border-left-color: var(--cobalt);
+  }
+
+  .demarche__onglet[aria-selected='true'] .demarche__texte {
+    display: block;
+  }
+
+  @media (max-width: 899.98px) {
+    .demarche {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--pas-2);
+    }
+
+    /* Carrousel : flèche, numéros 01–04 soulignés, flèche */
+    .demarche__navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .demarche__fleche {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 2px solid var(--cobalt);
+      background: none;
+      color: var(--cobalt);
+      cursor: pointer;
+      transition:
+        background-color var(--transition),
+        color var(--transition);
+    }
+
+    .demarche__fleche:hover {
+      background: var(--cobalt);
+      color: var(--craie);
+    }
+
+    .demarche__onglets {
+      flex-direction: row;
+      gap: 4px;
+      border: 0;
+    }
+
+    .demarche__onglet {
+      display: inline-grid;
+      place-items: center;
+      width: auto;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 6px;
+      border: 0;
+      border-bottom: 2px solid var(--filet);
+    }
+
+    .demarche__onglet .numero {
+      color: var(--graphite);
+    }
+
+    .demarche__onglet[aria-selected='true'] {
+      border-bottom-color: var(--cobalt);
+    }
+
+    .demarche__onglet:hover .numero,
+    .demarche__onglet[aria-selected='true'] .numero {
+      color: var(--cobalt);
+    }
+
+    /* Nom et texte gardés pour les lecteurs d'écran, montrés par la légende */
+    .demarche__libelle {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .demarche__legende {
+      display: flex;
+      flex-direction: column;
+      gap: var(--pas-1);
+      /* Hauteur réservée : le bouton dessous ne saute pas d'une étape à l'autre */
+      min-height: 5.5em;
+    }
+
+    .demarche__legende .demarche__nom {
+      color: var(--cobalt);
+    }
+
+    .demarche__legende .demarche__texte {
+      display: block;
+      margin: 0;
+    }
+  }
+</style>

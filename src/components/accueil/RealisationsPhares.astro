@@ -1,0 +1,37 @@
+---
+/* Les 3 réalisations phares : cartes qui ouvrent la fiche du projet sur la page Réalisations. */
+import TeteSection from '../TeteSection.astro';
+import CarteProjet from '../CarteProjet.astro';
+import { phares } from '../../data/projets';
+---
+
+<section class="section" aria-labelledby="titre-realisations">
+  <div class="conteneur">
+    <TeteSection surtitre="Réalisations" titre="Trois projets récents" id="titre-realisations" />
+    <ul class="phares liste-nue">
+      {phares.map((projet) => (
+        <li>
+          <CarteProjet projet={projet} />
+        </li>
+      ))}
+    </ul>
+
+    <p class="section-pied">
+      <a class="bouton bouton--graphite" href="/realisations">Toutes les réalisations<span aria-hidden="true">&nbsp;→</span></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .phares {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px var(--pas-4);
+  }
+
+  @media (max-width: 899.98px) {
+    .phares {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

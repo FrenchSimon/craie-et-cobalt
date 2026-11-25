@@ -1,0 +1,109 @@
+---
+/*
+ * Accroche de l'accueil : texte à gauche, croquis au crayon à droite (dessous en mobile).
+ * Le croquis est l'image principale de la page (LCP) : chargé tout de suite, en priorité haute.
+ */
+import croquis from '../../../contenu/croquis/croquis-haussmann.svg?url';
+import { contact } from '../../data/navigation';
+---
+
+<section class="accroche" aria-labelledby="titre-accroche">
+  <div class="accroche__grille conteneur">
+    <div class="accroche__texte">
+      <p class="etiquette surtitre">Architecte d'intérieur à Lyon</p>
+      <h1 id="titre-accroche">Des intérieurs clairs, pensés au millimètre.</h1>
+      <p class="chapeau accroche__chapeau">
+        Margaux Delorme et le studio Craie &amp; Cobalt rénovent des appartements, des maisons et des lieux professionnels à Lyon, de la première esquisse à la remise des clés.
+      </p>
+      <div class="accroche__actions">
+        <a class="bouton" href={contact.href}>{contact.texte}</a>
+        <a class="bouton bouton--graphite" href="/realisations">Voir les réalisations<span aria-hidden="true">&nbsp;→</span></a>
+      </div>
+    </div>
+
+    <figure class="accroche__figure">
+      <img
+        src={croquis}
+        width="720"
+        height="680"
+        alt="Croquis au crayon de la salle à manger haussmannienne : moulures, cheminée, lustre, parquet en point de Hongrie"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <figcaption class="ligne-cote"><span>Croquis · Haussmannien, Ainay — 140 m²</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .accroche__grille {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--pas-5);
+    align-items: center;
+    /* Accroche à la hauteur de l'écran, sous le bandeau et l'en-tête */
+    min-height: min(780px, calc(100svh - 124px));
+    padding-block: var(--pas-6);
+  }
+
+  .accroche__texte {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .accroche__chapeau {
+    color: var(--gris);
+  }
+
+  .accroche__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pas-4) 28px;
+    margin-top: var(--pas-1);
+  }
+
+  .accroche__figure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-2);
+  }
+
+  .accroche__figure img {
+    width: 100%;
+  }
+
+  /* Légende en ligne de cote : le texte entre deux traits */
+  .ligne-cote {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  .ligne-cote::before,
+  .ligne-cote::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+  }
+
+  @media (max-width: 899.98px) {
+    .accroche__grille {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .ligne-cote {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+    }
+  }
+</style>

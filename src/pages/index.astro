@@ -1,5 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import Accroche from '../components/accueil/Accroche.astro';
+import RealisationsPhares from '../components/accueil/RealisationsPhares.astro';
+import PrestationsEnBref from '../components/accueil/PrestationsEnBref.astro';
+import Demarche from '../components/accueil/Demarche.astro';
+import Avis from '../components/accueil/Avis.astro';
+import AppelAction from '../components/AppelAction.astro';
 
 const title = "Craie & Cobalt — Architecte d'intérieur à Lyon · rénovation et aménagement";
 const description =
@@ -7,11 +13,13 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <section class="section">
-    <div class="conteneur">
-      <p class="etiquette surtitre">Architecte d'intérieur à Lyon</p>
-      <h1>Des intérieurs clairs, pensés au millimètre.</h1>
-      <p class="chapeau">Margaux Delorme et le studio Craie &amp; Cobalt rénovent des appartements, des maisons et des lieux professionnels à Lyon, de la première esquisse à la remise des clés.</p>
-    </div>
-  </section>
+  <Accroche />
+  <RealisationsPhares />
+  <PrestationsEnBref />
+  <Demarche />
+  <Avis />
+  <AppelAction
+    titre="Un projet en tête ?"
+    texte="Racontez-nous votre lieu et vos envies. Nous vous répondons sous 48 heures ouvrées."
+  />
 </Base>

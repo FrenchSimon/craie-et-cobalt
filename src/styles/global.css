@@ -37,7 +37,7 @@
   --pas-6: 72px;
   --marge: clamp(20px, 5.5vw, 80px);
   --largeur-contenu: 1280px;
-  --espace-section: clamp(72px, 8.5vw, 120px);
+  --espace-section: clamp(96px, 11vw, 160px);
   --transition: 150ms;
 }
 
@@ -102,7 +102,8 @@ h1,
 h2,
 h3 {
   font-family: var(--titre);
-  font-weight: 600;
+  /* Titres fins, accordés au logo (Archivo 300) */
+  font-weight: 400;
   text-wrap: balance;
 }
 
@@ -211,22 +212,10 @@ textarea {
   color: var(--gris);
 }
 
-/* Surtitre : étiquette cobalt précédée d'une petite ligne de cote (32 px entre deux bornes) */
+/* Surtitre : étiquette cobalt */
 
 .surtitre {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   color: var(--cobalt);
-}
-
-.surtitre::before {
-  content: '';
-  flex: none;
-  width: 32px;
-  height: 11px;
-  border-inline: 1.5px solid currentColor;
-  background: linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
 }
 
 /* Chapeau : Newsreader 21–22 px, 32 em au plus */
@@ -237,7 +226,12 @@ textarea {
   line-height: 1.5;
 }
 
-/* Bouton : contour cobalt 2 px, angles droits ; survol fond cobalt */
+/*
+ * Boutons, angles droits, contour 1 px. Trois niveaux : bouton principal plein, bouton
+ * secondaire au contour, lien souligné. Au survol, le plein se vide et le contour se remplit.
+ */
+
+/* Principal sur fond clair : plein cobalt, texte craie ; survol au contour cobalt */
 
 .bouton {
   display: inline-flex;
@@ -245,9 +239,9 @@ textarea {
   justify-content: center;
   min-height: 46px;
   padding: 0 22px;
-  border: 2px solid var(--cobalt);
-  background: transparent;
-  color: var(--cobalt);
+  border: 1px solid var(--cobalt);
+  background: var(--cobalt);
+  color: var(--craie);
   font-family: var(--titre);
   font-size: 15px;
   font-weight: 500;
@@ -262,8 +256,8 @@ textarea {
 }
 
 .bouton:hover {
-  background: var(--cobalt);
-  color: var(--craie);
+  background: transparent;
+  color: var(--cobalt);
 }
 
 .bouton--petit {
@@ -272,9 +266,34 @@ textarea {
   font-size: 14px;
 }
 
-/* Variante sur fond graphite : contour et texte craie, survol fond craie */
+/* Secondaire sur fond clair : contour graphite ; survol plein graphite */
+.bouton--graphite {
+  border-color: var(--graphite);
+  background: transparent;
+  color: var(--graphite);
+}
+
+.bouton--graphite:hover {
+  background: var(--graphite);
+  color: var(--craie);
+}
+
+/* Principal sur fond graphite : plein craie, texte graphite ; survol au contour craie */
+.bouton--craie-plein {
+  border-color: var(--craie);
+  background: var(--craie);
+  color: var(--graphite);
+}
+
+.bouton--craie-plein:hover {
+  background: transparent;
+  color: var(--craie);
+}
+
+/* Secondaire sur fond graphite : contour craie ; survol plein craie */
 .bouton--craie {
   border-color: var(--craie);
+  background: transparent;
   color: var(--craie);
 }
 
@@ -302,7 +321,7 @@ textarea {
 /* Lien fictif désactivé : même aspect, sans survol, suivi de l'étiquette « FICTIF » */
 
 .lien-fictif {
-  text-decoration: underline 2px;
+  text-decoration: underline 1px;
   text-underline-offset: 6px;
 }
 
@@ -321,14 +340,31 @@ textarea {
   vertical-align: 0.2em;
 }
 
-/* Sections : rythme vertical commun, séparées par un filet */
+/* Numéro (01, 02…) : Plex Mono 13 px, cobalt */
+
+.numero {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--cobalt);
+}
+
+/* Fin de section : bouton et liens secondaires, centrés */
+
+.section-pied {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pas-4);
+  margin-top: 56px;
+}
+
+/* Sections : rythme vertical commun, sans trait entre elles */
 
 .section {
   padding-block: var(--espace-section);
-}
-
-.section + .section {
-  border-top: 1px solid var(--filet);
 }
 
 @media (prefers-reduced-motion: reduce) {

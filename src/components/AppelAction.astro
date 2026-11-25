@@ -1,0 +1,42 @@
+---
+/* Appel à l'action en bas de page : bande graphite, titre et texte facultatifs, bouton vers Contact. */
+import { contact } from '../data/navigation';
+
+interface Props {
+  titre: string;
+  texte?: string;
+}
+
+const { titre, texte } = Astro.props;
+---
+
+<section class="appel-action fond-graphite" aria-labelledby="titre-appel-action">
+  <div class="appel-action__contenu conteneur">
+    <div>
+      <h2 id="titre-appel-action">{titre}</h2>
+      {texte && <p class="appel-action__texte">{texte}</p>}
+    </div>
+    <a class="bouton bouton--craie-plein" href={contact.href}>{contact.texte}</a>
+  </div>
+</section>
+
+<style>
+  /* Moins d'espace en bas : le pied de page, graphite lui aussi, prend la suite sans rupture */
+  .appel-action {
+    padding-block: var(--espace-section) clamp(48px, 5vw, 72px);
+  }
+
+  .appel-action__contenu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pas-4);
+  }
+
+  .appel-action__texte {
+    max-width: 34em;
+    margin-top: 12px;
+    color: var(--gris-clair);
+  }
+</style>

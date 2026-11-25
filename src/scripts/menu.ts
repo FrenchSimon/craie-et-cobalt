@@ -1,10 +1,13 @@
-/* Menu mobile (sous 900 px) : le bouton déroule la navigation sous l'en-tête, Échap la referme.
+/* Menu mobile (sous 900 px) : le bouton ouvre la navigation en plein écran, bandeau démo compris,
+   Échap la referme. Pendant l'ouverture, le reste de la page est inerte (ni focus ni lecture).
    Module ES (export vide) : ses constantes ne sont pas globales. */
 
 export {};
 
 const bouton = document.querySelector<HTMLButtonElement>('.en-tete__bouton-menu');
 const menu = document.getElementById('menu');
+const enTete = document.querySelector<HTMLElement>('.en-tete');
+const horsMenu = document.querySelectorAll<HTMLElement>('main, footer');
 const bureau = window.matchMedia('(min-width: 900px)');
 
 function basculer(ouvrir: boolean) {
@@ -12,6 +15,8 @@ function basculer(ouvrir: boolean) {
   bouton.setAttribute('aria-expanded', String(ouvrir));
   bouton.setAttribute('aria-label', ouvrir ? 'Fermer le menu' : 'Ouvrir le menu');
   menu.classList.toggle('menu--ouvert', ouvrir);
+  enTete?.classList.toggle('en-tete--menu-ouvert', ouvrir);
+  horsMenu.forEach((element) => (element.inert = ouvrir));
 }
 
 if (bouton && menu) {

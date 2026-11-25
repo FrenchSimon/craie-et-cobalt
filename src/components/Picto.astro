@@ -1,0 +1,41 @@
+---
+/* Pictogrammes des prestations : trait cobalt 1,5 px, angles vifs, comme un relevé. Décoratifs. */
+interface Props {
+  nom: 'visite' | 'conception' | 'chantier' | 'pro';
+  class?: string;
+}
+
+const { nom, class: classe } = Astro.props;
+---
+
+<svg class:list={['picto', classe]} width="56" height="56" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+  {nom === 'visite' && (
+    <Fragment>
+      <circle cx="20" cy="20" r="13"></circle>
+      <path d="M29.2 29.2 32 32M33.8 30.2l11 11-3.6 3.6-11-11zM13 15a8 8 0 0 1 6-5"></path>
+    </Fragment>
+  )}
+  {nom === 'conception' && (
+    <Fragment>
+      <path d="M6 10v32h32zM12 36V24l12 12zM6 16h4M6 22h3M6 28h4M6 34h3"></path>
+      <path d="M28 20 40 8l4 4-12 12zM28 20l-2 6 6-2M37 11l4 4"></path>
+    </Fragment>
+  )}
+  {nom === 'chantier' && (
+    <path d="M11 5h29v39H11zM7 11h8M7 19h8M7 27h8M7 35h8M18 15l3 3 5-6M30 15h6M18 25l3 3 5-6M30 25h6M18 35l3 3 5-6M30 35h6"></path>
+  )}
+  {nom === 'pro' && (
+    <path d="M7 18v24h34V18M4 8h40l-3 10H7zM15 8l-1 10M24 8v10M33 8l1 10M20 42V28h8v14M11 26h5v8h-5zM32 26h5v8h-5zM2 42h44"></path>
+  )}
+</svg>
+
+<style>
+  .picto {
+    flex: none;
+    fill: none;
+    stroke: var(--cobalt);
+    stroke-width: 1.5;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+  }
+</style>

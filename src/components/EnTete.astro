@@ -88,9 +88,10 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
     text-decoration-color: currentColor;
   }
 
+  /* Page Contact : bouton au contour (l'inverse de son état habituel) */
   .menu__contact[aria-current='page'] {
-    background: var(--cobalt);
-    color: var(--craie);
+    background: transparent;
+    color: var(--cobalt);
   }
 
   .en-tete__bouton-menu {
@@ -110,7 +111,7 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
       width: 48px;
       height: 48px;
       padding: 0;
-      border: 2px solid var(--graphite);
+      border: 1px solid var(--graphite);
       background: none;
       color: var(--graphite);
       cursor: pointer;
@@ -129,20 +130,47 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
       display: block;
     }
 
+    /* Menu ouvert : la page dessous ne défile pas */
+    :global(html:has(.en-tete--menu-ouvert)) {
+      overflow: hidden;
+    }
+
+    /* Menu ouvert : l'en-tête entier (bandeau, logo, bouton, menu) couvre tout l'écran */
+    .en-tete--menu-ouvert {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      border-bottom: 0;
+      background: var(--craie);
+    }
+
+    /* Logo et bouton gardent leur ligne de 88 px sous le bandeau, le menu prend la suite */
+    .en-tete--menu-ouvert .en-tete__barre {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: 88px auto;
+      align-items: center;
+      align-content: start;
+      flex: 1;
+    }
+
+    .en-tete--menu-ouvert .menu {
+      grid-column: 1 / -1;
+    }
+
     /* Menu masqué tant que le bouton ne l'a pas ouvert (sans JS : sans-js.css le laisse visible) */
     .menu {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      z-index: 50;
       flex-direction: column;
       align-items: stretch;
       gap: 0;
-      padding: var(--pas-1) var(--marge) var(--pas-3);
-      border-bottom: 1px solid var(--filet);
-      background: var(--craie);
+      flex-basis: 100%;
+      padding: var(--pas-2) 0 var(--pas-5);
+      border-top: 1px solid var(--filet);
     }
 
     .menu.menu--ouvert {
@@ -155,15 +183,19 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
       gap: 0;
     }
 
+    .menu__liens li + li {
+      border-top: 1px solid var(--filet);
+    }
+
     .menu__lien {
       display: block;
-      padding-block: 14px;
-      font-size: 18px;
+      padding-block: 18px;
+      font-size: 24px;
     }
 
     .menu__contact {
       align-self: flex-start;
-      margin-top: 12px;
+      margin-top: var(--pas-4);
     }
   }
 </style>

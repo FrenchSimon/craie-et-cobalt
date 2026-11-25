@@ -1,0 +1,131 @@
+---
+/* Les 4 prestations en bref : cartes à pictogramme en 2 × 2, honoraires en pied de carte. */
+import TeteSection from '../TeteSection.astro';
+import Picto from '../Picto.astro';
+import { contact } from '../../data/navigation';
+
+const prestations = [
+  {
+    picto: 'visite',
+    titre: 'Visite-conseil',
+    texte: 'Deux heures chez vous pour poser les bonnes questions et repartir avec des pistes concrètes.',
+    tarif: '250 €',
+  },
+  {
+    picto: 'conception',
+    titre: 'Conception complète',
+    texte: 'Plans, vues 3D, matériaux et mobilier : votre projet dessiné dans le moindre détail.',
+    tarif: 'Forfait selon la surface',
+  },
+  {
+    picto: 'chantier',
+    titre: 'Suivi de chantier',
+    texte: 'Les artisans coordonnés, le planning tenu, une seule interlocutrice.',
+    tarif: 'Pourcentage des travaux',
+  },
+  {
+    picto: 'pro',
+    titre: 'Lieux professionnels',
+    texte: 'Boutiques, bureaux, restaurants : un espace qui sert votre activité et votre image.',
+    tarif: 'Sur devis',
+  },
+] as const;
+---
+
+<section class="section" aria-labelledby="titre-prestations">
+  <div class="conteneur">
+    <TeteSection
+      surtitre="Prestations"
+      titre="Du conseil ponctuel au projet clé en main"
+      id="titre-prestations"
+      lien={{ href: '/prestations', texte: 'Le détail des prestations' }}
+    />
+
+    <ol class="prestations liste-nue">
+      {prestations.map((prestation, index) => (
+        <li class="prestation">
+          <Picto nom={prestation.picto} class="prestation__picto" />
+          <span class="numero" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{prestation.titre}</h3>
+          <p class="prestation__texte">{prestation.texte}</p>
+          <p class="prestation__tarif ui">
+            <span class="prestation__intitule">Honoraires</span>
+            {prestation.tarif}
+          </p>
+        </li>
+      ))}
+    </ol>
+
+    <p class="section-bouton"><a class="bouton" href={contact.href}>Demander un devis</a></p>
+  </div>
+</section>
+
+<style>
+  .prestations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pas-3);
+  }
+
+  .prestation {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    gap: var(--pas-1) 28px;
+    padding: 36px 36px 28px;
+    border: 1px solid var(--filet);
+    background: var(--craie-claire);
+  }
+
+  .prestation :global(.prestation__picto) {
+    grid-row: 1 / 4;
+  }
+
+  .prestation > :is(.numero, h3, .prestation__texte) {
+    grid-column: 2;
+  }
+
+  .prestation__texte {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  /* Pied de carte : filet, intitulé « HONORAIRES », tarif court */
+  .prestation > .prestation__tarif {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    padding-top: var(--pas-2);
+    border-top: 1px solid var(--filet);
+  }
+
+  .prestation__intitule {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  @media (max-width: 899.98px) {
+    .prestations {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--pas-2);
+    }
+
+    .prestation {
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: var(--pas-1) 20px;
+      padding: 28px 20px 22px;
+    }
+
+    .prestation :global(.prestation__picto) {
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>

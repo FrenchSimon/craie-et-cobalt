@@ -321,6 +321,24 @@ textarea {
   vertical-align: 0.2em;
 }
 
+/* Numéro (01, 02…) : Plex Mono 13 px, cobalt */
+
+.numero {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--cobalt);
+}
+
+/* Bouton centré sous une section */
+
+.section-bouton {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
 /* Sections : rythme vertical commun, séparées par un filet */
 
 .section {

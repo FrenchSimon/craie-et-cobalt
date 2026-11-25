@@ -15,9 +15,16 @@ interface Props {
   fiche?: boolean;
   /** Première carte de la page Réalisations : photo chargée tout de suite (LCP en mobile). */
   prioritaire?: boolean;
+  /** Largeur affichée de la photo selon l'écran (par défaut : grille de 3 colonnes de l'accueil). */
+  sizes?: string;
 }
 
-const { projet, fiche = false, prioritaire = false } = Astro.props;
+const {
+  projet,
+  fiche = false,
+  prioritaire = false,
+  sizes = '(min-width: 1440px) 411px, (min-width: 900px) calc((100vw - 11vw - 48px) / 3), calc(100vw - 11vw)',
+} = Astro.props;
 const titre = fiche ? projet.titre : (projet.phare?.titre ?? projet.titre);
 const lieu = fiche ? projet.lieu : (projet.phare?.lieu ?? projet.lieu);
 const photo = projet.photos[0];
@@ -29,7 +36,7 @@ const Titre = fiche ? 'h2' : 'h3';
     src={photo.src}
     alt={photo.alt}
     widths={[400, 640, 860, 1240]}
-    sizes="(min-width: 1440px) 411px, (min-width: 900px) calc((100vw - 11vw - 48px) / 3), calc(100vw - 11vw)"
+    sizes={sizes}
     prioritaire={prioritaire}
     class="carte-projet__photo"
   />
@@ -93,7 +100,10 @@ const Titre = fiche ? 'h2' : 'h3';
     color: var(--cobalt);
   }
 
+  /* Même taille de titre sur l'accueil (H3) et sur Réalisations (H2) */
   .carte-projet__titre {
+    font-size: 24px;
+    line-height: 1.2;
     transition: color var(--transition);
   }
 

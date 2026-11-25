@@ -21,9 +21,9 @@ const { titre, texte } = Astro.props;
 </section>
 
 <style>
-  /* Bande graphite fermée : le pied de page, clair, prend la suite */
+  /* Moins d'espace en bas : le pied de page, graphite lui aussi, prend la suite sans rupture */
   .appel-action {
-    padding-block: clamp(80px, 9vw, 128px);
+    padding-block: var(--espace-section) clamp(48px, 5vw, 72px);
   }
 
   .appel-action__contenu {

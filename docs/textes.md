@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.5 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement)
+> Version 1.6 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -220,7 +220,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 Diplômée en architecture intérieure, Margaux a travaillé huit ans en agence à Lyon et à Paris avant de fonder Craie & Cobalt en 2019, sur les pentes de la Croix-Rousse.
 Le nom du studio résume sa manière de faire : la craie pour la clarté et les matières brutes, le cobalt pour la touche de couleur qui donne du caractère à un lieu.
 
-### Notre démarche
+### La démarche
 
 - **Partir de vos usages.** Avant de parler style, on parle de la façon dont vous vivez ou travaillez dans le lieu.
 - **Dessiner chaque détail.** Un plan précis, c'est un chantier sans surprise.

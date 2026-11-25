@@ -8,7 +8,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 1 | Textes | `docs/textes.md` | 0,5 j | ✅ validé le 25/11 (PR #1) |
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
-| 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ⏳ à venir |
+| 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | 🔎 proposé le 25/11, à valider |
 | 5 | Réalisation | Site complet en local | 5 j | ⏳ à venir |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |

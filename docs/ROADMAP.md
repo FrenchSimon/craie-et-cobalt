@@ -9,7 +9,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
-| 5 | Réalisation | Site complet en local | 5 j | ⏳ à venir |
+| 5 | Réalisation | Site complet en local | 5 j | 🚧 en cours (socle et photos validés le 25/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
@@ -40,8 +40,8 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 
 ## 5. Réalisation — `feat/<page>`, un commit par section
 
-1. [ ] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
-2. [ ] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
+1. [x] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
+2. [x] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
 3. [ ] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
 4. [ ] **Prestations :** 4 prestations, honoraires, appel à l'action.
 5. [ ] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), fiches dépliables au clavier, images différées, poids de la page surveillé.

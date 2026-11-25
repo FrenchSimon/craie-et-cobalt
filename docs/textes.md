@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.1 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie)
+> Version 1.3 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -27,6 +27,10 @@ Logo **Craie & Cobalt** (lien vers l'accueil) · Prestations · Réalisations ·
 - Instagram · LinkedIn *(fictifs, liens désactivés)*
 - Mentions légales et confidentialité · © 2026 Craie & Cobalt — studio fictif
 
+### Textes pour les lecteurs d'écran (invisibles)
+
+Lien d'évitement : « Aller au contenu » · liens qui ouvrent un nouvel onglet : « (nouvel onglet) » · bouton du menu en mobile : « Ouvrir le menu » · navigation : « Menu principal »
+
 ### Données structurées (JSON-LD, invisible)
 
 Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieur ») · mention « Studio fictif : site de démonstration réalisé par Simon Dabin. » · zone desservie : Lyon et métropole · fondatrice : Margaux Delorme.
@@ -48,31 +52,36 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 
 **Boutons :** Parlons de votre projet · Voir les réalisations
 
-**Légende de la photo :** Appartement canut, Croix-Rousse — 95 m²
+**Image :** croquis au crayon de l'haussmannien d'Ainay (texte alternatif : « Croquis au crayon de la salle à manger haussmannienne : moulures, cheminée, lustre, parquet en point de Hongrie »)
+
+**Légende de l'image :** Croquis · Haussmannien, Ainay — 140 m²
 
 ### Réalisations phares
 
+**Surtitre :** Réalisations
 **Titre :** Trois projets récents
 
-3 cartes (photo, nom, lieu, surface) : *Appartement canut* (Croix-Rousse) · *Haussmannien, Ainay* · *Bureaux, Part-Dieu*
+3 cartes (photo, type et lieu, nom, surface, durée) : *Appartement canut* (Particuliers · Croix-Rousse) · *Haussmannien, Ainay* (Particuliers · Ainay) · *Bureaux, Part-Dieu* (Professionnels · Part-Dieu)
 
 **Lien :** Toutes les réalisations
 
 ### Prestations en bref
 
+**Surtitre :** Prestations
 **Titre :** Du conseil ponctuel au projet clé en main
 
-| Prestation | Texte court |
-|---|---|
-| **Visite-conseil** | Deux heures chez vous pour poser les bonnes questions et repartir avec des pistes concrètes. |
-| **Conception complète** | Plans, vues 3D, matériaux et mobilier : votre projet dessiné dans le moindre détail. |
-| **Suivi de chantier** | Les artisans coordonnés, le planning tenu, une seule interlocutrice. |
-| **Lieux professionnels** | Boutiques, bureaux, restaurants : un espace qui sert votre activité et votre image. |
+| Prestation | Texte court | Tarif court |
+|---|---|---|
+| **Visite-conseil** | Deux heures chez vous pour poser les bonnes questions et repartir avec des pistes concrètes. | 250 € |
+| **Conception complète** | Plans, vues 3D, matériaux et mobilier : votre projet dessiné dans le moindre détail. | Forfait selon la surface |
+| **Suivi de chantier** | Les artisans coordonnés, le planning tenu, une seule interlocutrice. | Pourcentage des travaux |
+| **Lieux professionnels** | Boutiques, bureaux, restaurants : un espace qui sert votre activité et votre image. | Sur devis |
 
-**Lien :** Le détail des prestations
+**Lien :** Le détail des prestations · **Bouton :** Demander un devis
 
 ### Démarche
 
+**Surtitre :** Démarche
 **Titre :** Quatre étapes, une seule interlocutrice
 
 1. **Rencontre** — On visite le lieu, on parle de vos usages, de vos envies et de votre budget.
@@ -80,8 +89,12 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 3. **Chantier** — Les artisans partenaires interviennent ; un point chaque semaine sur place.
 4. **Livraison** — Réception des travaux, reprise des derniers détails, mise en place du mobilier.
 
+**Carrousel (mobile) :** boutons « Étape précédente » et « Étape suivante », liste nommée « Les quatre étapes » pour les lecteurs d'écran
+**Bouton :** Commencer par une visite-conseil
+
 ### Avis
 
+**Surtitre :** Avis
 **Titre :** Ils nous ont confié leur intérieur
 
 > « Margaux a compris en une visite ce que nous cherchions depuis deux ans. Le chantier a duré quatre mois, sans une mauvaise surprise. »
@@ -94,6 +107,8 @@ Type `ProfessionalService` (schema.org n'a pas de type « architecte d'intérieu
 > — Julien, maison à Caluire-et-Cuire
 
 *Avis fictifs (démo).*
+
+**Lien :** Lire tous nos avis sur Google ↗ — étiquette « Fictif », lien désactivé
 
 ### Appel à l'action
 
@@ -149,10 +164,11 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 **Title :** Réalisations — Craie & Cobalt, architecte d'intérieur à Lyon
 **Meta description :** Appartements, maisons, boutiques et bureaux rénovés à Lyon et dans la métropole : photos, surface, durée et budget de chaque projet.
 
+**Surtitre :** Lyon et la métropole
 **Titre :** Réalisations
 **Introduction :** Une sélection de projets menés à Lyon et dans la métropole.
 
-**Filtres :** Tous · Particuliers · Professionnels
+**Filtres :** Tous · Particuliers · Professionnels (groupe nommé « Filtrer les projets » pour les lecteurs d'écran)
 **Annonce du filtre (lecteurs d'écran) :** « 6 projets affichés », « 4 projets affichés »…
 
 | # | Projet | Type | Lieu | Surface | Durée des travaux | Budget travaux | Texte de la fiche |
@@ -164,7 +180,9 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 | 5 | **Boutique de prêt-à-porter** | Professionnels | Lyon 2e | 70 m² | 5 semaines | 48 000 € | Un parcours client en boucle, des cabines plus grandes, et un comptoir en terrazzo qui est devenu la signature du lieu. Travaux réalisés en août, boutique fermée deux semaines seulement. |
 | 6 | **Bureaux d'un cabinet de conseil** | Professionnels | Part-Dieu, Lyon 3e | 220 m² | 2 mois | 140 000 € | Plateau ouvert, quatre salles de réunion vitrées, cabines téléphoniques et une cuisine où l'équipe a envie de déjeuner. |
 
-**Fiche dépliée :** une à trois photos du résultat (l'état d'avant est raconté par le texte) · texte · surface · durée · budget travaux · « Voir le projet suivant »
+**Bouton d'ouverture :** Voir la fiche
+**Fiche (panneau latéral, plein écran en mobile) :** repère « Projet 01 sur 06 » · bouton « Fermer la fiche » (lecteurs d'écran) · type et lieu · nom · surface · durée des travaux · budget travaux · texte · une à trois photos du résultat (l'état d'avant est raconté par le texte) · bouton « Parlons de votre projet » · navigation « Autres projets » (lecteurs d'écran) : « ← Projet précédent » · « Projet suivant → »
+**Carrousel des photos (mobile) :** « Photo 1 sur 3 » · boutons « Photo précédente » et « Photo suivante »
 **Mention sous la galerie :** *Projets fictifs (démo) : les photos proviennent de banques d'images libres de droits.*
 
 **Textes alternatifs des photos** (validés le 25/11, fichiers dans `docs/photos.md`) :

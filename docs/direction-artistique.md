@@ -86,9 +86,9 @@ Poids mesuré des trois familles en sous-ensemble : **151 Ko**. Pas d'italique (
 ## Grille, espacements, traits
 
 - Conteneur : 1 280 px de contenu, marges `clamp(20px, 5.5vw, 80px)` (`--marge`). Gouttière 24 px.
-- Pas : 8 · 16 · 24 · 32 · 48 · 72 px. Sections : `padding-block: clamp(96px, 11vw, 160px)` (élargi le 25/11 à la réalisation de l'accueil), séparées par un filet.
+- Pas : 8 · 16 · 24 · 32 · 48 · 72 px. Sections : `padding-block: clamp(96px, 11vw, 160px)` (élargi le 25/11 à la réalisation de l'accueil), séparées par la ligne de cote du logo (120 px, bornes de 1,5 × 10 px, cobalt), centrée sur leur limite, à la place du filet pleine largeur (25/11).
 - **Point de rupture unique : 900 px** (menu replié, grilles sur une colonne, onglets et fiches en carrousel).
-- Traits : 2 px pour les boutons, soulignés et focus ; 1 px pour les filets. **Ligne de cote** (trait de 1 px entre deux bornes de 1,5 × 10–12 px) pour le logo, les surtitres et les légendes.
+- Traits : 2 px pour les boutons, soulignés et focus ; 1 px pour les filets. **Ligne de cote** (trait de 1 px entre deux bornes de 1,5 × 10–12 px) pour le logo, les séparateurs de sections et les légendes.
 - Cibles tactiles : 44 × 44 px au moins (boutons, flèches, numéros, filtres).
 
 ## Images

@@ -1,0 +1,117 @@
+---
+/*
+ * Carte d'une réalisation sur l'accueil : photo 4:3, « Type · Lieu », titre et fiche technique.
+ * Toute la carte se clique, mais le lien ne porte que le titre (nom accessible court) :
+ * sa zone cliquable est étendue à la carte par un pseudo-élément.
+ */
+import Photo from './Photo.astro';
+import type { Projet } from '../data/projets';
+
+interface Props {
+  projet: Projet;
+}
+
+const { projet } = Astro.props;
+const titre = projet.phare?.titre ?? projet.titre;
+const lieu = projet.phare?.lieu ?? projet.lieu;
+const photo = projet.photos[0];
+---
+
+<article class="carte-projet">
+  <Photo
+    src={photo.src}
+    alt={photo.alt}
+    widths={[400, 640, 860, 1240]}
+    sizes="(min-width: 1440px) 411px, (min-width: 900px) calc((100vw - 11vw - 48px) / 3), calc(100vw - 11vw)"
+    class="carte-projet__photo"
+  />
+  <p class="etiquette carte-projet__type">{projet.categorie} · {lieu}</p>
+  <h3 class="carte-projet__titre">
+    <a class="carte-projet__lien" href={`/realisations#${projet.id}`}>{titre}</a>
+  </h3>
+  <dl class="fiche-technique">
+    <div>
+      <dt>Surface</dt>
+      <dd>{projet.surface}</dd>
+    </div>
+    <div>
+      <dt>Durée</dt>
+      <dd>{projet.duree}</dd>
+    </div>
+  </dl>
+</article>
+
+<style>
+  .carte-projet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Toutes les cartes au même format 4:3, photo recadrée au centre */
+  .carte-projet :global(.carte-projet__photo) {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .carte-projet__lien {
+    color: var(--graphite);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  /* Zone cliquable étendue à toute la carte */
+  .carte-projet__lien::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .carte-projet:hover .carte-projet__lien {
+    color: var(--cobalt);
+  }
+
+  /* Focus : contour autour de toute la carte, pas seulement du titre */
+  .carte-projet__lien:focus-visible {
+    outline: none;
+  }
+
+  .carte-projet__lien:focus-visible::after {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* Fiche technique : deux colonnes séparées par un filet vertical */
+  .fiche-technique {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--pas-2);
+    margin-top: 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--filet);
+  }
+
+  .fiche-technique div + div {
+    padding-left: var(--pas-2);
+    border-left: 1px solid var(--filet);
+  }
+
+  .fiche-technique dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  .fiche-technique dd {
+    margin-top: 4px;
+    font-family: var(--titre);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+</style>

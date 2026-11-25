@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.2 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique)
+> Version 1.3 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -181,8 +181,8 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 | 6 | **Bureaux d'un cabinet de conseil** | Professionnels | Part-Dieu, Lyon 3e | 220 m² | 2 mois | 140 000 € | Plateau ouvert, quatre salles de réunion vitrées, cabines téléphoniques et une cuisine où l'équipe a envie de déjeuner. |
 
 **Bouton d'ouverture :** Voir la fiche
-**Fiche dépliée :** une à trois photos du résultat (l'état d'avant est raconté par le texte) · texte · surface · durée · budget travaux · bouton « Parlons de votre projet » · « Voir le projet suivant »
-**Carrousel des photos :** « Photo 1 sur 3 » · boutons « Photo précédente » et « Photo suivante »
+**Fiche (panneau latéral, plein écran en mobile) :** repère « Projet 01 sur 06 » · bouton « Fermer la fiche » (lecteurs d'écran) · type et lieu · nom · surface · durée des travaux · budget travaux · texte · une à trois photos du résultat (l'état d'avant est raconté par le texte) · bouton « Parlons de votre projet » · navigation « Autres projets » (lecteurs d'écran) : « ← Projet précédent » · « Projet suivant → »
+**Carrousel des photos (mobile) :** « Photo 1 sur 3 » · boutons « Photo précédente » et « Photo suivante »
 **Mention sous la galerie :** *Projets fictifs (démo) : les photos proviennent de banques d'images libres de droits.*
 
 **Textes alternatifs des photos** (validés le 25/11, fichiers dans `docs/photos.md`) :

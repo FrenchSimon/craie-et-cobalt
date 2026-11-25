@@ -84,12 +84,29 @@ if (galerie) {
     history.replaceState(null, '', `#${projet.id}`);
   };
 
+  /*
+   * Passage au projet voisin : la nouvelle fiche s'ouvre par-dessus l'ancienne, sans glissé du
+   * panneau ; seul son contenu entre, en fondu, du côté où l'on va. L'ancienne se ferme
+   * dessous (le fond assombri ne clignote pas). Le focus reste sur le bouton utilisé.
+   */
+  const passer = (depuis: HTMLLIElement, vers: HTMLLIElement, sens: number) => {
+    const ancienne = ficheDe(depuis);
+    const nouvelle = ficheDe(vers);
+    nouvelle.dataset.entree = sens > 0 ? 'suivant' : 'precedent';
+    ouvrir(vers);
+    ancienne.close();
+    nouvelle.querySelector<HTMLButtonElement>(`[data-sens="${sens}"]`)?.focus();
+  };
+
   projets.forEach((projet) => {
     const fiche = ficheDe(projet);
     remises.set(fiche, preparerCarrousel(fiche));
 
     boutonDe(projet).addEventListener('click', () => ouvrir(projet));
     fiche.querySelector('.fiche__fermer')!.addEventListener('click', () => fiche.close());
+
+    // Fin de l'entrée du contenu : la prochaine ouverture depuis la grille refera glisser le panneau
+    fiche.addEventListener('animationend', () => delete fiche.dataset.entree);
 
     // Clic sur le fond assombri (hors du panneau) : la cible est alors le <dialog> lui-même
     fiche.addEventListener('click', (evenement) => {
@@ -100,9 +117,8 @@ if (galerie) {
     fiche.querySelectorAll<HTMLButtonElement>('[data-sens]').forEach((bouton) => {
       bouton.addEventListener('click', () => {
         const liste = visibles();
-        const voisin = liste[(liste.indexOf(projet) + Number(bouton.dataset.sens) + liste.length) % liste.length];
-        fiche.close();
-        ouvrir(voisin);
+        const sens = Number(bouton.dataset.sens);
+        passer(projet, liste[(liste.indexOf(projet) + sens + liste.length) % liste.length], sens);
       });
     });
 

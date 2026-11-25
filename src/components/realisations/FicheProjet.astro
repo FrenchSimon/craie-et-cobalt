@@ -117,6 +117,8 @@ const carrousel = projet.photos.length > 1;
     background: var(--craie-claire);
     color: var(--graphite);
     flex-direction: column;
+    /* Rien ne déborde pendant l'entrée du contenu */
+    overflow: hidden;
     transition: transform 250ms ease-out;
   }
 
@@ -124,10 +126,34 @@ const carrousel = projet.photos.length > 1;
     display: flex;
   }
 
-  /* Entrée : glissé de 40 px depuis la droite (désactivé avec prefers-reduced-motion) */
+  /* Entrée depuis la grille : glissé de 40 px depuis la droite (désactivé avec prefers-reduced-motion) */
   @starting-style {
-    .fiche[open] {
+    .fiche[open]:not([data-entree]) {
       transform: translateX(40px);
+    }
+  }
+
+  /*
+   * Passage au projet précédent ou suivant : le panneau reste en place, le repère et le contenu
+   * entrent en fondu avec un glissé de 32 px, depuis la droite (suivant) ou la gauche (précédent).
+   */
+  .fiche[data-entree='suivant'] {
+    --decalage-entree: 32px;
+  }
+
+  .fiche[data-entree='precedent'] {
+    --decalage-entree: -32px;
+  }
+
+  .fiche[data-entree] .fiche__repere,
+  .fiche[data-entree] .fiche__corps {
+    animation: fiche-entree 320ms ease-out;
+  }
+
+  @keyframes fiche-entree {
+    from {
+      opacity: 0;
+      transform: translateX(var(--decalage-entree));
     }
   }
 

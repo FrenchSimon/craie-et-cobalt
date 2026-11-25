@@ -1,6 +1,6 @@
 # Photos — Craie & Cobalt
 
-> Version 1 — 2026-11-25 · Statut : **à valider**
+> Version 1 — 2026-11-25 · Statut : **validé** (25/11)
 > Source : Unsplash uniquement, sous licence Unsplash gratuite. Aucune photo Unsplash+ : toutes viennent de `images.unsplash.com`, pas de `plus.unsplash.com`.
 > Originaux dans `contenu/photos/` : 3000 px de large, JPEG qualité 85, téléchargés le 25/11/2026. On les optimise (AVIF/WebP, plusieurs tailles) à l'étape Réalisation.
 > Planche contact des candidates : `contenu/photos/planche.html`.

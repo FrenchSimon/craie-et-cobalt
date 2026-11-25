@@ -326,18 +326,27 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--pas-3) var(--pas-4);
+  gap: var(--pas-4);
   margin-top: 56px;
 }
 
-/* Sections : rythme vertical commun, séparées par un filet */
+/* Sections : rythme vertical commun, séparées par la ligne de cote du logo, centrée */
 
 .section {
+  position: relative;
   padding-block: var(--espace-section);
 }
 
-.section + .section {
-  border-top: 1px solid var(--filet);
+:is(.section, .accroche) + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120px;
+  height: 10px;
+  transform: translate(-50%, -50%);
+  border-inline: 1.5px solid var(--cobalt);
+  background: linear-gradient(var(--cobalt), var(--cobalt)) center / 100% 1px no-repeat;
 }
 
 @media (prefers-reduced-motion: reduce) {

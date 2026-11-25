@@ -80,6 +80,6 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 ## Décisions ouvertes
 
 - [x] Fiches projet : photos du résultat seulement, l'avant raconté par le texte (décidé le 25/11).
-- [ ] Image de la fondatrice : portrait de face (une vraie personne présentée comme fictive) ou image plus neutre (de dos, mains, atelier).
+- [x] Image de la fondatrice : portrait de face, pris sur une banque d'images ; la page précise que le studio est fictif (décidé le 25/11).
 - [ ] Fiches projet : dépliées dans la page Réalisations, ou une page courte par projet (URL partageables).
 - [ ] Adresse du site : sous-domaine Vercel `craie-et-cobalt.vercel.app`, comme Pistil & Ronce.

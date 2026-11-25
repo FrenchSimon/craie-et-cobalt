@@ -2,12 +2,14 @@
 import Base from '../layouts/Base.astro';
 import TetePage from '../components/TetePage.astro';
 import Picto from '../components/Picto.astro';
-import AppelAction from '../components/AppelAction.astro';
+import { contact } from '../data/navigation';
 import { prestations } from '../data/prestations';
 
 const title = "Prestations — Craie & Cobalt, architecte d'intérieur à Lyon";
 const description =
   "Visite-conseil, conception complète, suivi de chantier et aménagement de lieux professionnels à Lyon. Honoraires clairs, devis détaillé avant tout engagement.";
+
+const numero = (index: number) => String(index + 1).padStart(2, '0');
 ---
 
 <Base title={title} description={description}>
@@ -16,112 +18,151 @@ const description =
     chapeau="Chaque projet est différent. Vous pouvez faire appel au studio pour un conseil ponctuel ou pour l'ensemble du projet, du premier croquis à la remise des clés."
   />
 
-  <div class="prestations-detail conteneur">
-    <ol class="liste-nue">
-      {prestations.map((prestation, index) => (
-        <li class="prestation-detail" id={prestation.id}>
-          <article aria-labelledby={`titre-${prestation.id}`}>
-            <div class="prestation-detail__tete">
-              <Picto nom={prestation.picto} class="prestation-detail__picto" />
-              <div class="prestation-detail__nom">
-                <span class="numero" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <h2 id={`titre-${prestation.id}`}>{prestation.titre}</h2>
+  {/*
+    Tableau comparatif : 4 cartes côte à côte, lignes alignées d'une carte à l'autre (sous-grille).
+    Sous 900 px : carrousel de cartes (glisser, flèches, numéros), jamais automatique.
+  */}
+  <section class="comparatif fond-graphite" aria-labelledby="titre-comparatif">
+    <h2 class="visuellement-masque" id="titre-comparatif">Les quatre prestations</h2>
+    <div class="conteneur">
+      <ol class="comparatif__liste liste-nue">
+        {prestations.map((prestation, index) => (
+          <li class="carte-prestation" id={prestation.id}>
+            <div class="carte-prestation__tete">
+              <div class="carte-prestation__repere">
+                <Picto nom={prestation.picto} class="carte-prestation__picto" />
+                <span class="numero" aria-hidden="true">{numero(index)}</span>
               </div>
+              <h3 class="carte-prestation__titre">{prestation.titre}</h3>
+              <p class="carte-prestation__tarif">
+                <span class="carte-prestation__intitule">{prestation.intituleHonoraires}</span>
+                <span class:list={['carte-prestation__montant', { 'carte-prestation__montant--chiffre': prestation.montant }]}>
+                  {prestation.montant ?? prestation.tarif}
+                </span>
+              </p>
             </div>
+            <div class="carte-prestation__case">
+              <p class="carte-prestation__intitule">Pour qui</p>
+              <p>{prestation.pourQui}</p>
+            </div>
+            <div class="carte-prestation__case carte-prestation__case--inclus">
+              <p class="carte-prestation__intitule">Inclus</p>
+              <ul class="carte-prestation__inclus liste-nue">
+                {prestation.inclus.map((element) => <li>{element}</li>)}
+              </ul>
+            </div>
+            <div class="carte-prestation__case carte-prestation__case--detail">
+              <p>{prestation.montant ? `${prestation.montant} ${prestation.honoraires}` : prestation.honoraires}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
 
-            {/* Fiche : intitulé en Plex Mono à gauche, contenu à droite, filets entre les lignes */}
-            <dl class="prestation-detail__fiche">
-              <div class="prestation-detail__ligne">
-                <dt>Pour qui</dt>
-                <dd>{prestation.pourQui}</dd>
-              </div>
-              <div class="prestation-detail__ligne">
-                <dt>Inclus</dt>
-                <dd>
-                  <ul class="prestation-detail__inclus liste-nue">
-                    {prestation.inclus.map((element) => <li>{element}</li>)}
-                  </ul>
-                </dd>
-              </div>
-              <div class="prestation-detail__ligne">
-                <dt>{prestation.intituleHonoraires}</dt>
-                <dd>
-                  {prestation.montant && <span class="prestation-detail__montant">{prestation.montant}</span>}
-                  {prestation.honoraires}
-                </dd>
-              </div>
-            </dl>
-          </article>
-        </li>
-      ))}
-    </ol>
-  </div>
+      {/* Commandes du carrousel (mobile), affichées par le script : sans lui, la liste défile au doigt */}
+      <div class="comparatif__navigation" hidden>
+        <button class="comparatif__fleche" type="button" data-sens="-1" aria-label="Prestation précédente">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M11 3 5 9l6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+        </button>
+        <div class="comparatif__numeros">
+          {prestations.map((prestation, index) => (
+            <button class="comparatif__numero" type="button" data-index={index} aria-current={index === 0 ? 'true' : undefined}>
+              <span class="numero" aria-hidden="true">{numero(index)}</span>
+              <span class="visuellement-masque">{prestation.titre}</span>
+            </button>
+          ))}
+        </div>
+        <button class="comparatif__fleche" type="button" data-sens="1" aria-label="Prestation suivante">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="m7 3 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+        </button>
+      </div>
+    </div>
+  </section>
 
-  <AppelAction titre="Comment sont calculés nos honoraires" bouton="Demander un devis">
-    <p>Après la visite, vous recevez un devis détaillé : ce qui est inclus, le montant des honoraires et le calendrier. Rien n'est engagé avant votre signature.</p>
-    <p>Le studio est assuré en responsabilité civile professionnelle et en garantie décennale.</p>
-  </AppelAction>
+  {/* Honoraires : trois colonnes libres, centrées verticalement, sans cadre ni filet */}
+  <section class="section" aria-labelledby="titre-honoraires">
+    <div class="honoraires conteneur">
+      <h2 class="honoraires__titre" id="titre-honoraires">Comment sont calculés nos honoraires</h2>
+      <p class="honoraires__texte">Après la visite, vous recevez un devis détaillé : ce qui est inclus, le montant des honoraires et le calendrier. Rien n'est engagé avant votre signature.</p>
+      <div class="honoraires__action">
+        <p class="honoraires__assurance">Le studio est assuré en responsabilité civile professionnelle et en garantie décennale.</p>
+        <p><a class="bouton" href={contact.href}>Demander un devis</a></p>
+      </div>
+    </div>
+  </section>
 </Base>
 
+<script>
+  import '../scripts/comparatif';
+</script>
+
 <style>
-  /* Les 4 prestations les unes sous les autres, entre filets : nom à gauche (5/12), fiche à droite (7/12) */
-  .prestations-detail {
-    padding-block: var(--pas-6) var(--espace-section);
+  .comparatif {
+    padding-block: clamp(72px, 8.5vw, 120px);
   }
 
-  .prestation-detail {
-    padding-block: 56px;
-    border-top: 1px solid var(--filet);
-    /* L'ancre ne colle pas au bord haut de l'écran */
-    scroll-margin-top: var(--pas-3);
-  }
-
-  .prestation-detail:last-child {
-    border-bottom: 1px solid var(--filet);
-  }
-
-  .prestation-detail article {
+  /* Bureau : 4 colonnes ; chaque carte occupe 4 rangées partagées (sous-grille), d'où des lignes alignées */
+  .comparatif__liste {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--pas-5) var(--pas-3);
-  }
-
-  /* Le nom accompagne la lecture de la fiche, qui est plus longue que lui */
-  .prestation-detail__tete {
-    position: sticky;
-    top: var(--pas-4);
-    align-self: start;
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--pas-3);
   }
 
-  .prestation-detail__nom {
+  /* Écrans moyens : 4 colonnes trop étroites pour les noms, tableau en 2 × 2 */
+  @media (min-width: 900px) and (max-width: 1199.98px) {
+    .comparatif__liste {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .carte-prestation {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+    background: var(--craie-claire);
+    color: var(--graphite);
+    scroll-margin-top: var(--pas-3);
+  }
+
+  .carte-prestation > * {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 24px clamp(20px, 2.2vw, 28px);
   }
 
-  .prestation-detail__ligne {
-    display: grid;
-    grid-template-columns: 136px minmax(0, 1fr);
-    gap: var(--pas-1) var(--pas-3);
-    padding-block: 20px;
+  .carte-prestation > * + * {
     border-top: 1px solid var(--filet);
   }
 
-  .prestation-detail__ligne:first-child {
-    padding-top: 0;
-    border-top: 0;
+  .carte-prestation__tete {
+    gap: 0;
+    padding-top: 36px;
+    padding-bottom: 28px;
   }
 
-  .prestation-detail__ligne:last-child {
-    padding-bottom: 0;
+  .carte-prestation__repere {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  /* Intitulé de fiche : Plex Mono 11 px, capitales, gris cote ; calé sur la première ligne du texte */
-  .prestation-detail dt {
-    padding-top: 7px;
+  .carte-prestation__titre {
+    margin-top: 28px;
+    font-size: 26px;
+    line-height: 1.15;
+  }
+
+  /* Tarif calé en bas de la tête : les tarifs s'alignent même si un nom passe sur deux lignes */
+  .carte-prestation__tarif {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+
+  .carte-prestation__intitule {
     font-family: var(--mono);
     font-size: 11px;
     font-weight: 500;
@@ -130,71 +171,211 @@ const description =
     color: var(--gris);
   }
 
-  /* Éléments inclus : tiret au trait gris cote, comme un relevé */
-  .prestation-detail__inclus {
+  /* Tarif : chiffre clé en cobalt (ce qui se mesure) */
+  .carte-prestation__montant {
+    font-family: var(--titre);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--cobalt);
+  }
+
+  .carte-prestation__montant--chiffre {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .carte-prestation__case {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .carte-prestation__case--inclus {
+    font-size: 16px;
+  }
+
+  .carte-prestation__inclus {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--pas-1);
   }
 
-  .prestation-detail__inclus li {
+  /* Éléments inclus : tiret au trait gris cote */
+  .carte-prestation__inclus li {
     position: relative;
-    padding-left: 24px;
+    padding-left: 20px;
   }
 
-  .prestation-detail__inclus li::before {
+  .carte-prestation__inclus li::before {
     content: '';
     position: absolute;
     top: 0.8em;
     left: 0;
-    width: 12px;
+    width: 10px;
     height: 1px;
     background: var(--gris);
   }
 
-  /* Chiffre clé : Archivo 500 22 px */
-  .prestation-detail__montant {
-    margin-right: 4px;
-    font-family: var(--titre);
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 1;
+  .carte-prestation__case--detail {
+    padding-bottom: 36px;
+    font-size: 15px;
+    color: var(--gris);
+  }
+
+  /* Honoraires : titre (4/12), texte (5/12), assurance et bouton (3/12) */
+  .honoraires {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr);
+    gap: var(--pas-5);
+    align-items: center;
+  }
+
+  .honoraires__texte {
+    font-size: clamp(19px, 1.5vw, 21px);
+    line-height: 1.5;
+  }
+
+  .honoraires__action {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-4);
+  }
+
+  .honoraires__assurance {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gris);
   }
 
   @media (max-width: 899.98px) {
-    .prestations-detail {
-      padding-top: var(--pas-5);
+    .comparatif {
+      padding-bottom: 64px;
     }
 
-    .prestation-detail {
-      padding-block: 40px;
+    /* Carrousel : les cartes défilent à l'horizontale, la suivante dépasse à droite */
+    .comparatif__liste {
+      display: flex;
+      gap: var(--pas-2);
+      margin-inline: calc(-1 * var(--marge));
+      padding-inline: var(--marge);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--marge);
+      scrollbar-width: none;
     }
 
-    .prestation-detail article {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 28px;
+    .comparatif__liste::-webkit-scrollbar {
+      display: none;
     }
 
-    /* Pictogramme à gauche du numéro et du nom */
-    .prestation-detail__tete {
-      position: static;
-      flex-direction: row;
+    .carte-prestation {
+      display: flex;
+      flex: 0 0 min(300px, 82%);
+      flex-direction: column;
+      scroll-snap-align: start;
+    }
+
+    .carte-prestation > * {
+      padding: 22px;
+    }
+
+    .carte-prestation__tete {
+      padding-top: 28px;
+    }
+
+    .carte-prestation :global(.carte-prestation__picto) {
+      width: 48px;
+      height: 48px;
+    }
+
+    .carte-prestation__titre {
+      margin-top: var(--pas-3);
+    }
+
+    .carte-prestation__montant--chiffre {
+      font-size: 28px;
+    }
+
+    .carte-prestation__case--detail {
+      flex-grow: 1;
+      padding-bottom: 28px;
+    }
+
+    /* Flèche, numéros 01–04 soulignés, flèche : comme la démarche de l'accueil, en craie */
+    .comparatif__navigation:not([hidden]) {
+      display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .prestation-detail :global(.prestation-detail__picto) {
+    .comparatif__fleche {
+      display: inline-grid;
+      place-items: center;
       width: 44px;
       height: 44px;
+      padding: 0;
+      border: 1px solid var(--craie);
+      background: none;
+      color: var(--craie);
+      cursor: pointer;
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        opacity var(--transition);
     }
 
-    .prestation-detail__ligne {
+    .comparatif__fleche:hover:not(:disabled) {
+      background: var(--craie);
+      color: var(--graphite);
+    }
+
+    .comparatif__fleche:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    .comparatif__numeros {
+      display: flex;
+      gap: 4px;
+    }
+
+    .comparatif__numero {
+      display: inline-grid;
+      place-items: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 6px;
+      border: 0;
+      border-bottom: 2px solid var(--filet-sombre);
+      background: none;
+      cursor: pointer;
+    }
+
+    .comparatif__numero .numero {
+      color: var(--gris-clair);
+    }
+
+    .comparatif__numero[aria-current='true'] {
+      border-bottom-color: var(--craie);
+    }
+
+    .comparatif__numero:hover .numero,
+    .comparatif__numero[aria-current='true'] .numero {
+      color: var(--craie);
+    }
+
+    .honoraires {
       grid-template-columns: minmax(0, 1fr);
-      padding-block: 16px;
+      gap: var(--pas-3);
     }
+  }
 
-    .prestation-detail dt {
-      padding-top: 0;
+  @media (min-width: 900px) {
+    .comparatif__navigation {
+      display: none;
     }
   }
 </style>

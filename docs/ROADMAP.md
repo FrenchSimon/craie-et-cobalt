@@ -29,6 +29,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 - [ ] Typographies libres et auto-hébergeables (titre + texte), avec sous-ensembles latins.
 - [ ] Logo typographique « Craie & Cobalt » et favicon (vectorisés dans `contenu/logo/`).
 - [ ] Composants : boutons, liens, champs, cartes de projet, filtres, fiche dépliable, bandeau démo, états de focus.
+- [ ] Étalonnage commun des photos : 2 ou 3 réglages (blancs, noirs, saturation) accordés à la palette, sur une planche avant/après des 12 photos ; le cobalt reste la seule couleur vive.
 - [ ] **Livrable :** planche de style + maquettes de l'accueil et de la page Réalisations, en mobile et en bureau.
 - [ ] Mesurer ce qui est repris de Pistil & Ronce et ce qui est fait sur mesure (point ouvert de l'offre : niveau de design).
 
@@ -40,16 +41,17 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 ## 5. Réalisation — `feat/<page>`, un commit par section
 
 1. [ ] **Socle :** projet, polices, variables de style, mise en page commune, lien d'évitement, bandeau démo, en-tête et navigation (`aria-current="page"`), pied de page.
-2. [ ] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
-3. [ ] **Prestations :** 4 prestations, honoraires, appel à l'action.
-4. [ ] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), fiches dépliables au clavier, images différées, poids de la page surveillé.
-5. [ ] **Le studio :** fondatrice, démarche, artisans partenaires, zone d'intervention.
-6. [ ] **Contact :** formulaire accessible, validation, erreurs reliées aux champs, message de démo annoncé (`aria-live`), aucun envoi.
-7. [ ] **Mentions légales et confidentialité.**
-8. [ ] **Page 404.**
-9. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
-10. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
-11. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
+2. [ ] **Photos :** étalonnage validé appliqué aux 12 photos par script (repris de Pistil & Ronce), titre « Louis Vuitton » effacé sur la photo de la boutique, export AVIF/WebP en plusieurs tailles.
+3. [ ] **Accueil :** accroche (image LCP prioritaire, non différée), 3 réalisations phares, prestations en bref, démarche, avis (« Avis fictifs (démo) »), appel à l'action.
+4. [ ] **Prestations :** 4 prestations, honoraires, appel à l'action.
+5. [ ] **Réalisations :** galerie filtrable (`aria-pressed`, résultat annoncé en `aria-live`), fiches dépliables au clavier, images différées, poids de la page surveillé.
+6. [ ] **Le studio :** fondatrice, démarche, artisans partenaires, zone d'intervention.
+7. [ ] **Contact :** formulaire accessible, validation, erreurs reliées aux champs, message de démo annoncé (`aria-live`), aucun envoi.
+8. [ ] **Mentions légales et confidentialité.**
+9. [ ] **Page 404.**
+10. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
+11. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
+12. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.
 

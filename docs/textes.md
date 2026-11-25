@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.8 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes)
+> Version 1.9 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page clair, colonnes « Pages » et « Studio »)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -21,11 +21,10 @@ Logo **Craie & Cobalt** (lien vers l'accueil) · Prestations · Réalisations ·
 
 ### Pied de page
 
-- **Craie & Cobalt** — Architecture intérieure à Lyon
-- 12 rue des Tisseuses, 69004 Lyon · 04 65 71 38 12 · bonjour@craie-et-cobalt.fr *(fictifs)*
-- Sur rendez-vous, du lundi au vendredi
-- Instagram · LinkedIn *(fictifs, liens désactivés)*
-- Mentions légales et confidentialité · © 2026 Craie & Cobalt — studio fictif
+- Logo **Craie & Cobalt** (lien vers l'accueil) — Architecture intérieure à Lyon
+- **Pages :** Prestations · Réalisations · Le studio · Contact
+- **Studio :** 12 rue des Tisseuses, 69004 Lyon · 04 65 71 38 12 · bonjour@craie-et-cobalt.fr *(fictifs)* · Sur rendez-vous, du lundi au vendredi
+- Mentions légales et confidentialité · Instagram · LinkedIn *(fictifs, liens désactivés)* · © 2026 Craie & Cobalt — studio fictif
 
 ### Textes pour les lecteurs d'écran (invisibles)
 

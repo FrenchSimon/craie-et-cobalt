@@ -1,13 +1,18 @@
 ---
-/* Appel à l'action en bas de page : bande graphite, titre et texte facultatifs, bouton vers Contact. */
+/*
+ * Appel à l'action en bas de page : bande graphite, titre, texte facultatif (propriété courte ou
+ * paragraphes en contenu), bouton vers Contact.
+ */
 import { contact } from '../data/navigation';
 
 interface Props {
   titre: string;
   texte?: string;
+  /** Intitulé du bouton, « Parlons de votre projet » par défaut. */
+  bouton?: string;
 }
 
-const { titre, texte } = Astro.props;
+const { titre, texte, bouton = contact.texte } = Astro.props;
 ---
 
 <section class="appel-action fond-graphite" aria-labelledby="titre-appel-action">
@@ -15,8 +20,9 @@ const { titre, texte } = Astro.props;
     <div>
       <h2 id="titre-appel-action">{titre}</h2>
       {texte && <p class="appel-action__texte">{texte}</p>}
+      {Astro.slots.has('default') && <div class="appel-action__texte"><slot /></div>}
     </div>
-    <a class="bouton bouton--craie-plein" href={contact.href}>{contact.texte}</a>
+    <a class="bouton bouton--craie-plein" href={contact.href}>{bouton}</a>
   </div>
 </section>
 
@@ -38,5 +44,9 @@ const { titre, texte } = Astro.props;
     max-width: 34em;
     margin-top: 12px;
     color: var(--gris-clair);
+  }
+
+  .appel-action__texte :global(p + p) {
+    margin-top: 12px;
   }
 </style>

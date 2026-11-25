@@ -1,0 +1,385 @@
+/*
+ * Formulaire de contact (page Contact) : étapes, champs, tuiles, erreurs et message de démo.
+ * Feuille à part : les champs viennent aussi de composants (Liste, Erreur).
+ */
+
+/* Formulaire : avancement, message de démo, puis les étapes */
+.formulaire {
+  grid-area: formulaire;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pas-4);
+  min-width: 0;
+}
+
+/* Avancement : trois segments de 2 px, cobalt jusqu'à l'étape en cours */
+.progression {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.progression[hidden] {
+  display: none;
+}
+
+.progression li {
+  height: 2px;
+  background: var(--filet);
+  transition: background-color 300ms;
+}
+
+.progression li[data-faite] {
+  background: var(--cobalt);
+}
+
+/* Étape : fieldset sans cadre ; le titre (repère et H2) est sa légende */
+.etape {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.etape[hidden] {
+  display: none;
+}
+
+/* Légende posée en bloc (float) : sinon elle reste accrochée au bord du fieldset */
+.etape__tete {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: var(--pas-4);
+  padding: 0;
+}
+
+.etape__titre {
+  font-size: clamp(28px, 2.4vw, 34px);
+  line-height: 1.1;
+}
+
+/* Champs de l'étape : deux colonnes, champs larges sur toute la ligne */
+.etape__champs {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px var(--pas-3);
+}
+
+/* Apparition de l'étape affichée par le script : fondu et léger glissé (supprimés en mouvement réduit) */
+.etape--entree {
+  animation: etape-entree 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes etape-entree {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.etape__commandes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pas-2);
+  margin-top: var(--pas-5);
+}
+
+/* Sans script, la commande de la première étape est vide */
+.etape__commandes:not(:has(:not([hidden]))) {
+  display: none;
+}
+
+/* Continuer et Envoyer à droite, Retour à gauche */
+.etape__commandes [data-suivant],
+.etape__commandes [type='submit'] {
+  margin-left: auto;
+}
+
+.champ {
+  min-width: 0;
+}
+
+.champ--large {
+  grid-column: 1 / -1;
+}
+
+.champ > label,
+.tuiles__legende {
+  display: block;
+  margin-bottom: var(--pas-1);
+  font-family: var(--titre);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.champ__facultatif {
+  color: var(--gris);
+  font-weight: 400;
+}
+
+/* Champs : craie claire, bord gris cote 1 px, angles droits, 48 px de haut */
+.champ input,
+.champ select,
+.champ textarea {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 11px 14px;
+  border: 1px solid var(--gris);
+  border-radius: 0;
+  background: var(--craie-claire);
+  font-family: var(--titre);
+  font-size: 16px;
+  line-height: 1.5;
+  appearance: none;
+  transition: border-color var(--transition);
+}
+
+.champ textarea {
+  min-height: 184px;
+  font-family: var(--texte);
+  font-size: 18px;
+  resize: vertical;
+}
+
+.champ input:hover,
+.champ select:hover,
+.champ textarea:hover {
+  border-color: var(--graphite);
+}
+
+/* Focus : bord cobalt de 2 px (le second pixel en ombre intérieure, le texte ne bouge pas) et contour */
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+  border-color: var(--cobalt);
+  box-shadow: inset 0 0 0 1px var(--cobalt);
+}
+
+.champ input:focus-visible,
+.champ select:focus-visible,
+.champ textarea:focus-visible {
+  outline-offset: 2px;
+}
+
+/* Surface : unité en gris cote dans le champ, à droite */
+.champ__unite {
+  position: relative;
+}
+
+.champ__unite input {
+  padding-right: 52px;
+}
+
+.champ__suffixe {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: var(--gris);
+  font-family: var(--titre);
+  font-size: 16px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Listes : chevron dessiné, à droite */
+.champ__liste {
+  position: relative;
+}
+
+.champ select {
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+.champ__chevron {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  color: var(--graphite);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Liste personnalisable (Chrome) : ouverte sous le champ, aux couleurs de la palette ; ailleurs, liste native */
+@supports (appearance: base-select) {
+  .champ select,
+  .champ select::picker(select) {
+    appearance: base-select;
+  }
+
+  .champ select::picker-icon {
+    display: none;
+  }
+
+  .champ select::picker(select) {
+    margin-block: 4px;
+    padding: 4px 0;
+    border: 1px solid var(--gris);
+    background: var(--craie-claire);
+    color: var(--graphite);
+  }
+
+  .champ option {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-family: var(--titre);
+    font-size: 16px;
+  }
+
+  .champ option::checkmark {
+    color: var(--cobalt);
+  }
+
+  .champ option:hover,
+  .champ option:focus-visible {
+    background: var(--cobalt-pale);
+    color: var(--cobalt);
+  }
+
+  .champ option:focus-visible {
+    outline-offset: -2px;
+  }
+
+  .champ option:checked {
+    font-weight: 600;
+  }
+}
+
+/* Erreur : bord brique 2 px, icône et message brique sous le champ (la couleur n'est pas le seul indice) */
+.champ [aria-invalid='true'],
+.champ [aria-invalid='true']:hover,
+.champ [aria-invalid='true']:focus {
+  border-color: var(--brique);
+  box-shadow: inset 0 0 0 1px var(--brique);
+}
+
+.champ .champ__erreur {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--pas-1);
+  margin-top: 10px;
+  color: var(--brique);
+  font-family: var(--titre);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.champ .champ__erreur[hidden] {
+  display: none;
+}
+
+.champ .champ__erreur svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Type de projet : tuiles (boutons radio), contour gris cote ; cochée : plein cobalt, texte craie */
+.tuiles {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tuiles__legende {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+.tuiles__liste {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: var(--pas-1);
+}
+
+.tuile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 12px 16px;
+  border: 1px solid var(--gris);
+  background: var(--craie-claire);
+  font-family: var(--titre);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+/* Bouton radio masqué mais lu, et toujours atteignable au clavier (flèches) */
+.tuiles .tuile input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tuile:hover {
+  border-color: var(--cobalt);
+  background: var(--cobalt-pale);
+  color: var(--cobalt);
+}
+
+.tuile:has(input:checked) {
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+  color: var(--craie);
+}
+
+.tuile:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.tuiles[data-erreur] .tuile {
+  border-color: var(--brique);
+}
+
+.formulaire__statut:empty {
+  display: none;
+}
+
+.formulaire__statut {
+  padding: 18px 22px;
+  border-left: 2px solid var(--cobalt);
+  background: var(--craie-claire);
+  font-size: 18px;
+}
+
+
+.formulaire__statut:focus {
+  outline: none;
+}
+
+/* Petits écrans : une seule colonne de champs, boutons pleine largeur */
+@media (max-width: 599.98px) {
+  .etape__champs {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--pas-3);
+  }
+
+  .etape__commandes .bouton {
+    flex: 1 1 auto;
+  }
+}

@@ -1,16 +1,232 @@
 ---
 import Base from '../layouts/Base.astro';
+import TetePage from '../components/TetePage.astro';
+import Erreur from '../components/contact/Erreur.astro';
+import '../styles/formulaire.css';
+import Liste from '../components/contact/Liste.astro';
+import type { Props as ListeProps } from '../components/contact/Liste.astro';
 
 const title = "Contact — Craie & Cobalt, architecte d'intérieur à Lyon";
 const description =
   "Parlez-nous de votre projet de rénovation ou d'aménagement à Lyon. Réponse sous 48 heures ouvrées, visite-conseil sur rendez-vous.";
+
+/* Formulaire en 3 étapes (docs/textes.md § 5) */
+const etapes = ['Votre projet', 'En quelques mots', 'Vos coordonnées'];
+const repere = (index: number) => `Étape ${index + 1} sur ${etapes.length}`;
+
+/* Type de projet en tuiles (boutons radio), puis les listes facultatives */
+const typeProjet = {
+  id: 'contact-type',
+  nom: 'type',
+  libelle: 'Type de projet',
+  options: ['Appartement', 'Maison', 'Boutique ou restaurant', 'Bureaux', 'Autre'],
+};
+
+const prestation: ListeProps = {
+  id: 'contact-prestation',
+  nom: 'prestation',
+  libelle: 'Prestation souhaitée',
+  options: ['Visite-conseil', 'Conception complète', 'Conception et suivi de chantier', 'Je ne sais pas encore'],
+};
+
+const budget: ListeProps = {
+  id: 'contact-budget',
+  nom: 'budget',
+  libelle: 'Budget travaux envisagé',
+  options: ['Moins de 30 000 €', '30 000 à 80 000 €', '80 000 à 150 000 €', 'Plus de 150 000 €', 'Je ne sais pas encore'],
+};
+
+const debut: ListeProps = {
+  id: 'contact-debut',
+  nom: 'debut',
+  libelle: 'Début souhaité',
+  options: ['Dès que possible', 'Dans 3 à 6 mois', 'Dans plus de 6 mois'],
+};
 ---
 
 <Base title={title} description={description}>
-  <section class="section">
-    <div class="conteneur">
-      <h1>Parlons de votre projet</h1>
-      <p class="chapeau">Quelques informations suffisent pour commencer. Nous vous répondons sous 48 heures ouvrées pour fixer un premier rendez-vous.</p>
-    </div>
-  </section>
+  <TetePage
+    titre="Parlons de votre projet"
+    chapeau="Quelques informations suffisent pour commencer. Nous vous répondons sous 48 heures ouvrées pour fixer un premier rendez-vous."
+  />
+
+  <div class="contact conteneur">
+    {/*
+      Coordonnées fictives : texte seul, sans lien tel: ni mailto:. Placées avant le formulaire
+      (lues en premier, en tête en mobile), à droite en bureau.
+    */}
+    <section class="coordonnees" aria-labelledby="titre-coordonnees">
+      <h2 class="etiquette" id="titre-coordonnees">Coordonnées</h2>
+      <address>
+        <p>12 rue des Tisseuses, <span class="insecable">69004 Lyon</span> <span class="insecable">— sur rendez-vous</span></p>
+        <p class="insecable">04 65 71 38 12</p>
+        <p>bonjour@craie-et-cobalt.fr</p>
+      </address>
+      <p class="coordonnees__fictif">(Coordonnées fictives.)</p>
+    </section>
+
+    {/*
+      Démo : rien n'est envoyé ni conservé. method="dialog" hors d'une fenêtre : même sans script,
+      le navigateur n'envoie rien. Trois étapes : le script en montre une à la fois (boutons Continuer
+      et Retour) ; sans lui, elles s'affichent les unes sous les autres.
+    */}
+    <form class="formulaire" method="dialog" aria-label="Parlons de votre projet" data-formulaire-demo>
+      {/* Avancement, affiché par le script ; le repère « Étape 1 sur 3 » de chaque titre le dit aux lecteurs d'écran */}
+      <ol class="progression liste-nue" aria-hidden="true" hidden data-progression>
+        {etapes.map(() => <li></li>)}
+      </ol>
+
+      {/* Zone toujours présente (vide au départ) pour que l'annonce soit lue */}
+      <p class="formulaire__statut" role="status" aria-live="polite" tabindex="-1" data-statut></p>
+
+      <fieldset class="etape" data-etape>
+        <legend class="etape__tete" tabindex="-1">
+          <span class="etiquette surtitre">{repere(0)}</span>
+          <h2 class="etape__titre">{etapes[0]}</h2>
+        </legend>
+        <div class="etape__champs">
+          <fieldset class="champ champ--large tuiles" data-groupe="contact-type">
+            <legend class="tuiles__legende">{typeProjet.libelle}</legend>
+            <div class="tuiles__liste">
+              {typeProjet.options.map((option, index) => (
+                <label class="tuile">
+                  <input type="radio" name={typeProjet.nom} value={option} required id={index === 0 ? typeProjet.id : undefined} />
+                  <span>{option}</span>
+                </label>
+              ))}
+            </div>
+            <Erreur id={`${typeProjet.id}-erreur`} />
+          </fieldset>
+
+          <Liste {...prestation} />
+
+          <div class="champ">
+            <label for="contact-surface">Surface approximative <span class="champ__facultatif">(facultatif)</span></label>
+            {/* Champ texte à clavier numérique : un champ number accepte « e » et change à la molette */}
+            <div class="champ__unite">
+              <input id="contact-surface" name="surface" type="text" inputmode="numeric" autocomplete="off" aria-describedby="contact-surface-unite" />
+              <span class="champ__suffixe" id="contact-surface-unite">m²</span>
+            </div>
+          </div>
+
+          <Liste {...budget} />
+          <Liste {...debut} />
+        </div>
+        <div class="etape__commandes">
+          <button class="bouton" type="button" hidden data-suivant>Continuer</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="etape" data-etape>
+        <legend class="etape__tete" tabindex="-1">
+          <span class="etiquette surtitre">{repere(1)}</span>
+          <h2 class="etape__titre">{etapes[1]}</h2>
+        </legend>
+        <div class="etape__champs">
+          <div class="champ champ--large">
+            <label for="contact-message">Votre projet en quelques mots</label>
+            <textarea id="contact-message" name="message" rows="8" required></textarea>
+            <Erreur id="contact-message-erreur" />
+          </div>
+        </div>
+        <div class="etape__commandes">
+          <button class="bouton bouton--graphite" type="button" hidden data-precedent>Retour</button>
+          <button class="bouton" type="button" hidden data-suivant>Continuer</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="etape" data-etape>
+        <legend class="etape__tete" tabindex="-1">
+          <span class="etiquette surtitre">{repere(2)}</span>
+          <h2 class="etape__titre">{etapes[2]}</h2>
+        </legend>
+        <div class="etape__champs">
+          <div class="champ">
+            <label for="contact-nom">Nom</label>
+            <input id="contact-nom" name="nom" type="text" autocomplete="name" required />
+            <Erreur id="contact-nom-erreur" />
+          </div>
+
+          <div class="champ">
+            <label for="contact-email">E-mail</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" spellcheck="false" required />
+            <Erreur id="contact-email-erreur" />
+          </div>
+
+          <div class="champ">
+            <label for="contact-telephone">Téléphone <span class="champ__facultatif">(facultatif)</span></label>
+            <input id="contact-telephone" name="telephone" type="tel" autocomplete="tel" />
+            <Erreur id="contact-telephone-erreur" />
+          </div>
+        </div>
+        <div class="etape__commandes">
+          <button class="bouton bouton--graphite" type="button" hidden data-precedent>Retour</button>
+          <button class="bouton" type="submit">Envoyer ma demande</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
 </Base>
+
+<script>
+  import '../scripts/contact';
+</script>
+
+<style>
+  /*
+   * Bureau : formulaire sur 8 colonnes à gauche, coordonnées sur 4 colonnes à droite, sous un filet.
+   * Mobile : coordonnées d'abord (trois lignes), puis le formulaire.
+   */
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    grid-template-areas: 'formulaire coordonnees';
+    align-items: start;
+    gap: var(--pas-5) clamp(48px, 7vw, 112px);
+    padding-bottom: var(--espace-section);
+  }
+
+  .coordonnees {
+    grid-area: coordonnees;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-2);
+    padding-top: var(--pas-3);
+    border-top: 1px solid var(--filet);
+    font-family: var(--titre);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .coordonnees h2 {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .coordonnees address {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-style: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .coordonnees__fictif {
+    color: var(--gris);
+    font-size: 14px;
+  }
+
+  .insecable {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 899.98px) {
+    .contact {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'coordonnees'
+        'formulaire';
+    }
+  }
+</style>

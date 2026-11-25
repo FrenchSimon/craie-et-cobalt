@@ -1,0 +1,23 @@
+---
+/* Liste déroulante facultative du formulaire : libellé, « (facultatif) », chevron dessiné.
+   La première option, vide, signifie « pas encore choisi ». */
+export interface Props {
+  id: string;
+  nom: string;
+  libelle: string;
+  options: string[];
+}
+
+const { id, nom, libelle, options } = Astro.props;
+---
+
+<div class="champ">
+  <label for={id}>{libelle} <span class="champ__facultatif">(facultatif)</span></label>
+  <div class="champ__liste">
+    <select id={id} name={nom}>
+      <option value=""></option>
+      {options.map((option) => <option>{option}</option>)}
+    </select>
+    <svg class="champ__chevron" width="14" height="9" viewBox="0 0 14 9" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1.5 7 7.5l6-6"></path></svg>
+  </div>
+</div>

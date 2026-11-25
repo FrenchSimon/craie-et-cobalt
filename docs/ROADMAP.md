@@ -8,7 +8,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 1 | Textes | `docs/textes.md` | 0,5 j | ✅ validé le 25/11 (PR #1) |
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
-| 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | 🔎 proposé le 25/11, à valider |
+| 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
 | 5 | Réalisation | Site complet en local | 5 j | ⏳ à venir |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
@@ -35,8 +35,8 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 
 ## 4. Stack — `docs/stack.md`
 
-- [ ] Évaluer en premier la reprise du socle Pistil & Ronce (Astro 7, versions figées, Node 24) : ce qui se réutilise tel quel, ce qui change pour 5 pages.
-- [ ] Points à trancher en même temps : mise en page commune et navigation entre pages, pipeline d'images (AVIF/WebP, `srcset`), galerie filtrable et fiches dépliables sans dépendance, `sitemap.xml`.
+- [x] Évaluer en premier la reprise du socle Pistil & Ronce (Astro 7, versions figées, Node 24) : ce qui se réutilise tel quel, ce qui change pour 5 pages.
+- [x] Points à trancher en même temps : mise en page commune et navigation entre pages, pipeline d'images (AVIF/WebP, `srcset`), galerie filtrable et fiches dépliables sans dépendance, `sitemap.xml`.
 
 ## 5. Réalisation — `feat/<page>`, un commit par section
 
@@ -48,16 +48,17 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 6. [ ] **Le studio :** fondatrice, démarche, artisans partenaires, zone d'intervention.
 7. [ ] **Contact :** formulaire accessible, validation, erreurs reliées aux champs, message de démo annoncé (`aria-live`), aucun envoi.
 8. [ ] **Mentions légales et confidentialité.**
-9. [ ] **Page 404.**
-10. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
-11. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
-12. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
+9. [ ] **Plan du site** (`/plan-du-site`) : liste de toutes les pages et des 6 fiches projet, lien dans le pied de page (second système de navigation, critère 12.1 du RGAA). Ses textes (title, description, titre, intitulé du lien) sont à ajouter à `textes.md` après accord.
+10. [ ] **Page 404.**
+11. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
+12. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
+13. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.
 
 ## 6. Recette qualité
 
-- [ ] **Accessibilité :** navigation au clavier complète sur les 5 pages, axe sans erreur, contrastes.
+- [ ] **Accessibilité :** navigation au clavier complète sur les 5 pages, plan du site à jour, axe sans erreur, contrastes.
 - [ ] **Lecteur d'écran :** VoiceOver sur macOS avec Safari : navigation, filtres de la galerie, fiches dépliables, formulaire.
 - [ ] **Performance :** Lighthouse mobile ≥ 95 sur chaque page, LCP < 2,5 s, INP < 200 ms, CLS < 0,1 ; poids de la page Réalisations.
 - [ ] **Responsive :** 320, 375, 768, 1024, 1440 et 1920 px, sans débordement.
@@ -84,4 +85,4 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 - [x] Fiches projet : photos du résultat seulement, l'avant raconté par le texte (décidé le 25/11).
 - [x] Image de la fondatrice : portrait de face, pris sur une banque d'images ; la page précise que le studio est fictif (décidé le 25/11).
 - [x] Fiches projet : panneau latéral (`<dialog>`) dans la page Réalisations, ouvrable par l'adresse `realisations#<projet>` (décidé le 25/11).
-- [ ] Adresse du site : sous-domaine Vercel `craie-et-cobalt.vercel.app`, comme Pistil & Ronce.
+- [x] Adresse du site : sous-domaine Vercel `craie-et-cobalt.vercel.app`, comme Pistil & Ronce (décidé le 25/11).

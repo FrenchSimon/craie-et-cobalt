@@ -1,6 +1,6 @@
 # Stack — Craie & Cobalt
 
-> Étape 4. Version 1 — 2026-11-25 · Statut : **à valider**
+> Étape 4. Version 1 — 2026-11-25 · Statut : **validé le 25/11/2026**
 >
 > Critères (`AGENTS.md`) : site statique, sans CMS, hébergé sur Vercel ; aucun script tiers ; CSP stricte sans `unsafe-inline` ; images AVIF/WebP en plusieurs tailles ; dépendances minimales. Point de départ imposé : évaluer la reprise du socle de Pistil & Ronce. Versions relevées sur npm le 25/11/2026, options vérifiées dans les types d'Astro 7.4.13 installé.
 
@@ -32,11 +32,12 @@
 - **Un gabarit unique** `src/layouts/Base.astro` : `lang="fr"`, `<head>` (titre, description, canonique, Open Graph, `noindex`, JSON-LD), lien d'évitement, bandeau démo, en-tête, `<main id="contenu">`, pied de page. Chaque page ne fournit que son contenu et ses métadonnées.
 - **Menu identique partout**, écrit une seule fois dans un tableau (`src/data/navigation.ts`) ; `aria-current="page"` calculé d'après `Astro.url.pathname`.
 - **Menu mobile (sous 900 px)** : bouton « Menu » en `aria-expanded` qui ouvre la liste, Échap pour fermer, une quinzaine de lignes de script. Sans JS, la liste reste visible : rien n'est inaccessible.
+- **Plan du site** (`/plan-du-site`, lien dans le pied de page) : toutes les pages et les 6 fiches projet, généré depuis les mêmes tableaux que le menu et les projets. C'est le second système de navigation demandé par le RGAA (critère 12.1).
 - **Pas de transitions entre pages ni de préchargement** (`ClientRouter`, `prefetch`) : du JS en plus pour 5 pages statiques déjà rapides.
 
 ### 2. URL courtes
 
-`/`, `/prestations`, `/realisations`, `/studio`, `/contact`, `/mentions-legales`, sans barre finale. Côté Astro : `trailingSlash: 'never'` et `build.format: 'file'` (`dist/realisations.html`). Côté Vercel : `cleanUrls: true` et `trailingSlash: false`, qui servent `/realisations` et redirigent `/realisations.html`. Les liens de l'accueil vers une fiche pointent sur `/realisations#canut` (décision de l'étape 3).
+`/`, `/prestations`, `/realisations`, `/studio`, `/contact`, `/mentions-legales`, `/plan-du-site`, sans barre finale. Côté Astro : `trailingSlash: 'never'` et `build.format: 'file'` (`dist/realisations.html`). Côté Vercel : `cleanUrls: true` et `trailingSlash: false`, qui servent `/realisations` et redirigent `/realisations.html`. Les liens de l'accueil vers une fiche pointent sur `/realisations#canut` (décision de l'étape 3).
 
 ### 3. Contenu des projets
 
@@ -65,7 +66,7 @@ Sans JS, une petite feuille de style chargée dans `<noscript>` masque les filtr
 
 ### 6. `sitemap.xml`
 
-**Un point d'accès maison** `src/pages/sitemap.xml.ts` (une quinzaine de lignes, lit le tableau de navigation) plutôt que `@astrojs/sitemap` 3.7.6 : une dépendance de moins pour 6 adresses. Le sitemap et le `noindex` ne se contredisent pas : le sitemap aide un robot à trouver les pages, le `noindex` lui dit de ne pas les indexer. Pas de blocage dans `robots.txt` (un robot bloqué ne lirait pas le `noindex`) ; `robots.txt` se contente d'indiquer l'adresse du sitemap.
+**Un point d'accès maison** `src/pages/sitemap.xml.ts` (une quinzaine de lignes, lit le tableau de navigation) plutôt que `@astrojs/sitemap` 3.7.6 : une dépendance de moins pour 7 adresses. Le sitemap et le `noindex` ne se contredisent pas : le sitemap aide un robot à trouver les pages, le `noindex` lui dit de ne pas les indexer. Pas de blocage dans `robots.txt` (un robot bloqué ne lirait pas le `noindex`) ; `robots.txt` se contente d'indiquer l'adresse du sitemap.
 
 ### 7. Polices
 
@@ -76,7 +77,7 @@ Archivo (500, 600, axe de largeur), Newsreader (400, 600), IBM Plex Mono (500) :
 - **Sécurité :** aucun serveur, aucune donnée, aucun script tiers. CSP identique à Pistil & Ronce (aucune source externe à ajouter : pas de carte, pas de vidéo). Contrôle après chaque build : aucune balise `<script>` ni `<style>` en ligne dans `dist/` hors JSON-LD, aucun attribut `style`. `npm audit` avant chaque PR.
 - **Accessibilité :** Astro n'ajoute aucun balisage ; les patrons ARIA ci-dessus sont ceux de l'APG du W3C. Recette avec axe et VoiceOver (étape 6).
 - **Performance :** zéro JS hors des composants interactifs, chargé seulement sur les pages qui en ont besoin. CSS en fichiers (≈ 150 ms bloquants mesurés sur Pistil & Ronce, Lighthouse resté ≥ 95).
-- **SEO :** `title`, `description`, canonique et Open Graph par page via `Base` ; JSON-LD `ProfessionalService` fictif ; `noindex` en balise et en en-tête ; `site: 'https://craie-et-cobalt.vercel.app'`, à confirmer (décision ouverte de la roadmap).
+- **SEO :** `title`, `description`, canonique et Open Graph par page via `Base` ; JSON-LD `ProfessionalService` fictif ; `noindex` en balise et en en-tête ; `site: 'https://craie-et-cobalt.vercel.app'` (décidé le 25/11).
 - **Maintenance :** comme Pistil & Ronce, un site figé : versions exactes, Node 24 (support jusqu'en avril 2028), aucune mise à jour prévue ; plan B `vercel deploy --prebuilt` si une construction tardive échoue.
 
 ## Dépendances
@@ -91,9 +92,10 @@ Archivo (500, 600, axe de largeur), Newsreader (400, 600), IBM Plex Mono (500) :
 
 Six paquets directs, comme Pistil & Ronce : `d3-geo` (plan) sort, `@axe-core/playwright` entre.
 
-## À valider
+## Décisions du 25/11
 
-1. La reprise du socle de Pistil & Ronce telle que décrite ci-dessus.
-2. Les URL sans barre finale (`/realisations`).
-3. **Versionner les masters étalonnés** (1 600 px, environ 3 à 4 Mo) dans `src/assets/photos/`.
-4. L'adresse `craie-et-cobalt.vercel.app` (décision ouverte de la roadmap, nécessaire pour les URL absolues).
+1. Reprise du socle de Pistil & Ronce telle que décrite : **validée**.
+2. URL sans barre finale (`/realisations`, `/realisations#canut`) : **validées**.
+3. Masters étalonnés de 1 600 px versionnés dans `src/assets/photos/` (environ 3 à 4 Mo) : **accordé**.
+4. Adresse `craie-et-cobalt.vercel.app` : **validée**.
+5. Ajout d'une page **Plan du site**, textes à proposer.

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Accroche from '../components/accueil/Accroche.astro';
 
 const title = "Craie & Cobalt — Architecte d'intérieur à Lyon · rénovation et aménagement";
 const description =
@@ -7,11 +8,5 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <section class="section">
-    <div class="conteneur">
-      <p class="etiquette surtitre">Architecte d'intérieur à Lyon</p>
-      <h1>Des intérieurs clairs, pensés au millimètre.</h1>
-      <p class="chapeau">Margaux Delorme et le studio Craie &amp; Cobalt rénovent des appartements, des maisons et des lieux professionnels à Lyon, de la première esquisse à la remise des clés.</p>
-    </div>
-  </section>
+  <Accroche />
 </Base>

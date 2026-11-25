@@ -1,15 +1,288 @@
 ---
 import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import TeteSection from '../components/TeteSection.astro';
+import { contact } from '../data/navigation';
+import portrait from '../assets/photos/fondatrice-portrait.jpg';
+import atelier from '../assets/photos/studio-atelier.jpg';
 
 const title = "Le studio — Margaux Delorme, architecte d'intérieur à Lyon";
 const description =
   "Craie & Cobalt est le studio de Margaux Delorme, architecte d'intérieur à Lyon. Une démarche précise, des artisans de confiance et une seule interlocutrice.";
+
+const principes = [
+  {
+    titre: 'Partir de vos usages.',
+    texte: 'Avant de parler style, on parle de la façon dont vous vivez ou travaillez dans le lieu.',
+  },
+  { titre: 'Dessiner chaque détail.', texte: "Un plan précis, c'est un chantier sans surprise." },
+  { titre: 'Tenir le budget.', texte: 'Le budget est fixé au départ et suivi à chaque étape.' },
+  {
+    titre: 'Une seule interlocutrice.',
+    texte: "Du premier rendez-vous à la remise des clés, c'est Margaux qui suit votre projet.",
+  },
+];
+
+const numero = (index: number) => String(index + 1).padStart(2, '0');
 ---
 
 <Base title={title} description={description}>
-  <section class="section">
-    <div class="conteneur">
-      <h1>Le studio</h1>
+  {/*
+    Tête : titre et présentation de la fondatrice à gauche, portrait à droite (image principale,
+    chargée en priorité). Mobile : titre, portrait, puis texte.
+  */}
+  <div class="fondatrice conteneur">
+    <h1 class="fondatrice__titre">Le studio</h1>
+    <div class="fondatrice__portrait">
+      <Photo
+        src={portrait}
+        alt="Margaux Delorme dans l'atelier du studio"
+        widths={[400, 640, 860, 1067]}
+        sizes="(min-width: 1440px) 512px, (min-width: 900px) calc((100vw - 11vw - 48px) * 5 / 12), calc(100vw - 11vw)"
+        prioritaire
+      />
+    </div>
+    <div class="fondatrice__texte">
+      <h2 class="fondatrice__nom" id="titre-fondatrice">Margaux Delorme</h2>
+      <p class="chapeau">
+        Diplômée en architecture intérieure, Margaux a travaillé huit ans en agence à Lyon et à Paris avant de fonder Craie &amp; Cobalt en 2019, sur les pentes de la Croix-Rousse.
+      </p>
+      <p class="fondatrice__nom-studio">
+        Le nom du studio résume sa manière de faire : la craie pour la clarté et les matières brutes, le cobalt pour la touche de couleur qui donne du caractère à un lieu.
+      </p>
+    </div>
+  </div>
+
+  {/* Démarche : photo de l'atelier à gauche, les quatre principes numérotés à droite (fond graphite) */}
+  <section class="section fond-graphite" aria-labelledby="titre-demarche">
+    <div class="demarche conteneur">
+      <div class="demarche__tete">
+        <TeteSection titre="Notre démarche" id="titre-demarche" />
+      </div>
+      <div class="demarche__photo">
+        <Photo
+          src={atelier}
+          alt="Margaux Delorme choisit des échantillons de matériaux"
+          widths={[400, 640, 860, 1240]}
+          sizes="(min-width: 1440px) 512px, (min-width: 900px) calc((100vw - 11vw - 48px) * 5 / 12), calc(100vw - 11vw)"
+        />
+      </div>
+      <ol class="principes liste-nue">
+        {principes.map((principe, index) => (
+          <li class="principe">
+            <span class="numero" aria-hidden="true">{numero(index)}</span>
+            <p>
+              <strong class="principe__titre">{principe.titre}</strong>
+              <span class="principe__texte">{principe.texte}</span>
+            </p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
+
+  {/* Artisans et zone d'intervention côte à côte, puis le bouton vers Contact */}
+  <div class="section">
+    <div class="conteneur">
+      <div class="infos">
+        <section class="info" aria-labelledby="titre-artisans">
+          <h2 class="info__titre" id="titre-artisans">Nos artisans partenaires</h2>
+          <p>
+            Menuisier, électricien, plombier, peintre, carreleur : une équipe d'artisans lyonnais avec qui le studio travaille depuis plusieurs années. Vous restez libre de choisir les vôtres.
+          </p>
+        </section>
+        <section class="info" aria-labelledby="titre-zone">
+          <h2 class="info__titre" id="titre-zone">Zone d'intervention</h2>
+          <p>
+            Lyon et la métropole : Villeurbanne, Caluire-et-Cuire, Écully, Tassin-la-Demi-Lune, Sainte-Foy-lès-Lyon… Au-delà, sur demande.
+          </p>
+        </section>
+      </div>
+
+      <p class="section-pied"><a class="bouton" href={contact.href}>{contact.texte}</a></p>
+
+      <p class="mention">Studio fictif (démo) : Margaux Delorme n'existe pas, les photos proviennent de banques d'images libres de droits.</p>
+    </div>
+  </div>
 </Base>
+
+<style>
+  /*
+   * Tête : 7/12 de texte, 5/12 de portrait. Le titre en haut, la présentation calée en bas,
+   * à la hauteur du pied du portrait.
+   */
+  .fondatrice {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'titre portrait'
+      'texte portrait';
+    gap: var(--pas-5) var(--pas-5);
+    padding-block: clamp(56px, 8vw, 120px) var(--espace-section);
+  }
+
+  .fondatrice__titre {
+    grid-area: titre;
+  }
+
+  /* Astro enveloppe l'image dans un <picture> : c'est le bloc parent qui prend place dans la grille */
+  .fondatrice__portrait {
+    grid-area: portrait;
+  }
+
+  .fondatrice__portrait :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+
+  .fondatrice__texte {
+    grid-area: texte;
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-3);
+    max-width: 36em;
+  }
+
+  .fondatrice__nom {
+    margin-bottom: var(--pas-1);
+  }
+
+  .fondatrice__nom-studio {
+    max-width: 34em;
+    color: var(--gris);
+  }
+
+  /* Démarche : photo 5/12 à gauche, titre et principes 7/12 à droite */
+  .demarche {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'photo tete'
+      'photo principes';
+    gap: 0 clamp(48px, 7vw, 112px);
+  }
+
+  .demarche__tete {
+    grid-area: tete;
+  }
+
+  /* Recadrage en 4:5 autour de Margaux et des échantillons */
+  .demarche__photo {
+    grid-area: photo;
+  }
+
+  .demarche__photo :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 52% 50%;
+  }
+
+  .principes {
+    grid-area: principes;
+    border-bottom: 1px solid var(--filet-sombre);
+  }
+
+  .principe {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: baseline;
+    padding-block: 28px;
+    border-top: 1px solid var(--filet-sombre);
+  }
+
+  .principe .numero {
+    color: var(--gris-clair);
+  }
+
+  .principe p {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-1);
+  }
+
+  .principe__titre {
+    font-family: var(--titre);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .principe__texte {
+    color: var(--gris-clair);
+  }
+
+  /* Artisans et zone : deux colonnes égales */
+  .infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pas-5) clamp(48px, 7vw, 112px);
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-3);
+    padding-top: var(--pas-4);
+    border-top: 1px solid var(--filet);
+  }
+
+  .info__titre {
+    font-size: clamp(26px, 2.2vw, 32px);
+    line-height: 1.15;
+  }
+
+  .mention {
+    margin-top: 56px;
+    font-size: 16px;
+    color: var(--gris);
+    text-align: center;
+  }
+
+  @media (max-width: 899.98px) {
+    .fondatrice {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: none;
+      grid-template-areas:
+        'titre'
+        'portrait'
+        'texte';
+      gap: var(--pas-4);
+    }
+
+    .demarche {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: none;
+      grid-template-areas:
+        'tete'
+        'photo'
+        'principes';
+    }
+
+    .demarche__photo {
+      margin-bottom: var(--pas-4);
+    }
+
+    .demarche__photo :global(img) {
+      aspect-ratio: 4 / 3;
+    }
+
+    .principe {
+      grid-template-columns: 40px minmax(0, 1fr);
+      padding-block: 24px;
+    }
+
+    .principe__titre {
+      font-size: 20px;
+    }
+
+    .infos {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

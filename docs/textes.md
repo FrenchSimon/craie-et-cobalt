@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.1 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos)
+> Version 1.1 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -158,7 +158,7 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 | # | Projet | Type | Lieu | Surface | Durée des travaux | Budget travaux | Texte de la fiche |
 |---|---|---|---|---|---|---|---|
 | 1 | **Appartement canut** | Particuliers | Croix-Rousse, Lyon 4e | 95 m² | 4 mois | 110 000 € | Plafonds de 4 mètres, mezzanine d'origine et poutres conservées. Une cuisine ouverte sous la mezzanine, une chambre suspendue au-dessus, et la lumière des grandes fenêtres jusqu'au fond de l'appartement. |
-| 2 | **Haussmannien, Ainay** | Particuliers | Lyon 2e | 140 m² | 5 mois | 160 000 € | Moulures et parquet Versailles restaurés, salle de bains repensée dans une ancienne lingerie, et une enfilade de pièces rendue à sa lumière. |
+| 2 | **Haussmannien, Ainay** | Particuliers | Lyon 2e | 140 m² | 5 mois | 160 000 € | Moulures et parquet en point de Hongrie restaurés, salle de bains repensée dans une ancienne lingerie, et une enfilade de pièces rendue à sa lumière. |
 | 3 | **Maison des années 30** | Particuliers | Caluire-et-Cuire | 60 m² rénovés | 3 mois | 75 000 € | Une cloison abattue entre la cuisine et le séjour, un îlot en chêne, et une verrière d'atelier qui ouvre sur le jardin. |
 | 4 | **Studio locatif** | Particuliers | Guillotière, Lyon 7e | 28 m² | 6 semaines | 32 000 € | Chaque centimètre compte : lit escamotable, cuisine en linéaire, rangements du sol au plafond. Loué en dix jours. |
 | 5 | **Boutique de prêt-à-porter** | Professionnels | Lyon 2e | 70 m² | 5 semaines | 48 000 € | Un parcours client en boucle, des cabines plus grandes, et un comptoir en terrazzo qui est devenu la signature du lieu. Travaux réalisés en août, boutique fermée deux semaines seulement. |

@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.0 — 2026-11-25 · Statut : **validé** (25/11)
+> Version 1.1 — 2026-11-25 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -167,6 +167,21 @@ Le studio est assuré en responsabilité civile professionnelle et en garantie d
 **Fiche dépliée :** une à trois photos du résultat (l'état d'avant est raconté par le texte) · texte · surface · durée · budget travaux · « Voir le projet suivant »
 **Mention sous la galerie :** *Projets fictifs (démo) : les photos proviennent de banques d'images libres de droits.*
 
+**Textes alternatifs des photos** (validés le 25/11, fichiers dans `docs/photos.md`) :
+
+| Photo | Texte alternatif |
+|---|---|
+| Appartement canut, 1 (aussi l'accroche de l'accueil) | Cuisine blanche ouverte sous la mezzanine, sous de hauts plafonds |
+| Appartement canut, 2 | Séjour sous la chambre en mezzanine, éclairé par une fenêtre cintrée |
+| Haussmannien, Ainay | Salle à manger aux moulures restaurées et au parquet en point de Hongrie |
+| Maison des années 30, 1 | Cuisine ouverte sur le séjour, îlot en bois clair |
+| Maison des années 30, 2 | Verrière d'atelier à cadre noir |
+| Studio locatif, 1 | Pièce de vie blanche, îlot gris et vases bleu cobalt |
+| Studio locatif, 2 | Cuisine en linéaire grise et tabourets orange |
+| Studio locatif, 3 | Coin nuit, deux cercles bleus au mur |
+| Boutique de prêt-à-porter | Boutique blanche, étagères flottantes et portant de tee-shirts écrus |
+| Bureaux d'un cabinet de conseil | Salles de réunion vitrées encadrées de chêne |
+
 **Appel à l'action :** Votre projet pourrait être le prochain. · **Bouton :** Parlons de votre projet
 
 ---
@@ -191,6 +206,8 @@ Le nom du studio résume sa manière de faire : la craie pour la clarté et les 
 - **Dessiner chaque détail.** Un plan précis, c'est un chantier sans surprise.
 - **Tenir le budget.** Le budget est fixé au départ et suivi à chaque étape.
 - **Une seule interlocutrice.** Du premier rendez-vous à la remise des clés, c'est Margaux qui suit votre projet.
+
+**Photo de l'atelier :** texte alternatif : « Margaux Delorme choisit des échantillons de matériaux »
 
 ### Nos artisans partenaires
 

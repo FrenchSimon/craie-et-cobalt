@@ -5,6 +5,7 @@ import favicon from '../../contenu/logo/favicon.svg?url';
 import policeTitre from '../assets/fonts/archivo-latin-400-600-largeur-112.woff2?url';
 import LienEvitement from '../components/LienEvitement.astro';
 import EnTete from '../components/EnTete.astro';
+import AppelAction from '../components/AppelAction.astro';
 import PiedDePage from '../components/PiedDePage.astro';
 
 interface Props {
@@ -12,9 +13,11 @@ interface Props {
   description: string;
   /** Faux pour la page 404 : pas de lien canonique. */
   canonique?: boolean;
+  /** Faux pour la page Contact : l'appel à l'action y mènerait vers elle-même. */
+  appelAction?: boolean;
 }
 
-const { title, description, canonique = true } = Astro.props;
+const { title, description, canonique = true, appelAction = true } = Astro.props;
 
 const site = Astro.site ?? Astro.url;
 const url = new URL(Astro.url.pathname.replace(/\.html$/, ''), site).href;
@@ -42,6 +45,13 @@ const url = new URL(Astro.url.pathname.replace(/\.html$/, ''), site).href;
     <EnTete />
     <main id="contenu">
       <slot />
+      {/* Appel à l'action commun, juste avant le pied de page graphite qui le prolonge */}
+      {appelAction && (
+        <AppelAction
+          titre="Un projet en tête ?"
+          texte="Racontez-nous votre lieu et vos envies. Nous vous répondons sous 48 heures ouvrées."
+        />
+      )}
     </main>
     <PiedDePage />
   </body>

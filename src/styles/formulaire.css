@@ -66,7 +66,8 @@
   clear: both;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px var(--pas-3);
+  /* Pas d'écart entre rangées (il se répéterait dans la sous-grille) : l'espace est sous chaque champ */
+  column-gap: var(--pas-3);
 }
 
 /* Apparition de l'étape affichée par le script : fondu et léger glissé (supprimés en mouvement réduit) */
@@ -85,7 +86,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--pas-2);
-  margin-top: var(--pas-5);
+  /* 48 px sous le dernier champ, dont les 28 px de sa marge */
+  margin-top: 20px;
 }
 
 /* Sans script, la commande de la première étape est vide */
@@ -101,6 +103,21 @@
 
 .champ {
   min-width: 0;
+}
+
+/*
+ * Sous-grille : chaque champ occupe trois rangées (libellé, champ, erreur) partagées avec son voisin.
+ * Un libellé sur deux lignes ne décale plus le champ d'à côté ; les libellés sont calés en bas.
+ */
+.etape__champs > .champ {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  padding-bottom: 28px;
+}
+
+.etape__champs > .champ > label {
+  align-self: end;
 }
 
 .champ--large {
@@ -376,7 +393,10 @@
 @media (max-width: 599.98px) {
   .etape__champs {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--pas-3);
+  }
+
+  .etape__champs > .champ {
+    padding-bottom: var(--pas-3);
   }
 
   .etape__commandes .bouton {

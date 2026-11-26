@@ -67,6 +67,8 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
         </button>
 
         <div class="demarche__onglets" role="tablist" aria-label="Les quatre étapes" aria-orientation="vertical">
+          {/* Nom de l'onglet : tout son texte visible (numéro, nom et, pour l'onglet actif, texte déplié),
+              pour que le nom lu corresponde à ce qui est affiché (critère 2.5.3) */}
           {etapes.map((etape, index) => (
             <button
               class="demarche__onglet"
@@ -75,14 +77,12 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
               id={`onglet-${etape.id}`}
               aria-controls={`etape-${etape.id}`}
               aria-selected={index === 0 ? 'true' : 'false'}
-              aria-labelledby={`numero-${etape.id} nom-${etape.id}`}
-              aria-describedby={`texte-${etape.id}`}
               tabindex={index === 0 ? 0 : -1}
             >
-              <span class="numero" id={`numero-${etape.id}`}>{numero(index)}</span>
+              <span class="numero">{numero(index)}</span>
               <span class="demarche__libelle">
-                <span class="demarche__nom ui" id={`nom-${etape.id}`}>{etape.nom}</span>
-                <span class="demarche__texte" id={`texte-${etape.id}`}>{etape.texte}</span>
+                <span class="demarche__nom ui">{etape.nom}</span>
+                <span class="demarche__texte">{etape.texte}</span>
               </span>
             </button>
           ))}

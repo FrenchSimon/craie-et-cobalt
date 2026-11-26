@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.13 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page ; v1.12 : page 404 « Cette page n'est pas sur le plan. » ; v1.13 : bouton haut de page)
+> Version 1.14 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page ; v1.12 : page 404 « Cette page n'est pas sur le plan. » ; v1.13 : bouton haut de page ; v1.14 : plan d'accès de la page Contact et son crédit OpenStreetMap)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -291,6 +291,17 @@ Sans JavaScript, les 3 étapes s'affichent les unes sous les autres, sans les bo
 - bonjour@craie-et-cobalt.fr
 *(Coordonnées fictives.)*
 
+### Plan d'accès
+
+> v1.14, validé le 26/11/2026 : plan sous les coordonnées, agrandi au clic dans une fenêtre.
+
+- **Texte alternatif (aperçu et grand plan) :** Plan d'accès : le studio, 12 rue des Tisseuses, sur le plateau de la Croix-Rousse, à 5 minutes à pied du métro C, station Croix-Rousse.
+- **Bouton sur l'aperçu :** Agrandir le plan
+- **Titre de la fenêtre :** Plan d'accès
+- **Bouton de fermeture (lecteurs d'écran) :** Fermer le plan
+- **Légende :** Plan illustratif, adresse fictive. · © contributeurs OpenStreetMap (lien vers openstreetmap.org/copyright, nouvel onglet)
+- **Sur le plan :** CRAIE & COBALT · MÉTRO C · CROIX-ROUSSE (stations Hénon, Croix-Paquet, Hôtel de Ville et Foch sur le grand plan)
+
 ---
 
 ## 6. Mentions légales et confidentialité (page `/mentions-legales`)
@@ -317,6 +328,7 @@ Sans JavaScript, les 3 étapes s'affichent les unes sous les autres, sans les bo
 - Conception, textes, logo et code : Simon Dabin. Le code est consultable sur [GitHub](https://github.com/FrenchSimon/craie-et-cobalt).
 - Photos : Unsplash, sous licence Unsplash, de Alex Tyson, Lisa Anna, yann maignan, Caroline Badran, Franco Debartolo, Alexey Aladashvili, Irena Oze et Jonathan Borba (liens vers leurs profils). Couleurs retouchées pour harmoniser la série.
 - Polices : Archivo, Newsreader et IBM Plex Mono, sous licence SIL Open Font License.
+- Plan : données © contributeurs OpenStreetMap, sous licence ODbL. *(v1.14)*
 
 ### Confidentialité
 

@@ -22,7 +22,7 @@
 | `scripts/etalonner-photos.mjs` | **Adapté** : réglages C et A de la DA, désaturation sélective du prototype (`contenu/prototype/outils/etalonnage.mjs`) |
 | `scripts/icone-ios.mjs` (icône PNG depuis le favicon SVG, avec Playwright) | **Repris tel quel** |
 | `mentions-legales.astro`, `404.astro` | **Structure reprise**, textes de `textes.md` |
-| Plan OpenStreetMap (`scripts/plan/`, `d3-geo`), calendrier, saisons, champ fleuri | **Abandonnés** : `d3-geo` sort des dépendances |
+| Plan OpenStreetMap (`scripts/plan/`, `d3-geo`), calendrier, saisons, champ fleuri | **Abandonnés** : `d3-geo` sort des dépendances (plan repris le 26/11 sans `d3-geo`, voir en fin de fichier) |
 | — | **Nouveau :** 4 pages de plus, données des 6 projets, onglets et carrousels, filtres, fiche en `<dialog>`, croquis SVG, `sitemap.xml` |
 
 ## Points à trancher
@@ -99,3 +99,7 @@ Six paquets directs, comme Pistil & Ronce : `d3-geo` (plan) sort, `@axe-core/pla
 3. Masters étalonnés de 1 600 px versionnés dans `src/assets/photos/` (environ 3 à 4 Mo) : **accordé**.
 4. Adresse `craie-et-cobalt.vercel.app` : **validée**.
 5. Ajout d'une page **Plan du site**, textes à proposer.
+
+## Plan d'accès (ajouté le 26/11, étape 5.13)
+
+Le plan OpenStreetMap de Pistil & Ronce revient, **sans `d3-geo` ni Playwright** : la projection de Mercator (quelques lignes) est écrite dans `scripts/plan/dessiner.mjs`, et les noms de rues sont convertis en tracés avec `fontkitten`, déjà installé avec Astro (comme le logo). Le résultat est un SVG servi tel quel en `<img>` (net à toutes les tailles, compatible avec la CSP), et non une image matricielle. `npm run plan:extraire` (API Overpass) écrit `scripts/plan/donnees.json`, ignoré par Git (3,8 Mo) ; `npm run plan` écrit `src/assets/plan/plan-apercu.svg` (≈ 45 Ko compressé), `plan.svg` (≈ 160 Ko compressé, chargé seulement à l'ouverture de la fenêtre) et `plans.json` (dimensions, position du studio), versionnés. Aucune dépendance ajoutée.

@@ -203,6 +203,7 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
 
     .demarche__fleche {
       display: inline-grid;
+      flex-shrink: 0;
       place-items: center;
       width: 44px;
       height: 44px;
@@ -223,15 +224,19 @@ const numero = (index: number) => String(index + 1).padStart(2, '0');
 
     .demarche__onglets {
       flex-direction: row;
+      min-width: 0;
       gap: 4px;
       border: 0;
     }
 
+    /* Numéros sur 64 px, resserrés quand la place manque (39 px à 320 px) : les flèches gardent 44 px */
     .demarche__onglet {
       display: inline-grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
       place-items: center;
-      width: auto;
-      min-width: 44px;
+      width: 64px;
+      min-width: 0;
       min-height: 44px;
       padding: 0 6px;
       border: 0;

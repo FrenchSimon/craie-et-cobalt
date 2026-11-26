@@ -11,7 +11,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
 | 5 | Réalisation | Site complet en local | 5 j | ✅ validé le 26/11 (socle, photos, accueil, prestations et réalisations le 25/11 ; le studio, contact, mentions légales, plan du site, page 404, bouton haut de page, animations, plan d'accès, SEO et sécurité le 26/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | 🚧 en cours (recette, 4 corrections, rapport, VoiceOver et navigateurs validés le 26/11 ; A+ à mesurer en production) |
-| 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
+| 7 | Mise en ligne | URL Vercel de production | 0,25 j | 🚧 en cours (projet Vercel relié et README le 26/11) |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
 
 ## 2. Photos — `docs/photos`
@@ -67,13 +67,13 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 - [x] **Navigateurs :** Chrome, Firefox, Safari, iOS, Android. Chrome testé par script, les autres à la main (26/11).
 - [ ] **Sécurité :** `npm audit` propre, A+ sur securityheaders.com en production. `npm audit` propre et CSP sans violation (26/11) ; A+ à mesurer en production.
 - [x] **Fiction :** relire que rien ne renvoie à un vrai studio (liens, données structurées, photos). Nom, fondatrice et adresse confirmés libres par une recherche web (26/11), comme au cadrage du 25/11 ; téléphone de fiction, domaine non enregistré, JSON-LD marqué fictif.
-- [ ] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR. Rapport validé le 26/11 ; PR à ouvrir.
+- [x] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR. Rapport validé le 26/11 ; PR #26 fusionnée.
 
 ## 7. Mise en ligne
 
-- [ ] Projet Vercel relié au dépôt, prévisualisation sur chaque PR, production sur `main`.
+- [x] Projet Vercel relié au dépôt, prévisualisation sur chaque PR, production sur `main` (26/11, préréglage Astro).
 - [ ] Vérifier en production : en-têtes HTTP, `noindex`, image de partage (aperçu Open Graph), Lighthouse.
-- [ ] `README` complet (but, stack, captures, lien vers la démo).
+- [x] `README` complet (but, stack, qualité, lien vers la démo ; sans captures, décidé le 26/11).
 - [ ] Ajouter le lien du site et du code dans le portfolio (`docs/projets.md`).
 
 ## 8. Étude de cas

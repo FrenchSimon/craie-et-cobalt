@@ -221,9 +221,18 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
     }
   }
 
-  /* Petits écrans : studio sur toute la largeur, pages dessous (l'e-mail ne tient pas dans une demi-largeur) */
+  /*
+   * Petits écrans : une seule colonne, studio puis pages (l'e-mail ne tient pas dans une demi-largeur).
+   * Les 11 écarts de la grille à 12 colonnes dépasseraient à eux seuls la largeur d'un écran de 320 px.
+   */
   @media (max-width: 599.98px) {
-    .pied__studio {
+    .pied__colonnes {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .pied__marque,
+    .pied__studio,
+    .pied__pages {
       grid-column: 1 / -1;
     }
   }

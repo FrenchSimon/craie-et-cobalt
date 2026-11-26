@@ -6,13 +6,45 @@ import PrestationsEnBref from '../components/accueil/PrestationsEnBref.astro';
 import Demarche from '../components/accueil/Demarche.astro';
 import Avis from '../components/accueil/Avis.astro';
 import AppelAction from '../components/AppelAction.astro';
+import { imagePartage } from '../data/partage';
 
 const title = "Craie & Cobalt — Architecte d'intérieur à Lyon · rénovation et aménagement";
 const description =
   "Studio d'architecture intérieure à Lyon. Rénovation d'appartements et de maisons, aménagement de boutiques et de bureaux, de la première visite à la remise des clés.";
+
+const site = Astro.site ?? Astro.url;
+
+/* Données structurées schema.org : uniquement les infos fictives de docs/textes.md (§ 0).
+   ProfessionalService, faute de type « architecte d'intérieur ». Ni e-mail, ni réseaux sociaux,
+   ni coordonnées GPS : rien qui renvoie à un vrai lieu ou compte. */
+const studio = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': new URL('/#studio', site).href,
+  name: 'Craie & Cobalt',
+  description,
+  disambiguatingDescription: 'Studio fictif : site de démonstration réalisé par Simon Dabin.',
+  url: new URL('/', site).href,
+  image: new URL(imagePartage.src, site).href,
+  telephone: '+33 4 65 71 38 12',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '12 rue des Tisseuses',
+    postalCode: '69004',
+    addressLocality: 'Lyon',
+    addressCountry: 'FR',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Lyon' },
+    { '@type': 'AdministrativeArea', name: 'Métropole de Lyon' },
+  ],
+  founder: { '@type': 'Person', name: 'Margaux Delorme', jobTitle: "Architecte d'intérieur" },
+};
 ---
 
 <Base title={title} description={description}>
+  {/* « < » échappé : le JSON ne peut pas fermer la balise script. */}
+  <script slot="head" type="application/ld+json" is:inline set:html={JSON.stringify(studio).replace(/</g, '\\u003c')} />
   <Accroche />
   <RealisationsPhares />
   <PrestationsEnBref />

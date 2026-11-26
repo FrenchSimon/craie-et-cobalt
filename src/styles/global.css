@@ -38,8 +38,6 @@
   --marge: clamp(20px, 5.5vw, 80px);
   --largeur-contenu: 1280px;
   --espace-section: clamp(96px, 11vw, 160px);
-  /* Colonne de droite du bas de page (liens du pied, bouton de l'appel à l'action), alignés dès 1100 px */
-  --colonne-pied: 540px;
   --transition: 150ms;
 }
 
@@ -361,6 +359,15 @@ textarea {
   justify-content: center;
   gap: var(--pas-4);
   margin-top: 56px;
+}
+
+/* Bas de page : grille de 12 colonnes partagée par l'appel à l'action (accueil) et le pied de page,
+   pour que le bouton de l'un s'aligne sur la colonne « Studio » de l'autre */
+
+.grille-pied {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--pas-5) var(--pas-4);
 }
 
 /* Sections : rythme vertical commun, sans trait entre elles */

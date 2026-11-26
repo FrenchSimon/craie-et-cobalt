@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.7 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil)
+> Version 1.9 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio »)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -21,11 +21,10 @@ Logo **Craie & Cobalt** (lien vers l'accueil) · Prestations · Réalisations ·
 
 ### Pied de page
 
-- **Craie & Cobalt** — Architecture intérieure à Lyon
-- 12 rue des Tisseuses, 69004 Lyon · 04 65 71 38 12 · bonjour@craie-et-cobalt.fr *(fictifs)*
-- Sur rendez-vous, du lundi au vendredi
-- Instagram · LinkedIn *(fictifs, liens désactivés)*
-- Mentions légales et confidentialité · © 2026 Craie & Cobalt — studio fictif
+- Logo **Craie & Cobalt** (lien vers l'accueil) — Architecture intérieure à Lyon
+- **Studio :** 12 rue des Tisseuses, 69004 Lyon · 04 65 71 38 12 · bonjour@craie-et-cobalt.fr *(fictifs)* · Sur rendez-vous, du lundi au vendredi
+- **Pages :** Prestations · Réalisations · Le studio · Contact
+- Mentions légales et confidentialité · Instagram · LinkedIn *(fictifs, liens désactivés)* · © 2026 Craie & Cobalt — studio fictif
 
 ### Textes pour les lecteurs d'écran (invisibles)
 
@@ -251,21 +250,25 @@ Lyon et la métropole : Villeurbanne, Caluire-et-Cuire, Écully, Tassin-la-Demi-
 **Titre :** Parlons de votre projet
 **Introduction :** Quelques informations suffisent pour commencer. Nous vous répondons sous 48 heures ouvrées pour fixer un premier rendez-vous.
 
-### Formulaire
+### Formulaire (en 3 étapes)
 
-| Champ | Type | Obligatoire |
-|---|---|---|
-| Nom | texte | oui |
-| E-mail | e-mail | oui |
-| Téléphone | téléphone | non |
-| Type de projet | Appartement · Maison · Boutique ou restaurant · Bureaux · Autre | oui |
-| Prestation souhaitée | Visite-conseil · Conception complète · Conception et suivi de chantier · Je ne sais pas encore | non |
-| Surface approximative | nombre, en m² | non |
-| Budget travaux envisagé | Moins de 30 000 € · 30 000 à 80 000 € · 80 000 à 150 000 € · Plus de 150 000 € · Je ne sais pas encore | non |
-| Début souhaité | Dès que possible · Dans 3 à 6 mois · Dans plus de 6 mois | non |
-| Votre projet en quelques mots | texte long | oui |
+Repère au-dessus du titre de chaque étape : « Étape 1 sur 3 », « Étape 2 sur 3 », « Étape 3 sur 3 ». Champs facultatifs suivis de « (facultatif) ».
 
-**Bouton :** Envoyer ma demande
+| Étape | Champ | Type | Obligatoire |
+|---|---|---|---|
+| **1. Votre projet** | Type de projet | tuiles : Appartement · Maison · Boutique ou restaurant · Bureaux · Autre | oui |
+| | Prestation souhaitée | Visite-conseil · Conception complète · Conception et suivi de chantier · Je ne sais pas encore | non |
+| | Surface approximative | nombre, en m² | non |
+| | Budget travaux envisagé | Moins de 30 000 € · 30 000 à 80 000 € · 80 000 à 150 000 € · Plus de 150 000 € · Je ne sais pas encore | non |
+| | Début souhaité | Dès que possible · Dans 3 à 6 mois · Dans plus de 6 mois | non |
+| **2. En quelques mots** | Votre projet en quelques mots | texte long | oui |
+| **3. Vos coordonnées** | Nom | texte | oui |
+| | E-mail | e-mail | oui |
+| | Téléphone | téléphone | non |
+
+**Boutons :** Continuer · Retour · Envoyer ma demande (à la dernière étape)
+
+Sans JavaScript, les 3 étapes s'affichent les unes sous les autres, sans les boutons Continuer et Retour.
 
 **Message après envoi :** *Démo : ce message n'a pas été envoyé. Sur un vrai site, le studio le recevrait par e-mail.*
 
@@ -278,6 +281,8 @@ Lyon et la métropole : Villeurbanne, Caluire-et-Cuire, Écully, Tassin-la-Demi-
 - Message vide : Décrivez votre projet en quelques mots.
 
 ### Coordonnées
+
+**Intitulé :** Coordonnées
 
 - 12 rue des Tisseuses, 69004 Lyon — sur rendez-vous
 - 04 65 71 38 12

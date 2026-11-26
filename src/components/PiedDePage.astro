@@ -1,104 +1,209 @@
 ---
-/* Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau. */
+/*
+ * Pied de page (piste G, 26/11) : fond graphite ; mot-symbole à gauche, studio et pages
+ * à droite, puis la ligne légale et les réseaux sous un filet.
+ * Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau.
+ */
+import MotSymbole from '../../contenu/logo/mot-symbole.svg';
+import { menu, contact } from '../data/navigation';
+
+const pages = [...menu, { href: contact.href, texte: 'Contact' }];
 ---
 
 <footer class="pied fond-graphite">
-  <div class="pied__colonnes conteneur">
-    <div class="pied__studio">
-      <p><b>Craie &amp; Cobalt</b> — Architecture intérieure à Lyon</p>
-      <address>
-        12 rue des Tisseuses, <span class="pied__insecable">69004 Lyon</span> · <span class="pied__insecable">04 65 71 38 12</span> · <span class="pied__insecable">bonjour@craie-et-cobalt.fr</span> <span class="pied__fictif">(fictifs)</span>
-      </address>
-      <p>Sur rendez-vous, du lundi au vendredi</p>
+  <div class="conteneur">
+    <div class="pied__colonnes grille-pied">
+      <div class="pied__marque">
+        <a class="pied__logo" href="/" aria-label="Craie & Cobalt, accueil">
+          <MotSymbole aria-hidden="true" />
+        </a>
+        <p class="pied__accroche">Architecture intérieure à Lyon</p>
+      </div>
+
+      <div class="pied__studio">
+        <p class="etiquette pied__intitule">Studio</p>
+        <address>
+          12 rue des Tisseuses<br />
+          69004 Lyon<br />
+          04 65 71 38 12<br />
+          bonjour@craie-et-cobalt.fr <span class="pied__fictif">(fictifs)</span>
+        </address>
+        <p>Sur rendez-vous, du lundi au vendredi</p>
+      </div>
+
+      <nav class="pied__pages" aria-labelledby="titre-pied-pages">
+        <p class="etiquette pied__intitule" id="titre-pied-pages">Pages</p>
+        <ul class="liste-nue">
+          {pages.map(({ href, texte }) => (
+            <li><a href={href}>{texte}</a></li>
+          ))}
+        </ul>
+      </nav>
     </div>
 
-    <div class="pied__liens">
-      <p>Instagram · LinkedIn <span class="pied__fictif">(fictifs, liens désactivés)</span></p>
+    <div class="pied__legal">
       <p>
         <a href="/mentions-legales">Mentions légales et confidentialité</a>
         <span class="pied__separateur" aria-hidden="true">·</span>
-        <span class="pied__copyright">© 2026 Craie &amp; Cobalt — studio fictif</span>
+        <span class="pied__reseaux">Instagram · LinkedIn <span class="pied__fictif">(fictifs, liens désactivés)</span></span>
       </p>
+      <p class="pied__copyright">© 2026 Craie &amp; Cobalt — studio fictif</p>
     </div>
   </div>
 </footer>
 
 <style>
   .pied {
-    /* 96 px en bureau, 64 px en mobile */
-    padding-block: clamp(64px, 6.5vw, 96px);
+    padding-block: clamp(64px, 6.5vw, 96px) var(--pas-4);
     font-family: var(--titre);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
   }
 
-  .pied__colonnes {
+  /* Mot-symbole sur 6 colonnes, studio et pages sur 3 chacun (grille-pied : global.css, partagée avec l'appel à l'action) */
+  .pied__marque {
+    grid-column: span 6;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--pas-4) var(--pas-5);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--pas-2);
   }
 
-  /* Chaque ligne du pied de page séparée de la suivante */
-  .pied__studio,
-  .pied__liens {
+  .pied__pages,
+  .pied__studio {
+    grid-column: span 3;
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .pied__logo {
+    display: block;
+    padding-block: 4px;
+  }
+
+  .pied__logo :global(svg) {
+    width: clamp(200px, 22vw, 300px);
+    height: auto;
+  }
+
+  /* Mot-symbole en craie sur le graphite ; l'esperluette reste cobalt */
+  .pied__logo :global(path[fill='#1E2229']) {
+    fill: var(--craie);
+  }
+
+  .pied__accroche,
+  .pied__fictif,
+  .pied__copyright,
+  .pied__reseaux,
+  .pied__intitule {
+    color: var(--gris-clair);
+  }
+
+  .pied__intitule {
+    margin-bottom: 4px;
+  }
+
+  .pied ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   address {
     font-style: normal;
   }
 
-  .pied__insecable {
-    white-space: nowrap;
-  }
-
-  .pied__fictif {
-    color: var(--gris-clair);
-  }
-
-  /* Cible de 24 px de haut au moins (WCAG 2.5.8) */
-  .pied a {
-    display: inline-block;
+  /* Souris : cible de 24 px de haut au moins (WCAG 2.5.8) ; au doigt, 44 px (plus bas) */
+  .pied a:not(.pied__logo) {
+    display: inline-flex;
+    align-items: center;
     min-height: 24px;
     text-decoration: underline 1px;
     text-underline-offset: 4px;
-    transition: color var(--transition);
+    transition:
+      color var(--transition),
+      text-decoration-color var(--transition);
   }
 
-  .pied a:hover {
+  .pied a:not(.pied__logo):hover {
     color: var(--gris-clair);
+  }
+
+  /* Pages : sans soulignement, souligné au survol */
+  .pied .pied__pages a {
+    text-decoration-color: transparent;
+  }
+
+  .pied .pied__pages a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .pied__legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px var(--pas-4);
+    margin-top: clamp(48px, 6vw, 80px);
+    padding-top: var(--pas-3);
+    border-top: 1px solid var(--filet-sombre);
   }
 
   .pied__separateur {
     margin-inline: 12px;
+    color: var(--gris-clair);
   }
 
-  /* Deux colonnes, celle de droite partagée avec l'appel à l'action : son bouton s'aligne sur les liens */
-  @media (min-width: 1100px) {
-    .pied__colonnes {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) var(--colonne-pied);
-      gap: var(--pas-5);
+  /*
+   * Écran tactile ou étroit : chaque lien fait 44 px de haut, sans écart entre eux (WCAG 2.5.5).
+   * Le logo garde 44 px de haut au moins.
+   */
+  @media (pointer: coarse), (max-width: 899.98px) {
+    .pied a:not(.pied__logo) {
+      min-height: 44px;
+    }
+
+    .pied ul {
+      gap: 0;
+    }
+
+    .pied__logo {
+      min-height: 44px;
+    }
+
+    .pied__legal {
+      align-items: center;
+      padding-top: var(--pas-2);
     }
   }
 
+  /* Tablette et mobile : mot-symbole sur toute la largeur, studio et pages côte à côte */
   @media (max-width: 899.98px) {
-    .pied__colonnes {
-      flex-direction: column;
+    .pied__marque {
+      grid-column: 1 / -1;
     }
 
-    /* Copyright à la ligne sous le lien, sans le point médian */
+    .pied__pages,
+    .pied__studio {
+      grid-column: span 6;
+    }
+
+    /* Réseaux à la ligne sous les mentions, sans le point médian */
     .pied__separateur {
       display: none;
     }
 
-    .pied__copyright {
+    .pied__reseaux {
       display: block;
       margin-top: 10px;
+    }
+  }
+
+  /* Petits écrans : studio sur toute la largeur, pages dessous (l'e-mail ne tient pas dans une demi-largeur) */
+  @media (max-width: 599.98px) {
+    .pied__studio {
+      grid-column: 1 / -1;
     }
   }
 </style>

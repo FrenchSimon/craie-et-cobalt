@@ -1,0 +1,13 @@
+---
+/* Message d'erreur d'un champ, caché tant qu'il est vide : icône et texte en brique, rempli par le script. */
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<p class="champ__erreur" id={id} hidden>
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.75" y="1.75" width="12.5" height="12.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect><path d="M8 4.2v4.6" stroke="currentColor" stroke-width="1.6"></path><rect x="7.1" y="10.5" width="1.8" height="1.8" fill="currentColor"></rect></svg>
+  <span data-message></span>
+</p>

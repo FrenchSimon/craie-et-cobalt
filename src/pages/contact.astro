@@ -4,6 +4,7 @@ import TetePage from '../components/TetePage.astro';
 import Erreur from '../components/contact/Erreur.astro';
 import '../styles/formulaire.css';
 import Liste from '../components/contact/Liste.astro';
+import PlanAcces from '../components/contact/PlanAcces.astro';
 import type { Props as ListeProps } from '../components/contact/Liste.astro';
 
 const title = "Contact — Craie & Cobalt, architecte d'intérieur à Lyon";
@@ -165,6 +166,11 @@ const debut: ListeProps = {
         </div>
       </fieldset>
     </form>
+
+    {/* Après le formulaire dans le code : en mobile, il vient en dernier ; en bureau, sous les coordonnées */}
+    <div class="contact__plan">
+      <PlanAcces />
+    </div>
   </div>
 </Base>
 
@@ -174,16 +180,23 @@ const debut: ListeProps = {
 
 <style>
   /*
-   * Bureau : formulaire sur 8 colonnes à gauche, coordonnées sur 4 colonnes à droite, sous un filet.
-   * Mobile : coordonnées d'abord (trois lignes), puis le formulaire.
+   * Bureau : formulaire sur 8 colonnes à gauche ; à droite sur 4 colonnes, coordonnées sous un filet, puis le plan.
+   * Mobile : coordonnées d'abord (trois lignes), puis le formulaire, puis le plan.
    */
   .contact {
     display: grid;
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-    grid-template-areas: 'formulaire coordonnees';
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'formulaire coordonnees'
+      'formulaire plan';
     align-items: start;
     gap: var(--pas-5) clamp(48px, 7vw, 112px);
     padding-bottom: var(--espace-section);
+  }
+
+  .contact__plan {
+    grid-area: plan;
   }
 
   .coordonnees {
@@ -224,9 +237,11 @@ const debut: ListeProps = {
   @media (max-width: 899.98px) {
     .contact {
       grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: none;
       grid-template-areas:
         'coordonnees'
-        'formulaire';
+        'formulaire'
+        'plan';
     }
   }
 </style>

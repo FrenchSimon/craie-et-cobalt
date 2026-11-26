@@ -149,6 +149,10 @@ if (galerie) {
         projet.hidden = valeur !== 'tous' && projet.dataset.categorie !== valeur;
       });
       numeroter();
+      // Fondu des projets affichés (animations.css) : relancé à chaque filtre, pas au chargement
+      galerie.classList.remove('galerie--filtree');
+      void galerie.offsetWidth;
+      galerie.classList.add('galerie--filtree');
       const nombre = visibles().length;
       if (annonce) annonce.textContent = `${nombre} ${nombre > 1 ? 'projets affichés' : 'projet affiché'}`;
     });

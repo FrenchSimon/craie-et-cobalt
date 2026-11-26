@@ -1,0 +1,100 @@
+/*
+ * Animations : discrètes, en CSS (le script de la galerie ne fait que relancer le fondu des
+ * filtres) et réservées aux visiteurs qui n'ont pas demandé à réduire les animations
+ * (prefers-reduced-motion). Seules l'opacité et transform sont animées : aucun recalcul de
+ * mise en page, donc aucun décalage (CLS). Le titre et la photo de l'accroche ne sont jamais
+ * masqués, pour ne pas retarder l'affichage du plus grand élément (LCP).
+ * Déjà animés ailleurs : survols (150 ms, global.css), fiches projet (FicheProjet.astro),
+ * étapes du formulaire (formulaire.css), bouton haut de page (RetourHaut.astro).
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    --courbe-douce: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Boutons « → » : la flèche avance de 4 px au survol */
+
+  .bouton__fleche {
+    display: inline-block;
+    transition: transform 250ms var(--courbe-douce);
+  }
+
+  .bouton:hover .bouton__fleche {
+    transform: translateX(4px);
+  }
+
+  /* Ligne de cote sous le croquis de l'accroche : les deux traits se tracent depuis la légende,
+     comme sur un plan, puis la légende apparaît (décoratif, la photo reste affichée d'emblée) */
+
+  .ligne-cote::before,
+  .ligne-cote::after {
+    animation: cote-trace 900ms var(--courbe-douce) 200ms both;
+  }
+
+  .ligne-cote::before {
+    transform-origin: right;
+  }
+
+  .ligne-cote::after {
+    transform-origin: left;
+  }
+
+  .ligne-cote > span {
+    animation: fondu 600ms ease 500ms both;
+  }
+
+  /* Menu mobile : fondu et légère montée à l'ouverture */
+
+  .menu.menu--ouvert {
+    animation: apparition 250ms var(--courbe-douce);
+  }
+
+  /* Galerie : les projets affichés par un filtre montent en fondu (classe posée par
+     realisations.ts au clic, jamais au chargement) */
+
+  .galerie--filtree .galerie__projet:not([hidden]) {
+    animation: apparition 400ms var(--courbe-douce);
+  }
+
+  /*
+   * Apparition au défilement : cartes, avis et principes montent légèrement en fondu quand ils
+   * entrent à l'écran ; ceux déjà visibles au chargement restent tels quels. Navigateurs sans
+   * animations liées au défilement : tout reste simplement affiché.
+   */
+
+  @supports (animation-timeline: view()) {
+    .carte-projet,
+    .prestation,
+    .avis__carte,
+    .principe,
+    .info {
+      /* Propriétés détaillées, sans le raccourci « animation » : le minifieur y rangerait
+         view(), que les navigateurs refusent dans le raccourci. */
+      animation-name: apparition;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes fondu {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@keyframes cote-trace {
+  from {
+    transform: scaleX(0);
+  }
+}

@@ -7,7 +7,7 @@ export {};
 const bouton = document.querySelector<HTMLButtonElement>('.en-tete__bouton-menu');
 const menu = document.getElementById('menu');
 const enTete = document.querySelector<HTMLElement>('.en-tete');
-const horsMenu = document.querySelectorAll<HTMLElement>('main, footer, .retour-haut');
+const horsMenu = document.querySelectorAll<HTMLElement>('main, footer');
 const bureau = window.matchMedia('(min-width: 900px)');
 
 function basculer(ouvrir: boolean) {

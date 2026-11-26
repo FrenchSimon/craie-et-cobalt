@@ -10,7 +10,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
 | 5 | Réalisation | Site complet en local | 5 j | ✅ validé le 26/11 (socle, photos, accueil, prestations et réalisations le 25/11 ; le studio, contact, mentions légales, plan du site, page 404, bouton haut de page, animations, plan d'accès, SEO et sécurité le 26/11) |
-| 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
+| 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | 🚧 en cours (recette, 4 corrections, rapport, VoiceOver et navigateurs validés le 26/11 ; A+ à mesurer en production) |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
 
@@ -60,14 +60,14 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 
 ## 6. Recette qualité
 
-- [ ] **Accessibilité :** navigation au clavier complète sur les 5 pages, plan du site à jour, axe sans erreur, contrastes.
-- [ ] **Lecteur d'écran :** VoiceOver sur macOS avec Safari : navigation, filtres de la galerie, fiches dépliables, formulaire.
-- [ ] **Performance :** Lighthouse mobile ≥ 95 sur chaque page, LCP < 2,5 s, INP < 200 ms, CLS < 0,1 ; poids de la page Réalisations.
-- [ ] **Responsive :** 320, 375, 768, 1024, 1440 et 1920 px, sans débordement.
-- [ ] **Navigateurs :** Chrome, Firefox, Safari, iOS, Android.
-- [ ] **Sécurité :** `npm audit` propre, A+ sur securityheaders.com en production.
-- [ ] **Fiction :** relire que rien ne renvoie à un vrai studio (liens, données structurées, photos).
-- [ ] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR.
+- [x] **Accessibilité :** navigation au clavier complète sur les 5 pages, plan du site à jour, axe sans erreur, contrastes. Axe sans violation sur 29 états (8 pages à 1440 et 390 px, menu, filtres, fiche, formulaire en erreur et envoyé, plan agrandi), après 2 corrections : bouton haut de page placé dans le pied de page (repère), nom des onglets de la démarche aligné sur leur texte visible (2.5.3) ; clavier, focus et mouvement réduit conformes (26/11).
+- [x] **Lecteur d'écran :** VoiceOver sur macOS avec Safari : navigation, filtres de la galerie, fiches dépliables, formulaire.
+- [x] **Performance :** Lighthouse mobile ≥ 95 sur chaque page, LCP < 2,5 s, INP < 200 ms, CLS < 0,1 ; poids de la page Réalisations. Mobile 97 à 100, LCP 1,1 à 2,5 s (Le studio : médiane 2,3 s, à confirmer en production), CLS 0, TBT ≤ 140 ms ; bureau 96 à 100 ; Réalisations 253 Ko au chargement (26/11).
+- [x] **Responsive :** 320, 375, 768, 1024, 1440 et 1920 px, sans débordement. 48 captures, après 2 corrections : pied de page sur une colonne sous 600 px (débordait de 52 px à 320 px), flèches du carrousel de la démarche gardées à 44 px (26/11).
+- [x] **Navigateurs :** Chrome, Firefox, Safari, iOS, Android. Chrome testé par script, les autres à la main (26/11).
+- [ ] **Sécurité :** `npm audit` propre, A+ sur securityheaders.com en production. `npm audit` propre et CSP sans violation (26/11) ; A+ à mesurer en production.
+- [x] **Fiction :** relire que rien ne renvoie à un vrai studio (liens, données structurées, photos). Nom, fondatrice et adresse confirmés libres par une recherche web (26/11), comme au cadrage du 25/11 ; téléphone de fiction, domaine non enregistré, JSON-LD marqué fictif.
+- [ ] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR. Rapport validé le 26/11 ; PR à ouvrir.
 
 ## 7. Mise en ligne
 

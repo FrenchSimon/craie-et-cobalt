@@ -1,0 +1,198 @@
+---
+/*
+ * Mentions légales et confidentialité, sur le modèle de Pistil & Ronce : un chapeau, puis deux parties
+ * (mentions légales, confidentialité) en une colonne de lecture centrée. Textes : docs/textes.md § 6.
+ */
+import Base from '../layouts/Base.astro';
+import LienSortant from '../components/LienSortant.astro';
+
+const title = 'Mentions légales — Craie & Cobalt (studio fictif)';
+const description =
+  'Éditeur, hébergeur et crédits du site de démonstration Craie & Cobalt, studio fictif. Aucune donnée collectée, aucun cookie.';
+
+/* Auteurs des photos (docs/photos.md), dans l'ordre de leur première photo sur le site */
+const photographes = [
+  { nom: 'Alex Tyson', profil: 'https://unsplash.com/@alextyson195' },
+  { nom: 'Lisa Anna', profil: 'https://unsplash.com/@lisaanna195' },
+  { nom: 'yann maignan', profil: 'https://unsplash.com/@paris_interieurs' },
+  { nom: 'Caroline Badran', profil: 'https://unsplash.com/@___atmos' },
+  { nom: 'Franco Debartolo', profil: 'https://unsplash.com/@francotheshooter' },
+  { nom: 'Alexey Aladashvili', profil: 'https://unsplash.com/@alexeyaladashvili61' },
+  { nom: 'Irena Oze', profil: 'https://unsplash.com/@iistyle' },
+  { nom: 'Jonathan Borba', profil: 'https://unsplash.com/@jonathanborba' },
+];
+---
+
+<Base title={title} description={description}>
+  <article class="legal conteneur">
+    <header class="legal__intro">
+      <h1>Mentions légales et confidentialité</h1>
+      <p class="chapeau legal__chapeau">
+        Ce site est une démonstration. Craie &amp; Cobalt est un studio fictif&nbsp;: on ne peut ni lui confier un projet, ni s'y rendre.
+      </p>
+    </header>
+
+    <section id="mentions-legales" class="legal__section" aria-labelledby="titre-mentions">
+      <h2 id="titre-mentions">Mentions légales</h2>
+
+      <h3>Éditeur</h3>
+      <p>
+        Simon Dabin, développeur web freelance (entrepreneur individuel), Beaupréau-en-Mauges (Maine-et-Loire). Directeur de la publication&nbsp;: Simon Dabin.
+      </p>
+      <p>Contact&nbsp;: <LienSortant href="https://github.com/FrenchSimon" texte="github.com/FrenchSimon" /></p>
+
+      <h3>Hébergeur</h3>
+      <address>
+        Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis ·
+        <LienSortant href="https://vercel.com" texte="vercel.com" />
+      </address>
+
+      <h3>Un studio fictif</h3>
+      <p>
+        Le nom, la fondatrice, l'adresse, le téléphone, l'e-mail, les comptes Instagram et LinkedIn, les réalisations et les avis de Craie &amp; Cobalt sont inventés. La rue des Tisseuses n'existe pas à Lyon, et le numéro 04&nbsp;65&nbsp;71&nbsp;38&nbsp;12 appartient à une plage réservée par l'ARCEP aux œuvres de fiction. Toute ressemblance avec un studio existant serait fortuite.
+      </p>
+
+      <h3>Crédits</h3>
+      <ul class="legal__liste">
+        <li>
+          Conception, textes, logo et code&nbsp;: Simon Dabin. Le code est consultable sur
+          <LienSortant href="https://github.com/FrenchSimon/craie-et-cobalt" texte="GitHub" />.
+        </li>
+        <li>
+          Photos&nbsp;: Unsplash, sous licence Unsplash, de
+          {photographes.map(({ nom, profil }, index) => (
+            <Fragment>{index > 0 && (index === photographes.length - 1 ? ' et ' : ', ')}<LienSortant href={profil} texte={nom} /></Fragment>
+          ))}. Couleurs retouchées pour harmoniser la série.
+        </li>
+        <li>Polices&nbsp;: Archivo, Newsreader et IBM Plex Mono, sous licence SIL Open Font License.</li>
+      </ul>
+    </section>
+
+    <section id="confidentialite" class="legal__section" aria-labelledby="titre-confidentialite">
+      <h2 id="titre-confidentialite">Confidentialité</h2>
+
+      <h3>Aucune donnée collectée</h3>
+      <p>
+        Le formulaire de contact n'envoie rien. Ce que vous y écrivez reste dans votre navigateur et s'efface quand vous cliquez sur «&nbsp;Envoyer ma demande&nbsp;».
+      </p>
+
+      <h3>Aucun cookie, aucun traceur</h3>
+      <p>
+        Pas de mesure d'audience, pas de publicité, pas de bouton de réseau social. C'est pourquoi aucun bandeau ne vous demande votre accord.
+      </p>
+
+      <h3>Aucun service tiers</h3>
+      <p>Les polices et les photos sont hébergées avec le site. Votre navigateur ne contacte aucun autre serveur.</p>
+
+      <h3>Journaux de l'hébergeur</h3>
+      <p>
+        Comme tout hébergeur, Vercel enregistre des données techniques de connexion (adresse IP, pages demandées, date) pour faire fonctionner et protéger le service. Ces journaux peuvent être traités aux États-Unis&nbsp;; Simon Dabin ne s'en sert pas. Voir la
+        <LienSortant href="https://vercel.com/legal/privacy-policy" texte="politique de confidentialité de Vercel" />.
+      </p>
+
+      <h3>Vos droits</h3>
+      <p>
+        Pour toute question sur vos données, écrivez à Simon Dabin via
+        <LienSortant href="https://github.com/FrenchSimon" texte="GitHub" />. Vous pouvez aussi adresser une réclamation à la <LienSortant href="https://www.cnil.fr" texte="CNIL" />.
+      </p>
+    </section>
+
+    <footer class="legal__fin">
+      <a href="/"><span aria-hidden="true">←&nbsp;</span>Retour à l'accueil</a>
+      <p class="legal__maj">Mise à jour&nbsp;: <time datetime="2026-11-26">26 novembre 2026</time>.</p>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  /* Une colonne de lecture de 720 px, centrée dans la page ; le texte reste aligné à gauche */
+  .legal {
+    padding-block: clamp(56px, 8vw, 120px) var(--espace-section);
+  }
+
+  .legal > * {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .legal__chapeau {
+    margin-top: 28px;
+    color: var(--gris);
+  }
+
+  .legal__section {
+    margin-top: var(--pas-6);
+    padding-top: var(--pas-4);
+    border-top: 1px solid var(--filet);
+    scroll-margin-top: var(--pas-3);
+  }
+
+  .legal h2 {
+    font-size: clamp(30px, 3.4vw, 40px);
+    line-height: 1.1;
+  }
+
+  .legal h3 {
+    margin-top: var(--pas-4);
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .legal h3 + *,
+  .legal p + p {
+    margin-top: var(--pas-1);
+  }
+
+  .legal address {
+    font-style: normal;
+  }
+
+  .legal__liste {
+    display: grid;
+    gap: var(--pas-1);
+    padding-left: 1.2em;
+  }
+
+  .legal__liste li::marker {
+    color: var(--cobalt);
+  }
+
+  /* Liens dans les phrases et retour à l'accueil, même soulignement fin. Liens en ligne : restent en ligne (exception « en ligne » de WCAG 2.5.8),
+     pour qu'une virgule ne passe jamais seule à la ligne ; survol cobalt */
+  .legal__section :global(a),
+  .legal__fin a {
+    text-decoration: underline 1px;
+    text-underline-offset: 4px;
+    transition:
+      color var(--transition),
+      text-decoration-color var(--transition);
+  }
+
+  .legal__section :global(a:hover),
+  .legal__fin a:hover {
+    color: var(--cobalt);
+  }
+
+  .legal__fin {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pas-2) var(--pas-4);
+    margin-top: var(--pas-6);
+    padding-top: var(--pas-3);
+    border-top: 1px solid var(--filet);
+  }
+
+  /* Lien isolé : cible de 24 px de haut au moins (WCAG 2.5.8) */
+  .legal__fin a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+  }
+
+  .legal__maj {
+    color: var(--gris);
+    font-size: 15px;
+  }
+</style>

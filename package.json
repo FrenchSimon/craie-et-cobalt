@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "controler": "node scripts/controler.mjs",
     "photos": "node scripts/etalonner-photos.mjs"
   },
   "dependencies": {

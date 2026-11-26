@@ -12,7 +12,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 5 | Réalisation | Site complet en local | 5 j | ✅ validé le 26/11 (socle, photos, accueil, prestations et réalisations le 25/11 ; le studio, contact, mentions légales, plan du site, page 404, bouton haut de page, animations, plan d'accès, SEO et sécurité le 26/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ✅ validé le 26/11 (`docs/recette.md`, PR #26 ; A+ mesuré en production) |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ✅ validé le 26/11 : https://craie-et-cobalt.vercel.app ; lien ajouté dans le portfolio |
-| 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
+| 8 | Étude de cas | Fiche portfolio à jour | — | ✅ validé le 26/11 (~13 h 15 de travail ; site complet annoncé en 2 semaines, design sur mesure sur une base technique commune) |
 
 ## 2. Photos — `docs/photos`
 
@@ -78,9 +78,9 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 
 ## 8. Étude de cas
 
-- [ ] Temps total par étape (`docs/TEMPS-PASSE.md`) comparé à la promesse de 2 à 3 semaines et à Pistil & Ronce (détail interne, hors du dépôt).
-- [ ] Bilan du niveau de design : base commune adaptée ou sur mesure.
-- [ ] Mettre à jour `demo-architecte.md` et le journal de `ROADMAP.md` du portfolio.
+- [x] Temps total par étape (`docs/TEMPS-PASSE.md`) comparé à la promesse de 2 à 3 semaines et à Pistil & Ronce (détail interne, hors du dépôt). Environ 2 jours de travail ; à périmètre comparable, 13 % de plus que la démo n° 1 pour 5 pages et 3 annexes ; le délai annoncé passe à **2 semaines** (26/11).
+- [x] Bilan du niveau de design : base commune adaptée ou sur mesure. **Sur mesure, sur une base technique commune** : le socle (technique, qualité, méthode) se reprend, l'identité et les composants du métier sont faits pour chaque client (26/11).
+- [x] Mettre à jour `demo-architecte.md` et le journal de `ROADMAP.md` du portfolio, ainsi que `offres.md` (v4 : délai et niveau de design) ; sans captures avant/après (décidé le 26/11).
 
 ## Décisions ouvertes
 

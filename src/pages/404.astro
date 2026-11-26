@@ -1,0 +1,53 @@
+---
+/*
+ * Page 404 : surtitre, titre, texte et deux boutons, alignés à gauche comme les têtes de page.
+ * Pas de lien canonique. Textes : docs/textes.md § 8.
+ */
+import Base from '../layouts/Base.astro';
+
+const title = 'Page introuvable — Craie & Cobalt';
+const description =
+  "Cette page n'existe pas sur le site de démonstration Craie & Cobalt, studio fictif d'architecture intérieure à Lyon.";
+---
+
+<Base title={title} description={description} canonique={false}>
+  <section class="introuvable conteneur" aria-labelledby="titre-introuvable">
+    <p class="etiquette surtitre">Erreur 404</p>
+    <h1 id="titre-introuvable">Cette page n'est pas sur le plan.</h1>
+    <p class="chapeau introuvable__chapeau">Elle a peut-être été déplacée, ou n'a jamais été dessinée.</p>
+    <div class="introuvable__boutons">
+      <a class="bouton" href="/">Retour à l'accueil</a>
+      <a class="bouton bouton--graphite" href="/realisations">Voir les réalisations</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .introuvable {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding-block: clamp(56px, 8vw, 120px) var(--espace-section);
+  }
+
+  /* Surtitre collé au titre, comme les têtes de page */
+  .introuvable .surtitre {
+    margin-bottom: -14px;
+  }
+
+  .introuvable h1 {
+    max-width: 14ch;
+  }
+
+  .introuvable__chapeau {
+    color: var(--gris);
+  }
+
+  .introuvable__boutons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--pas-2);
+    margin-top: var(--pas-1);
+  }
+</style>

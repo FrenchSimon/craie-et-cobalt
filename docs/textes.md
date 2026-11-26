@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.9 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio »)
+> Version 1.10 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -291,15 +291,44 @@ Sans JavaScript, les 3 étapes s'affichent les unes sous les autres, sans les bo
 
 ---
 
-## 6. Mentions légales et confidentialité
+## 6. Mentions légales et confidentialité (page `/mentions-legales`)
 
-**Title :** Mentions légales — Craie & Cobalt (studio fictif)
+> v1.10, validé le 26/11/2026 : structure et textes repris de Pistil & Ronce, adaptés au studio.
 
-- **Un studio fictif :** Le nom, la fondatrice, l'adresse, le téléphone, l'e-mail, les réalisations et les avis de Craie & Cobalt sont inventés. La rue des Tisseuses n'existe pas à Lyon, et le numéro 04 65 71 38 12 appartient à une plage réservée par l'ARCEP aux œuvres de fiction. Toute ressemblance avec un studio existant serait fortuite.
-- **Éditeur :** Simon Dabin, développeur web freelance (entrepreneur individuel), Beaupréau-en-Mauges (Maine-et-Loire). Directeur de la publication : Simon Dabin. Contact : [github.com/FrenchSimon](https://github.com/FrenchSimon).
-- **Hébergeur :** Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis · [vercel.com](https://vercel.com).
-- **Photos :** banques d'images libres de droits, auteurs crédités (liste dans le dépôt).
-- **Données personnelles :** le formulaire n'envoie et ne conserve rien. Aucun cookie, aucun traceur.
+- **Title :** Mentions légales — Craie & Cobalt (studio fictif)
+- **Meta description :** Éditeur, hébergeur et crédits du site de démonstration Craie & Cobalt, studio fictif. Aucune donnée collectée, aucun cookie.
+
+**Titre :** Mentions légales et confidentialité
+
+**Chapeau :** Ce site est une démonstration. Craie & Cobalt est un studio fictif : on ne peut ni lui confier un projet, ni s'y rendre.
+
+### Mentions légales
+
+**Éditeur :** Simon Dabin, développeur web freelance (entrepreneur individuel), Beaupréau-en-Mauges (Maine-et-Loire). Directeur de la publication : Simon Dabin. Contact : [github.com/FrenchSimon](https://github.com/FrenchSimon).
+
+**Hébergeur :** Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis · [vercel.com](https://vercel.com).
+
+**Un studio fictif :** Le nom, la fondatrice, l'adresse, le téléphone, l'e-mail, les comptes Instagram et LinkedIn, les réalisations et les avis de Craie & Cobalt sont inventés. La rue des Tisseuses n'existe pas à Lyon, et le numéro 04 65 71 38 12 appartient à une plage réservée par l'ARCEP aux œuvres de fiction. Toute ressemblance avec un studio existant serait fortuite.
+
+**Crédits :**
+
+- Conception, textes, logo et code : Simon Dabin. Le code est consultable sur [GitHub](https://github.com/FrenchSimon/craie-et-cobalt).
+- Photos : Unsplash, sous licence Unsplash, de Alex Tyson, Lisa Anna, yann maignan, Caroline Badran, Franco Debartolo, Alexey Aladashvili, Irena Oze et Jonathan Borba (liens vers leurs profils). Couleurs retouchées pour harmoniser la série.
+- Polices : Archivo, Newsreader et IBM Plex Mono, sous licence SIL Open Font License.
+
+### Confidentialité
+
+**Aucune donnée collectée :** Le formulaire de contact n'envoie rien. Ce que vous y écrivez reste dans votre navigateur et s'efface quand vous cliquez sur « Envoyer ma demande ».
+
+**Aucun cookie, aucun traceur :** Pas de mesure d'audience, pas de publicité, pas de bouton de réseau social. C'est pourquoi aucun bandeau ne vous demande votre accord.
+
+**Aucun service tiers :** Les polices et les photos sont hébergées avec le site. Votre navigateur ne contacte aucun autre serveur.
+
+**Journaux de l'hébergeur :** Comme tout hébergeur, Vercel enregistre des données techniques de connexion (adresse IP, pages demandées, date) pour faire fonctionner et protéger le service. Ces journaux peuvent être traités aux États-Unis ; Simon Dabin ne s'en sert pas. Voir la [politique de confidentialité de Vercel](https://vercel.com/legal/privacy-policy).
+
+**Vos droits :** Pour toute question sur vos données, écrivez à Simon Dabin via [GitHub](https://github.com/FrenchSimon). Vous pouvez aussi adresser une réclamation à la [CNIL](https://www.cnil.fr).
+
+**Bas de page :** ← Retour à l'accueil · Mise à jour : 26 novembre 2026.
 
 ---
 

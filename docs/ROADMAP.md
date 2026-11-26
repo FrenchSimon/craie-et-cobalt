@@ -74,7 +74,7 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 - [x] Projet Vercel relié au dépôt, prévisualisation sur chaque PR, production sur `main` (26/11, préréglage Astro).
 - [x] Vérifier en production : en-têtes HTTP, `noindex`, image de partage (aperçu Open Graph), Lighthouse (26/11 : A+ sur securityheaders.com, PageSpeed mobile 100 / 100 / 100 / 69 sur l'accueil et Le studio, aperçu correct sur opengraph.xyz et LinkedIn).
 - [x] `README` complet (but, stack, qualité, lien vers la démo ; sans captures, décidé le 26/11).
-- [ ] Ajouter le lien du site et du code dans le portfolio (`docs/projets.md`).
+- [x] Ajouter le lien du site et du code dans le portfolio (`docs/projets.md`, 26/11).
 
 ## 8. Étude de cas
 

@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.12 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page ; v1.12 : page 404 « Cette page n'est pas sur le plan. »)
+> Version 1.13 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page ; v1.12 : page 404 « Cette page n'est pas sur le plan. » ; v1.13 : bouton haut de page)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -28,7 +28,9 @@ Logo **Craie & Cobalt** (lien vers l'accueil) · Prestations · Réalisations ·
 
 ### Textes pour les lecteurs d'écran (invisibles)
 
-Lien d'évitement : « Aller au contenu » · liens qui ouvrent un nouvel onglet : « (nouvel onglet) » · bouton du menu en mobile : « Ouvrir le menu » · navigation : « Menu principal »
+Lien d'évitement : « Aller au contenu » · liens qui ouvrent un nouvel onglet : « (nouvel onglet) » · bouton du menu en mobile : « Ouvrir le menu » · navigation : « Menu principal » · bouton haut de page (flèche seule, fixé en bas à droite) : « Revenir en haut de la page »
+
+> v1.13, validé le 26/11/2026 : intitulé du bouton haut de page, repris de Pistil & Ronce.
 
 ### Données structurées (JSON-LD, invisible)
 

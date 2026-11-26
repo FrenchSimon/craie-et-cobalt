@@ -11,7 +11,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
 | 5 | Réalisation | Site complet en local | 5 j | ✅ validé le 26/11 (socle, photos, accueil, prestations et réalisations le 25/11 ; le studio, contact, mentions légales, plan du site, page 404, bouton haut de page, animations, plan d'accès, SEO et sécurité le 26/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ✅ validé le 26/11 (`docs/recette.md`, PR #26 ; A+ mesuré en production) |
-| 7 | Mise en ligne | URL Vercel de production | 0,25 j | 🚧 en cours (projet Vercel relié et README le 26/11) |
+| 7 | Mise en ligne | URL Vercel de production | 0,25 j | ✅ validé le 26/11 : https://craie-et-cobalt.vercel.app ; lien ajouté dans le portfolio |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
 
 ## 2. Photos — `docs/photos`

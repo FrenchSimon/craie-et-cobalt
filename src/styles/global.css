@@ -39,6 +39,9 @@
   --largeur-contenu: 1280px;
   --espace-section: clamp(96px, 11vw, 160px);
   --transition: 150ms;
+  /* Bouton haut de page (RetourHaut.astro) et place réservée sous le pied de page */
+  --retour-haut-taille: 48px;
+  --retour-haut-ecart: clamp(20px, 3vw, 32px);
 }
 
 /* Base */

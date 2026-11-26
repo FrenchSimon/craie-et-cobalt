@@ -1,0 +1,86 @@
+---
+/*
+ * Bouton « Revenir en haut de la page », fixé en bas à droite (repris de Pistil & Ronce).
+ * Simple lien vers #haut : il marche sans script, et le défilement doux de global.css
+ * est déjà coupé avec prefers-reduced-motion. Il apparaît en fondu après 60 % d'écran de
+ * défilement (animation liée au défilement : assez tôt pour les pages courtes, comme la 404
+ * en mobile) ; masqué, il sort aussi de l'ordre de tabulation. Navigateurs sans cette
+ * animation : toujours affiché.
+ * Le pied de page lui réserve de la place en bas, pour ne rien masquer en fin de page.
+ */
+---
+
+<a class="retour-haut" href="#haut">
+  <svg width="16" height="18" viewBox="0 0 16 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true" focusable="false"><path d="M8 17V2.5M2 8.5l6-6 6 6"></path></svg>
+  <span class="visuellement-masque">Revenir en haut de la page</span>
+</a>
+
+<style>
+  .retour-haut {
+    position: fixed;
+    /* Assez loin des coins arrondis des téléphones et de la barre d'accueil */
+    right: calc(var(--retour-haut-ecart) + env(safe-area-inset-right, 0px));
+    bottom: calc(var(--retour-haut-ecart) + env(safe-area-inset-bottom, 0px));
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: var(--retour-haut-taille);
+    height: var(--retour-haut-taille);
+    border: 1px solid var(--cobalt);
+    background: var(--craie-claire);
+    color: var(--cobalt);
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .retour-haut:hover {
+    background: var(--cobalt);
+    color: var(--craie);
+  }
+
+  /* Contour graphite bordé de craie : visible sur les fonds clairs comme sur le pied de page graphite */
+  .retour-haut:focus-visible {
+    outline: 2px solid var(--graphite);
+    outline-offset: 3px;
+    box-shadow:
+      0 0 0 3px var(--craie-claire),
+      0 0 0 7px var(--craie-claire);
+  }
+
+  /* Propriétés détaillées, sans le raccourci « animation » qui remettrait la frise à zéro */
+  @supports (animation-timeline: scroll()) {
+    .retour-haut {
+      animation-name: retour-haut-apparition;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root);
+      animation-range: 60vh calc(60vh + 120px);
+    }
+  }
+
+  @keyframes retour-haut-apparition {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .retour-haut {
+      transition: none;
+      animation-timing-function: step-end;
+    }
+  }
+
+  @media print {
+    .retour-haut {
+      display: none;
+    }
+  }
+</style>

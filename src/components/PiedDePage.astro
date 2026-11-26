@@ -63,6 +63,13 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
     line-height: 1.6;
   }
 
+  /* Tant que le bouton haut de page peut chevaucher la ligne légale : place réservée sous elle */
+  @media (max-width: 1499.98px) {
+    .pied {
+      padding-bottom: calc(var(--retour-haut-taille) + 2 * var(--retour-haut-ecart) + env(safe-area-inset-bottom, 0px));
+    }
+  }
+
   /* Mot-symbole sur 6 colonnes, studio et pages sur 3 chacun (grille-pied : global.css, partagée avec l'appel à l'action) */
   .pied__marque {
     grid-column: span 6;

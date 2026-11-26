@@ -6,6 +6,7 @@ import policeTitre from '../assets/fonts/archivo-latin-400-600-largeur-112.woff2
 import LienEvitement from '../components/LienEvitement.astro';
 import EnTete from '../components/EnTete.astro';
 import PiedDePage from '../components/PiedDePage.astro';
+import RetourHaut from '../components/RetourHaut.astro';
 
 interface Props {
   title: string;
@@ -37,12 +38,13 @@ const url = new URL(Astro.url.pathname.replace(/\.html$/, ''), site).href;
     <noscript><link rel="stylesheet" href={sansJs} /></noscript>
     <slot name="head" />
   </head>
-  <body>
+  <body id="haut">
     <LienEvitement />
     <EnTete />
     <main id="contenu">
       <slot />
     </main>
     <PiedDePage />
+    <RetourHaut />
   </body>
 </html>

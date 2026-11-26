@@ -9,7 +9,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 2 | Photos | Planche de sélection + `docs/photos.md` | 1 j | ✅ validé le 25/11 (12 photos Unsplash) |
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
-| 5 | Réalisation | Site complet en local | 5 j | 🚧 en cours (socle, photos, accueil, prestations et réalisations validés le 25/11, le studio, contact, mentions légales, plan du site et page 404 le 26/11) |
+| 5 | Réalisation | Site complet en local | 5 j | 🚧 en cours (socle, photos, accueil, prestations et réalisations validés le 25/11, le studio, contact, mentions légales, plan du site, page 404 et bouton haut de page le 26/11) |
 | 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ⏳ à venir |
 | 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
@@ -50,7 +50,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 8. [x] **Mentions légales et confidentialité :** sur le modèle de Pistil & Ronce, chapeau, puis mentions légales (éditeur, hébergeur, studio fictif, crédits des 8 photographes et des polices) et confidentialité (aucune donnée, aucun cookie, aucun service tiers, journaux de Vercel, droits), en une colonne de lecture centrée.
 9. [x] **Plan du site** (`/plan-du-site`) : toutes les pages et les 6 fiches projet, tirées des données du menu et des projets, lien dans la ligne légale du pied de page (second système de navigation, critère 12.1 du RGAA) ; textes dans `textes.md` (v1.11).
 10. [x] **Page 404 :** « Cette page n'est pas sur le plan. », surtitre « Erreur 404 », boutons vers l'accueil et les réalisations, sans illustration pour l'instant, sans lien canonique ; textes dans `textes.md` (v1.12).
-11. [ ] **Bouton haut de page :** sur toutes les pages, lien vers le haut (`#haut`, utilisable sans JavaScript), visible au clavier avec focus net, cible de 44 × 44 px au moins, sans masquer de contenu en mobile ; défilement doux désactivé avec `prefers-reduced-motion`. Son intitulé est à ajouter à `textes.md` après accord.
+11. [x] **Bouton haut de page :** sur toutes les pages, lien vers `#haut` (sans JavaScript) repris de Pistil & Ronce, carré de 48 × 48 px au contour cobalt, fixé en bas à droite ; apparition en fondu liée au défilement dès 60 % d'écran (hors tabulation quand il est masqué), focus graphite bordé de craie, inerte avec le menu mobile, place réservée sous le pied de page sous 1500 px ; défilement doux désactivé avec `prefers-reduced-motion` ; intitulé « Revenir en haut de la page » dans `textes.md` (v1.13).
 12. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
 13. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques (celui de l'accueil vaut `/index` au lieu de `/`, relevé par `npm run controler`), `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
 14. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.

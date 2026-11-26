@@ -1,4 +1,4 @@
-/* Menu principal, écrit une seule fois : en-tête, et plus tard plan du site et sitemap. */
+/* Menu principal, écrit une seule fois : en-tête, pied de page, plan du site, et plus tard sitemap. */
 
 export interface Lien {
   href: string;

@@ -3,8 +3,9 @@
  * (API Overpass) du plateau et des pentes de la Croix-Rousse (Lyon 4e et 1er), entre Saône et Rhône.
  * Repris de Pistil & Ronce (scripts/plan/extraire.mjs), emprise et éléments adaptés.
  *
- * Lancé une fois à la main (`npm run plan:extraire`) ; le résultat, réduit aux seules
- * géométries et étiquettes utiles, est versionné dans `scripts/plan/donnees.json`.
+ * Lancé à la main (`npm run plan:extraire`) ; le résultat, réduit aux seules géométries et
+ * étiquettes utiles, va dans `scripts/plan/donnees.json`, ignoré par Git (3,8 Mo) : seuls les SVG
+ * tirés par `npm run plan` sont versionnés. Une nouvelle extraction peut changer un peu le dessin.
  * Données © contributeurs OpenStreetMap, licence ODbL.
  */
 import { writeFile } from 'node:fs/promises';

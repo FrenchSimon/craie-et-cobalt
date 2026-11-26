@@ -15,6 +15,9 @@ docs/TEMPS-PASSE.md
 # Originaux des photos (retéléchargeables depuis les liens de docs/photos.md)
 contenu/photos/*.jpg
 
+# Données OpenStreetMap du plan (3,8 Mo, retrouvées par npm run plan:extraire ; les SVG tirés sont versionnés)
+scripts/plan/donnees.json
+
 # Prototype de direction artistique (brouillon local, le site sera construit à l'étape Réalisation)
 contenu/prototype/
 

@@ -4,6 +4,7 @@
  * à droite, puis la ligne légale et les réseaux sous un filet.
  * Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau.
  */
+import RetourHaut from './RetourHaut.astro';
 import MotSymbole from '../../contenu/logo/mot-symbole.svg';
 import { menu, contact, cheminNormalise } from '../data/navigation';
 
@@ -56,6 +57,8 @@ const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : und
       <p class="pied__copyright">© 2026 Craie &amp; Cobalt — studio fictif</p>
     </div>
   </div>
+  {/* Dans le pied de page pour rester dans un repère (règle region d'axe) ; sa position reste fixe */}
+  <RetourHaut />
 </footer>
 
 <style>

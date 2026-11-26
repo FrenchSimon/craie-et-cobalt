@@ -17,3 +17,6 @@ contenu/photos/*.jpg
 
 # Prototype de direction artistique (brouillon local, le site sera construit à l'étape Réalisation)
 contenu/prototype/
+
+# Réglages personnels de Claude Code (non partagés)
+.claude/settings.local.json

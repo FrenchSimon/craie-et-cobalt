@@ -7,7 +7,8 @@ Toujours répondre en français (messages, synthèses, commentaires, docs, commi
 Site vitrine **complet (5 pages)** de Craie & Cobalt, studio **fictif** de Margaux Delorme, architecte d'intérieur à Lyon. Deuxième démo du portfolio de Simon Dabin : prouver l'offre « site vitrine complet » et trancher son **délai** (2 à 3 semaines) et son **niveau de design** (base commune adaptée ou sur mesure). Style : contemporain, graphique, haut de gamme.
 
 - **Étapes et avancement :** `docs/ROADMAP.md`. Contexte et décisions : fiche `~/Local Sites/portfolio/docs/demo-architecte.md` (cocher ses cases à chaque étape) et journal de `~/Local Sites/portfolio/ROADMAP.md`.
-- **Textes validés :** `docs/textes.md` (v1.0). Ne pas les modifier sans mon accord.
+- **Textes validés :** `docs/textes.md` (version en tête du fichier). Ne pas les modifier sans mon accord.
+- **Design :** `docs/direction-artistique.md` fait foi (couleurs, polices, composants) ; stack figée dans `docs/stack.md`.
 - **Tout reste fictif :** coordonnées, réseaux, réalisations et avis (marqués « Avis fictifs ») ; liens externes désactivés ; bandeau « Studio fictif — Site réalisé par Simon Dabin » + « Voir le code » sur toutes les pages ; formulaire de démo qui n'envoie rien. Jamais le nom, le logo ou les réalisations d'un vrai studio.
 - **Photos :** Unsplash ou Pexels uniquement, créditées dans `docs/photos.md` ; AVIF/WebP, plusieurs tailles, dimensions explicites.
 
@@ -16,7 +17,12 @@ Site vitrine **complet (5 pages)** de Craie & Cobalt, studio **fictif** de Marga
 - **Étape par étape**, dans l'ordre de la roadmap. **Ne jamais commencer une étape avant que j'aie validé la précédente** : présenter le livrable, puis attendre.
 - **Chronométrer** chaque session dans `docs/TEMPS-PASSE.md` (ignoré par Git : le temps passé ne doit pas être public).
 - Me rappeler brièvement l'étape en cours, la prochaine action à valider et les blocages.
-- **Stack** à proposer à son étape (statique, sans CMS, Vercel), en évaluant d'abord la reprise du socle Pistil & Ronce (Astro 7, versions figées, Node 24). Vérifier les API dans la documentation de la version installée, pas de mémoire.
+- Vérifier les API dans la documentation de la version installée (Astro 7.4.13), pas de mémoire.
+- **Skills du dépôt** (`.claude/skills/`) : `cloturer-etape` à chaque validation, `controles-pr` avant chaque PR, `captures-responsive` pour vérifier le rendu.
+
+## Commandes
+
+`npm run dev` (local), `npm run check` (types Astro), `npm run build` puis `npm run preview` (site statique dans `dist/`), `npm run photos` (étalonnage des photos), `npm audit --audit-level=high`, `npm run controler` (contrôles de `dist/` et `src/` avant PR, après le build).
 
 ## Git et GitHub
 

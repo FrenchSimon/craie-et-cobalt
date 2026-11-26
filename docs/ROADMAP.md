@@ -52,7 +52,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 10. [x] **Page 404 :** « Cette page n'est pas sur le plan. », surtitre « Erreur 404 », boutons vers l'accueil et les réalisations, sans illustration pour l'instant, sans lien canonique ; textes dans `textes.md` (v1.12).
 11. [ ] **Bouton haut de page :** sur toutes les pages, lien vers le haut (`#haut`, utilisable sans JavaScript), visible au clavier avec focus net, cible de 44 × 44 px au moins, sans masquer de contenu en mobile ; défilement doux désactivé avec `prefers-reduced-motion`. Son intitulé est à ajouter à `textes.md` après accord.
 12. [ ] **Animations :** discrètes, en CSS, désactivées avec `prefers-reduced-motion`, sans effet sur le LCP ni le CLS.
-13. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques, `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
+13. [ ] **SEO :** `title` et `meta description` par page, Open Graph et image de partage, liens canoniques (celui de l'accueil vaut `/index` au lieu de `/`, relevé par `npm run controler`), `sitemap.xml`, JSON-LD `ProfessionalService`, `noindex`.
 14. [ ] **Sécurité :** `vercel.json` avec les en-têtes HTTP (CSP stricte sans `unsafe-inline`, HSTS, `X-Robots-Tag: noindex`, cache des fichiers à empreinte), testés en local.
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.

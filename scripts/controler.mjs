@@ -10,7 +10,8 @@
  *   aria-current="page" sur les liens vers la page courante (erreur dans l'en-tête et les <nav>,
  *   avertissement ailleurs) ;
  * - SEO : title et meta description présents et uniques, noindex, lien canonique cohérent avec
- *   l'URL (aucun sur la 404), JSON-LD lisible ;
+ *   l'URL (aucun sur la 404), Open Graph complet (og:url égal au canonique, image servie par le
+ *   site), JSON-LD lisible, sitemap.xml qui liste exactement les pages canoniques ;
  * - images : width, height et alt sur chaque img ;
  * - liens : domaines externes autorisés seulement (fiction), target="_blank" toujours avec
  *   rel="noopener noreferrer" ;
@@ -69,6 +70,8 @@ if (pages.length < PAGES_MIN) {
 
 const titres = new Map();
 const descriptions = new Map();
+/** Liens canoniques relevés, comparés au sitemap après la boucle. */
+const canoniques = new Set();
 
 for (const page of pages) {
   const html = await readFile(path.join(dist, page), 'utf8');
@@ -151,6 +154,15 @@ for (const page of pages) {
   } else if (canonique) {
     signaler(page, 'la page 404 ne doit pas avoir de lien canonique');
   }
+  if (canonique) canoniques.add(canonique);
+
+  // Open Graph : de quoi afficher un aperçu de partage ; og:url seulement avec un canonique.
+  const og = (nom) => html.match(new RegExp(`<meta property="og:${nom}" content="([^"]*)"`))?.[1] ?? null;
+  for (const nom of ['title', 'description', 'image', 'image:alt']) {
+    if (!og(nom)) signaler(page, `og:${nom} absent`);
+  }
+  if (og('url') !== (est404 ? null : canonique)) signaler(page, `og:url ${og('url')} au lieu de ${canonique}`);
+  if (og('image') && !og('image').startsWith(`${site}/`)) signaler(page, `og:image hors du site (${og('image')})`);
 
   // Images.
   for (const [balise] of html.matchAll(/<img\b[^>]*>/g)) {
@@ -178,6 +190,16 @@ for (const [valeurs, nom] of [[titres, 'title'], [descriptions, 'meta descriptio
   for (const [texte, fichiers] of valeurs) {
     if (fichiers.length > 1) signaler(fichiers.join(', '), `${nom} en double : « ${texte} »`);
   }
+}
+
+// sitemap.xml : toutes les pages canoniques, et rien d'autre.
+try {
+  const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
+  const listees = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url));
+  for (const url of canoniques) if (!listees.has(url)) signaler('sitemap.xml', `${url} absente`);
+  for (const url of listees) if (!canoniques.has(url)) signaler('sitemap.xml', `${url} sans page canonique`);
+} catch {
+  signaler('dist', 'sitemap.xml absent');
 }
 
 // Feuilles de style construites : aucune police ni image servie par un autre domaine.

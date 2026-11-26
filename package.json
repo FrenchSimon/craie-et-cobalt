@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "controler": "node scripts/controler.mjs",
-    "photos": "node scripts/etalonner-photos.mjs"
+    "photos": "node scripts/etalonner-photos.mjs",
+    "plan:extraire": "node scripts/plan/extraire.mjs",
+    "plan": "node scripts/plan/dessiner.mjs"
   },
   "dependencies": {
     "astro": "7.4.13"

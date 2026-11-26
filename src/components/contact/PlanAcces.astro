@@ -1,0 +1,239 @@
+---
+import FlecheSortante from '../FlecheSortante.astro';
+import apercu from '../../assets/plan/plan-apercu.svg?url';
+import grand from '../../assets/plan/plan.svg?url';
+import plans from '../../assets/plan/plans.json';
+
+/*
+ * Plan d'accès (dessiné par scripts/plan/dessiner.mjs depuis OpenStreetMap) : un aperçu serré dans la page ;
+ * un clic l'affiche en grand dans une fenêtre (<dialog>). Sans JavaScript, le lien ouvre le grand plan seul.
+ * Textes : docs/textes.md § 5.
+ */
+const description =
+  "Plan d'accès : le studio, 12 rue des Tisseuses, sur le plateau de la Croix-Rousse, à 5 minutes à pied du métro C, station Croix-Rousse.";
+const { largeur, hauteur, repere } = plans['plan.svg'];
+---
+
+<figure class="plan">
+  <a class="plan__ouvrir" href={grand} aria-haspopup="dialog" data-plan-ouvrir>
+    <img
+      class="plan__image"
+      src={apercu}
+      width={plans['plan-apercu.svg'].largeur}
+      height={plans['plan-apercu.svg'].hauteur}
+      alt={description}
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="plan__agrandir ui">
+      Agrandir le plan
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M8.5 1.5h4v4M12.5 1.5 8 6M5.5 12.5h-4v-4M1.5 12.5 6 8" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+    </span>
+  </a>
+  <figcaption class="plan__legende">
+    <span>Plan illustratif, adresse fictive.</span>
+    <a class="plan__source" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© contributeurs OpenStreetMap<FlecheSortante /><span class="visuellement-masque"> (nouvel onglet)</span></a>
+  </figcaption>
+</figure>
+
+<dialog class="plan-grand" aria-labelledby="plan-grand-titre" data-plan-grand data-repere-x={repere.x} data-repere-y={repere.y}>
+  <div class="plan-grand__barre">
+    <h2 class="etiquette plan-grand__titre" id="plan-grand-titre">Plan d'accès</h2>
+    <button class="plan-grand__fermer" type="button" aria-label="Fermer le plan" data-plan-fermer>
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2 2 14" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+    </button>
+  </div>
+  {/* Zone qui défile dans les deux sens quand le plan est plus grand que l'écran (téléphone) */}
+  <div class="plan-grand__cadre" tabindex="0" role="group" aria-label="Plan d'accès en grand, défilable" data-plan-cadre>
+    <img class="plan-grand__image" src={grand} width={largeur} height={hauteur} alt={description} loading="lazy" decoding="async" />
+  </div>
+</dialog>
+
+<script>
+  import '../../scripts/plan';
+</script>
+
+<style>
+  .plan {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pas-2);
+  }
+
+  /* Aperçu : cadre filet ; au survol, encadré cobalt décalé comme les cartes projet */
+  .plan__ouvrir {
+    position: relative;
+    display: block;
+    border: 1px solid var(--filet);
+    color: var(--graphite);
+    text-decoration: none;
+  }
+
+  .plan__ouvrir::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: border-color var(--transition);
+  }
+
+  .plan__ouvrir:hover::after {
+    border-color: var(--cobalt);
+  }
+
+  .plan__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Pastille « Agrandir le plan » en bas à droite, 32 px de haut */
+  .plan__agrandir {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--graphite);
+    background: var(--craie-claire);
+    font-size: 13px;
+    transition:
+      background-color var(--transition),
+      border-color var(--transition),
+      color var(--transition);
+  }
+
+  .plan__ouvrir:hover .plan__agrandir {
+    border-color: var(--cobalt);
+    background: var(--cobalt);
+    color: var(--craie);
+  }
+
+  .plan__legende {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px var(--pas-2);
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .plan__source {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    color: var(--gris);
+    text-decoration: underline 1px;
+    text-underline-offset: 4px;
+  }
+
+  .plan__source:hover {
+    color: var(--cobalt);
+  }
+
+  /* Grand plan : fenêtre presque plein écran, barre (titre, fermer) puis le plan */
+  .plan-grand {
+    width: min(1440px, 100% - 2 * var(--pas-3));
+    max-width: none;
+    height: min(1040px, 100% - 2 * var(--pas-3));
+    max-height: none;
+    padding: 0;
+    border: 1px solid var(--graphite);
+    background: var(--craie);
+    color: var(--graphite);
+    flex-direction: column;
+  }
+
+  .plan-grand[open] {
+    display: flex;
+  }
+
+  .plan-grand::backdrop {
+    background: rgb(30 34 41 / 50%);
+  }
+
+  :global(html:has(.plan-grand[open])) {
+    overflow: hidden;
+  }
+
+  .plan-grand__barre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pas-2);
+    padding: 12px 12px 12px var(--pas-3);
+    border-bottom: 1px solid var(--filet);
+  }
+
+  /* Bouton carré 44 × 44 au contour cobalt, comme celui des fiches projet */
+  .plan-grand__fermer {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--cobalt);
+    background: transparent;
+    color: var(--cobalt);
+    cursor: pointer;
+    transition:
+      background-color var(--transition),
+      color var(--transition);
+  }
+
+  .plan-grand__fermer:hover {
+    background: var(--cobalt);
+    color: var(--craie);
+  }
+
+  /* Le plan tient dans la fenêtre en bureau ; sous 900 px, il remplit la hauteur et défile */
+  .plan-grand__cadre {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .plan-grand__cadre:focus-visible {
+    outline-offset: -4px;
+  }
+
+  .plan-grand__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 899.98px) {
+    .plan-grand {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Toute la hauteur de l'écran (640 px au moins, téléphone en paysage), la largeur suit */
+    .plan-grand__image {
+      width: auto;
+      max-width: none;
+      min-height: 640px;
+    }
+  }
+
+  /* Ouverture en fondu (coupée avec prefers-reduced-motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    .plan-grand[open] {
+      transition: opacity 200ms ease-out;
+    }
+
+    @starting-style {
+      .plan-grand[open] {
+        opacity: 0;
+      }
+    }
+  }
+</style>

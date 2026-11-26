@@ -35,7 +35,7 @@ const site = 'https://craie-et-cobalt.vercel.app';
 const PAGES_MIN = 8;
 
 /** Seuls domaines vers lesquels un lien peut pointer : code, crédits, hébergeur, CNIL. */
-const DOMAINES_AUTORISES = ['craie-et-cobalt.vercel.app', 'github.com', 'unsplash.com', 'vercel.com', 'www.cnil.fr'];
+const DOMAINES_AUTORISES = ['craie-et-cobalt.vercel.app', 'github.com', 'unsplash.com', 'vercel.com', 'www.cnil.fr', 'www.openstreetmap.org'];
 
 const erreurs = [];
 const avertissements = [];

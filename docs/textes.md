@@ -1,6 +1,6 @@
 # Textes — Craie & Cobalt (site complet, 5 pages)
 
-> Version 1.11 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page)
+> Version 1.12 — 2026-11-26 · Statut : **validé** (25/11 ; v1.1 : textes alternatifs des photos, parquet en point de Hongrie ; v1.2 : textes ajoutés pendant la direction artistique ; v1.3 : fiche projet en panneau latéral ; v1.4 : libellés du tableau des prestations pour les lecteurs d'écran ; v1.5 : appel à l'action de nouveau sur l'accueil seulement ; v1.6 : « La démarche » au lieu de « Notre démarche » sur la page Le studio ; v1.7 : mention « Studio fictif » sur la page Le studio, « (démo) » retiré des mentions du studio, de Réalisations et des avis de l'accueil ; v1.8 : formulaire de contact en 3 étapes ; v1.9 : pied de page en colonnes « Pages » et « Studio » ; v1.10 : page Mentions légales et confidentialité sur le modèle de Pistil & Ronce ; v1.11 : page Plan du site et son lien dans le pied de page ; v1.12 : page 404 « Cette page n'est pas sur le plan. »)
 > Ton : sobre, précis, assuré, vouvoiement. Phrases courtes. Haut de gamme sans emphase : on montre plutôt qu'on vante. Aucune promesse invérifiable.
 > Tout est fictif : studio, fondatrice, adresse, téléphone, e-mail, réalisations, avis.
 > - Adresse vérifiée le 25/11/2026 : aucune « rue des Tisseuses » à Lyon (Base Adresse Nationale) ; le nom existe dans d'autres communes (Saint-Jean-de-Moirans, Bilieu, Quintenas). Clin d'œil aux tisseuses de soie de la Croix-Rousse.
@@ -349,7 +349,11 @@ Sans JavaScript, les 3 étapes s'affichent les unes sous les autres, sans les bo
 
 ## 8. Page 404
 
+> v1.12, validé le 26/11/2026 : titre « Cette pièce n'existe pas. » remplacé, surtitre et meta description ajoutés ; sans illustration pour l'instant.
+
 **Title :** Page introuvable — Craie & Cobalt
-**Titre :** Cette pièce n'existe pas.
-**Texte :** La page que vous cherchez a peut-être changé d'adresse.
+**Meta description :** Cette page n'existe pas sur le site de démonstration Craie & Cobalt, studio fictif d'architecture intérieure à Lyon.
+**Surtitre :** Erreur 404
+**Titre :** Cette page n'est pas sur le plan.
+**Texte :** Elle a peut-être été déplacée, ou n'a jamais été dessinée.
 **Boutons :** Retour à l'accueil · Voir les réalisations

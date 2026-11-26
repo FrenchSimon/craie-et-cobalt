@@ -45,6 +45,8 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
       <p>
         <a href="/mentions-legales">Mentions légales et confidentialité</a>
         <span class="pied__separateur" aria-hidden="true">·</span>
+        <a href="/plan-du-site">Plan du site</a>
+        <span class="pied__separateur" aria-hidden="true">·</span>
         <span class="pied__reseaux">Instagram · LinkedIn <span class="pied__fictif">(fictifs, liens désactivés)</span></span>
       </p>
       <p class="pied__copyright">© 2026 Craie &amp; Cobalt — studio fictif</p>
@@ -189,9 +191,14 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
       grid-column: span 6;
     }
 
-    /* Réseaux à la ligne sous les mentions, sans le point médian */
+    /* Mentions légales et plan du site l'un sous l'autre, réseaux dessous, sans les points médians */
     .pied__separateur {
       display: none;
+    }
+
+    .pied .pied__legal a {
+      display: flex;
+      width: fit-content;
     }
 
     .pied__reseaux {

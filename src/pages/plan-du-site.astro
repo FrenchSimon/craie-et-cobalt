@@ -1,0 +1,98 @@
+---
+/*
+ * Plan du site : second système de navigation (RGAA, critère 12.1). Toutes les pages, et sous
+ * Réalisations les 6 fiches projet (ouvertes par l'adresse /realisations#<projet>).
+ * Liens tirés des données partagées : un projet ou une page ajoutés y apparaissent d'eux-mêmes.
+ */
+import Base from '../layouts/Base.astro';
+import { menu, contact } from '../data/navigation';
+import { projets } from '../data/projets';
+
+const title = 'Plan du site — Craie & Cobalt (studio fictif)';
+const description =
+  'Toutes les pages du site de démonstration Craie & Cobalt, studio fictif d’architecture intérieure à Lyon, et les six fiches projet.';
+
+const pages = [
+  { href: '/', texte: 'Accueil' },
+  ...menu,
+  { href: contact.href, texte: 'Contact' },
+  { href: '/mentions-legales', texte: 'Mentions légales et confidentialité' },
+];
+---
+
+<Base title={title} description={description}>
+  <article class="plan conteneur">
+    <h1>Plan du site</h1>
+
+    <ul class="plan__liste">
+      {pages.map(({ href, texte }) => (
+        <li>
+          <a href={href}>{texte}</a>
+          {href === '/realisations' && (
+            <ul class="plan__sous-liste">
+              {projets.map(({ id, titre }) => (
+                <li><a href={`/realisations#${id}`}>{titre}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </article>
+</Base>
+
+<style>
+  /* Même colonne de lecture centrée que les mentions légales */
+  .plan {
+    padding-block: clamp(56px, 8vw, 120px) var(--espace-section);
+  }
+
+  .plan > * {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .plan__liste {
+    margin-top: var(--pas-5);
+    padding-top: var(--pas-3);
+    border-top: 1px solid var(--filet);
+    padding-left: 1.2em;
+    font-size: 20px;
+  }
+
+  .plan__liste > li + li {
+    margin-top: var(--pas-1);
+  }
+
+  .plan__sous-liste {
+    margin-top: 4px;
+    padding-left: 1.2em;
+    font-size: 17px;
+  }
+
+  .plan li::marker {
+    color: var(--cobalt);
+  }
+
+  /* Soulignement fin, survol cobalt ; cible de 24 px de haut au moins (WCAG 2.5.8), 44 px au doigt */
+  .plan a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    text-decoration: underline 1px;
+    text-underline-offset: 4px;
+    transition:
+      color var(--transition),
+      text-decoration-color var(--transition);
+  }
+
+  .plan a:hover {
+    color: var(--cobalt);
+  }
+
+  @media (pointer: coarse) {
+    .plan a {
+      min-height: 44px;
+    }
+  }
+</style>

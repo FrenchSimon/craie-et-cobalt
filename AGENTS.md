@@ -18,16 +18,16 @@ Site vitrine **complet (5 pages)** de Craie & Cobalt, studio **fictif** de Marga
 - **Chronométrer** chaque session dans `docs/TEMPS-PASSE.md` (ignoré par Git : le temps passé ne doit pas être public).
 - Me rappeler brièvement l'étape en cours, la prochaine action à valider et les blocages.
 - Vérifier les API dans la documentation de la version installée (Astro 7.4.13), pas de mémoire.
-- **Skills du dépôt** (`.claude/skills/`) : `cloturer-etape` à chaque validation, `controles-pr` avant chaque PR, `captures-responsive` pour vérifier le rendu.
+- **Skills du dépôt** (`.claude/skills/`) : `demarrer-etape` avant chaque étape, `cloturer-etape` à chaque validation, `controles-pr` avant chaque PR, `captures-responsive` pour vérifier le rendu.
 
 ## Commandes
 
-`npm run dev` (local), `npm run check` (types Astro), `npm run build` puis `npm run preview` (site statique dans `dist/`), `npm run photos` (étalonnage des photos), `npm audit --audit-level=high`, `npm run controler` (contrôles de `dist/` et `src/` avant PR, après le build).
+`npm run dev` (local), `npm run check` (types Astro), `npm run build` puis `npm run preview` (site statique dans `dist/`), `npm run photos` (étalonnage des photos), `npm audit --audit-level=high`, `npm run controler` (contrôles de `dist/` et `src/` avant PR, après le build ; erreurs prévues à une étape dans `scripts/controler-exceptions.json`).
 
 ## Git et GitHub
 
 - Commits **atomiques**, **Conventional Commits** en français (`feat:`, `fix:`, `docs:`, `chore:`, `style:`).
-- `main` toujours déployable ; une branche `feat/<nom>` ou `docs/<nom>` par étape. Branches et commits en local sans demander ; **ne jamais pousser sans que je le demande**.
+- `main` toujours déployable ; une branche `feat/<nom>` ou `docs/<nom>` par étape (`fix/<nom>` et `chore/<nom>` pour les corrections et l'outillage). Branches et commits en local sans demander ; **ne jamais pousser sans que je le demande**.
 - Fusion par **pull request**, **après mon accord** ; la PR dit ce qui change et comment le vérifier. Captures en local seulement (`.playwright-mcp/`), jamais dans le dépôt ni les PR.
 - **Ne jamais supprimer une branche** sans mon accord (pas de `--delete-branch`) : proposer le nettoyage après fusion.
 - **Dépôt public, vitrine pour des clients :** `README` à jour (but, stack, captures, démo), messages soignés, aucun fichier temporaire, code commenté ni `TODO` oublié.

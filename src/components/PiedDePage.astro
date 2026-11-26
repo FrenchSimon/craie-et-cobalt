@@ -5,16 +5,20 @@
  * Coordonnées et comptes fictifs (docs/textes.md) : texte seul, sans lien tel:, mailto: ni lien vers un réseau.
  */
 import MotSymbole from '../../contenu/logo/mot-symbole.svg';
-import { menu, contact } from '../data/navigation';
+import { menu, contact, cheminNormalise } from '../data/navigation';
 
 const pages = [...menu, { href: contact.href, texte: 'Contact' }];
+
+// Page courante signalée comme dans l'en-tête (aria-current="page")
+const courant = cheminNormalise(Astro.url.pathname);
+const page = (href: string) => (cheminNormalise(href) === courant ? 'page' : undefined);
 ---
 
 <footer class="pied fond-graphite">
   <div class="conteneur">
     <div class="pied__colonnes grille-pied">
       <div class="pied__marque">
-        <a class="pied__logo" href="/" aria-label="Craie & Cobalt, accueil">
+        <a class="pied__logo" href="/" aria-current={page('/')} aria-label="Craie & Cobalt, accueil">
           <MotSymbole aria-hidden="true" />
         </a>
         <p class="pied__accroche">Architecture intérieure à Lyon</p>
@@ -35,7 +39,7 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
         <p class="etiquette pied__intitule" id="titre-pied-pages">Pages</p>
         <ul class="liste-nue">
           {pages.map(({ href, texte }) => (
-            <li><a href={href}>{texte}</a></li>
+            <li><a href={href} aria-current={page(href)}>{texte}</a></li>
           ))}
         </ul>
       </nav>
@@ -43,9 +47,9 @@ const pages = [...menu, { href: contact.href, texte: 'Contact' }];
 
     <div class="pied__legal">
       <p>
-        <a href="/mentions-legales">Mentions légales et confidentialité</a>
+        <a href="/mentions-legales" aria-current={page('/mentions-legales')}>Mentions légales et confidentialité</a>
         <span class="pied__separateur" aria-hidden="true">·</span>
-        <a href="/plan-du-site">Plan du site</a>
+        <a href="/plan-du-site" aria-current={page('/plan-du-site')}>Plan du site</a>
         <span class="pied__separateur" aria-hidden="true">·</span>
         <span class="pied__reseaux">Instagram · LinkedIn <span class="pied__fictif">(fictifs, liens désactivés)</span></span>
       </p>

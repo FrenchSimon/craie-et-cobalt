@@ -13,6 +13,7 @@
     "check": "astro check",
     "controler": "node scripts/controler.mjs",
     "photos": "node scripts/etalonner-photos.mjs",
+    "icone": "node scripts/icone-ios.mjs",
     "plan:extraire": "node scripts/plan/extraire.mjs",
     "plan": "node scripts/plan/dessiner.mjs"
   },

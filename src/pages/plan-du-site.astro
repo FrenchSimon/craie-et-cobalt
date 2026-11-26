@@ -5,19 +5,15 @@
  * Liens tirés des données partagées : un projet ou une page ajoutés y apparaissent d'eux-mêmes.
  */
 import Base from '../layouts/Base.astro';
-import { menu, contact } from '../data/navigation';
+import { pages as toutesLesPages } from '../data/navigation';
 import { projets } from '../data/projets';
 
 const title = 'Plan du site — Craie & Cobalt (studio fictif)';
 const description =
   'Toutes les pages du site de démonstration Craie & Cobalt, studio fictif d’architecture intérieure à Lyon, et les six fiches projet.';
 
-const pages = [
-  { href: '/', texte: 'Accueil' },
-  ...menu,
-  { href: contact.href, texte: 'Contact' },
-  { href: '/mentions-legales', texte: 'Mentions légales et confidentialité' },
-];
+/* Toutes les pages, sauf celle-ci. */
+const pages = toutesLesPages.filter(({ href }) => href !== '/plan-du-site');
 ---
 
 <Base title={title} description={description}>

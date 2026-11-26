@@ -1,4 +1,4 @@
-/* Menu principal, écrit une seule fois : en-tête, pied de page, plan du site, et plus tard sitemap. */
+/* Menu principal, écrit une seule fois : en-tête, pied de page, plan du site et sitemap. */
 
 export interface Lien {
   href: string;
@@ -12,6 +12,15 @@ export const menu: Lien[] = [
 ];
 
 export const contact: Lien = { href: '/contact', texte: 'Parlons de votre projet' };
+
+/** Toutes les pages indexables, dans l'ordre du plan du site (plan du site et sitemap). */
+export const pages: Lien[] = [
+  { href: '/', texte: 'Accueil' },
+  ...menu,
+  { href: contact.href, texte: 'Contact' },
+  { href: '/mentions-legales', texte: 'Mentions légales et confidentialité' },
+  { href: '/plan-du-site', texte: 'Plan du site' },
+];
 
 /** Chemin sans barre finale ni extension, pour comparer l'adresse courante aux liens du menu. */
 export function cheminNormalise(chemin: string): string {

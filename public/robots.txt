@@ -1,0 +1,6 @@
+# Studio fictif (démo) : les pages portent un noindex. Rien n'est bloqué ici,
+# sinon un robot ne lirait pas ce noindex.
+User-agent: *
+Allow: /
+
+Sitemap: https://craie-et-cobalt.vercel.app/sitemap.xml

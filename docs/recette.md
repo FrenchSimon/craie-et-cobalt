@@ -16,7 +16,7 @@
 | Accessibilité | Formulaire | Erreurs reliées aux champs (`aria-describedby`, `aria-invalid`), focus sur le premier champ en erreur, message de démo annoncé (`role="status"`) | ✅ |
 | Accessibilité | `prefers-reduced-motion` | Défilement instantané ; seule animation restante : l'apparition du bouton haut de page, en `steps(1)` (sans fondu) ; aucun contenu laissé invisible | ✅ |
 | Accessibilité | Plan du site | Les 6 autres pages et les 6 fiches projet | ✅ |
-| Accessibilité | VoiceOver (macOS, Safari) | À faire à la main | ⏳ |
+| Accessibilité | VoiceOver (macOS, Safari) | Testé à la main : navigation, filtres de la galerie, fiches projet, formulaire | ✅ |
 | Performance | Lighthouse mobile (2 passes par page, 5 pour Le studio) | Accueil 100 · 100 ; Prestations 99 · 98 ; Réalisations 99 · 99 ; Le studio 97 à 99 ; Contact 100 · 100 ; Mentions légales 100 · 100 ; Plan du site 100 | ✅ |
 | Performance | LCP mobile | 1,1 à 1,9 s ; Le studio 1,8 à 2,5 s (médiane 2,3 s, portrait prioritaire de 33 Ko) | ✅ |
 | Performance | CLS, TBT (mobile) | CLS 0 partout ; TBT 0 à 140 ms | ✅ |
@@ -25,7 +25,7 @@
 | SEO | Lighthouse | 66 à 69 : seul l'audit « page indexable » échoue, à cause du `noindex` voulu | ✅ |
 | Responsive | 320, 375, 768, 1024, 1440, 1920 px, 8 pages (48 captures) | Aucun débordement horizontal (52 px à 320 px avant correction), cibles ≥ 24 px, images toutes dimensionnées et chargées | ✅ |
 | Navigateurs | Chrome | Testé | ✅ |
-| Navigateurs | Firefox, Safari, iOS, Android | À tester à la main (Playwright ne prend plus en charge Firefox ni WebKit sous macOS 12) | ⏳ |
+| Navigateurs | Firefox, Safari, iOS, Android | Testés à la main (Playwright ne prend plus en charge Firefox ni WebKit sous macOS 12) | ✅ |
 | Sécurité | `npm audit` | 0 faille | ✅ |
 | Sécurité | CSP stricte | Aucune violation ni erreur JavaScript sur les 8 pages, à 1440 et 390 px, ni pendant les parcours au clavier (fiche, filtres, plan, menu) | ✅ |
 | Sécurité | Liens externes | Tous en `rel="noopener noreferrer"` | ✅ |

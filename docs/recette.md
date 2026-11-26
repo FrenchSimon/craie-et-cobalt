@@ -29,7 +29,9 @@
 | Sécurité | `npm audit` | 0 faille | ✅ |
 | Sécurité | CSP stricte | Aucune violation ni erreur JavaScript sur les 8 pages, à 1440 et 390 px, ni pendant les parcours au clavier (fiche, filtres, plan, menu) | ✅ |
 | Sécurité | Liens externes | Tous en `rel="noopener noreferrer"` | ✅ |
-| Sécurité | Note securityheaders.com (production) | À mesurer après la mise en ligne (étape 7) | ⏳ |
+| Sécurité | Note securityheaders.com (production) | A+ (26/11) | ✅ |
+| Production | PageSpeed mobile sur https://craie-et-cobalt.vercel.app (26/11) | Accueil et Le studio : performance 100, accessibilité 100, bonnes pratiques 100, SEO 69 (`noindex` voulu) | ✅ |
+| Production | En-têtes, pages, redirections, partage (26/11) | En-têtes de `vercel.json` sur toutes les réponses, 8 pages en 200, 404 servie, `/studio.html` et `/studio/` redirigées (308), `noindex`, cache `immutable` de `/_astro/` ; aperçu Open Graph correct sur opengraph.xyz et LinkedIn Post Inspector (image 1200 × 630, titre, description) | ✅ |
 | Fiction | Données structurées, liens, coordonnées | Téléphone du bloc 04 65 71 réservé à la fiction, `craie-et-cobalt.fr` non enregistré, rue des Tisseuses absente des données OpenStreetMap du plan, JSON-LD signalé comme fictif (`disambiguatingDescription`), ni e-mail, ni réseaux, ni GPS ; liens externes limités aux crédits (photographes, OpenStreetMap), à l'hébergeur, à la CNIL et au code sur GitHub | ✅ |
 
 ## Corrections faites pendant la recette

@@ -10,8 +10,8 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 | 3 | Direction artistique | Planche de style + maquettes de l'accueil et de Réalisations | 1,5 j | ✅ validé le 25/11 (`docs/direction-artistique.md`) |
 | 4 | Stack | Proposition argumentée (`docs/stack.md`) | 0,25 j | ✅ validé le 25/11 (`docs/stack.md`) |
 | 5 | Réalisation | Site complet en local | 5 j | ✅ validé le 26/11 (socle, photos, accueil, prestations et réalisations le 25/11 ; le studio, contact, mentions légales, plan du site, page 404, bouton haut de page, animations, plan d'accès, SEO et sécurité le 26/11) |
-| 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | 🚧 en cours (recette, 4 corrections, rapport, VoiceOver et navigateurs validés le 26/11 ; A+ à mesurer en production) |
-| 7 | Mise en ligne | URL Vercel de production | 0,25 j | ⏳ à venir |
+| 6 | Recette qualité | Rapport a11y, perf, SEO, sécurité, responsive | 1 j | ✅ validé le 26/11 (`docs/recette.md`, PR #26 ; A+ mesuré en production) |
+| 7 | Mise en ligne | URL Vercel de production | 0,25 j | ✅ validé le 26/11 : https://craie-et-cobalt.vercel.app ; lien ajouté dans le portfolio |
 | 8 | Étude de cas | Fiche portfolio à jour | — | ⏳ à venir |
 
 ## 2. Photos — `docs/photos`
@@ -54,7 +54,7 @@ Règle : chaque étape se termine par un livrable que je valide avant de passer 
 12. [x] **Animations :** feuille `animations.css` reprise de Pistil & Ronce, en CSS, coupée avec `prefers-reduced-motion`, opacité et déplacement seulement (ni LCP ni CLS touchés) : ligne de cote de l'accroche tracée depuis la légende au chargement, flèche « → » des boutons qui avance au survol, menu mobile en fondu, cartes projet, prestations, avis, principes et infos du studio qui montent en fondu au défilement (animation liée au défilement), fondu des projets à chaque filtre de la galerie (jamais au chargement) ; aucun texte nouveau.
 13. [x] **Plan d'accès (Contact) :** sur le modèle du plan de Pistil & Ronce, mais en **SVG stylisé** à la DA (`scripts/plan/`, données OSM de la Croix-Rousse, projection et noms en tracés sans dépendance ajoutée) : bâtiments filet, rues craie claire, Rhône cobalt pâle, parcs hachurés, montées en pointillé, un seul accent cobalt pour le studio, stations du métro, échelle en ligne de cote et nord ; aperçu serré sous les coordonnées (juste après elles en mobile), agrandi au clic ou à Entrée dans un `<dialog>` (focus sur Fermer puis rendu à l'aperçu, Échap et clic sur le fond, centré sur le studio et défilable sur téléphone, chargé seulement à l'ouverture) ; sans JavaScript, lien vers le grand plan ; crédit OpenStreetMap sous le plan et dans les mentions légales ; textes dans `textes.md` (v1.14). Sans repère de stationnement ; la Saône réduite à un liseré pour garder les noms lisibles.
 14. [x] **SEO :** `title` et `meta description` par page (repris de `textes.md`), Open Graph sur toutes les pages (sans `og:url` sur la 404) et image de partage 1200 × 630 en JPEG (cuisine de l'appartement canut, texte alternatif de la fiche), lien canonique de l'accueil corrigé en `/`, `sitemap.xml` maison tiré de la liste des pages (partagée avec le plan du site), `robots.txt` sans blocage qui pointe le sitemap, JSON-LD `ProfessionalService` sur l'accueil (infos fictives seulement : ni e-mail, ni réseaux, ni GPS), `noindex` en balise ; icône d'écran d'accueil iOS tirée du favicon (`npm run icone`, repris de Pistil & Ronce) ; `npm run controler` vérifie en plus l'Open Graph et le sitemap. Aucun texte nouveau.
-15. [x] **Sécurité :** `vercel.json` repris de Pistil & Ronce : CSP stricte sans `unsafe-inline` (`default-src 'self'`, `frame-ancestors 'none'`), HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP et `X-Robots-Tag: noindex` sur toutes les réponses, cache `immutable` de `/_astro/`, `cleanUrls` et `trailingSlash: false` ; testés en local avec un serveur qui applique ces en-têtes et redirections : 8 pages, filtres, fiche projet et plan agrandi sans violation de CSP. A+ sur securityheaders.com à vérifier en production (étapes 6 et 7).
+15. [x] **Sécurité :** `vercel.json` repris de Pistil & Ronce : CSP stricte sans `unsafe-inline` (`default-src 'self'`, `frame-ancestors 'none'`), HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP et `X-Robots-Tag: noindex` sur toutes les réponses, cache `immutable` de `/_astro/`, `cleanUrls` et `trailingSlash: false` ; testés en local avec un serveur qui applique ces en-têtes et redirections : 8 pages, filtres, fiche projet et plan agrandi sans violation de CSP. A+ sur securityheaders.com en production (26/11).
 
 Une PR par lot cohérent (socle, pages, finitions), sans captures : elles restent en local.
 
@@ -62,19 +62,19 @@ Une PR par lot cohérent (socle, pages, finitions), sans captures : elles resten
 
 - [x] **Accessibilité :** navigation au clavier complète sur les 5 pages, plan du site à jour, axe sans erreur, contrastes. Axe sans violation sur 29 états (8 pages à 1440 et 390 px, menu, filtres, fiche, formulaire en erreur et envoyé, plan agrandi), après 2 corrections : bouton haut de page placé dans le pied de page (repère), nom des onglets de la démarche aligné sur leur texte visible (2.5.3) ; clavier, focus et mouvement réduit conformes (26/11).
 - [x] **Lecteur d'écran :** VoiceOver sur macOS avec Safari : navigation, filtres de la galerie, fiches dépliables, formulaire.
-- [x] **Performance :** Lighthouse mobile ≥ 95 sur chaque page, LCP < 2,5 s, INP < 200 ms, CLS < 0,1 ; poids de la page Réalisations. Mobile 97 à 100, LCP 1,1 à 2,5 s (Le studio : médiane 2,3 s, à confirmer en production), CLS 0, TBT ≤ 140 ms ; bureau 96 à 100 ; Réalisations 253 Ko au chargement (26/11).
+- [x] **Performance :** Lighthouse mobile ≥ 95 sur chaque page, LCP < 2,5 s, INP < 200 ms, CLS < 0,1 ; poids de la page Réalisations. Mobile 97 à 100, LCP 1,1 à 2,5 s (Le studio : médiane 2,3 s ; PageSpeed en production : 100 sur l'accueil et Le studio), CLS 0, TBT ≤ 140 ms ; bureau 96 à 100 ; Réalisations 253 Ko au chargement (26/11).
 - [x] **Responsive :** 320, 375, 768, 1024, 1440 et 1920 px, sans débordement. 48 captures, après 2 corrections : pied de page sur une colonne sous 600 px (débordait de 52 px à 320 px), flèches du carrousel de la démarche gardées à 44 px (26/11).
 - [x] **Navigateurs :** Chrome, Firefox, Safari, iOS, Android. Chrome testé par script, les autres à la main (26/11).
-- [ ] **Sécurité :** `npm audit` propre, A+ sur securityheaders.com en production. `npm audit` propre et CSP sans violation (26/11) ; A+ à mesurer en production.
+- [x] **Sécurité :** `npm audit` propre, A+ sur securityheaders.com en production. `npm audit` propre et CSP sans violation, A+ en production (26/11).
 - [x] **Fiction :** relire que rien ne renvoie à un vrai studio (liens, données structurées, photos). Nom, fondatrice et adresse confirmés libres par une recherche web (26/11), comme au cadrage du 25/11 ; téléphone de fiction, domaine non enregistré, JSON-LD marqué fictif.
-- [ ] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR. Rapport validé le 26/11 ; PR à ouvrir.
+- [x] **Livrable :** tableau des résultats dans `docs/recette.md`, résumé dans la PR. Rapport validé le 26/11 ; PR #26 fusionnée.
 
 ## 7. Mise en ligne
 
-- [ ] Projet Vercel relié au dépôt, prévisualisation sur chaque PR, production sur `main`.
-- [ ] Vérifier en production : en-têtes HTTP, `noindex`, image de partage (aperçu Open Graph), Lighthouse.
-- [ ] `README` complet (but, stack, captures, lien vers la démo).
-- [ ] Ajouter le lien du site et du code dans le portfolio (`docs/projets.md`).
+- [x] Projet Vercel relié au dépôt, prévisualisation sur chaque PR, production sur `main` (26/11, préréglage Astro).
+- [x] Vérifier en production : en-têtes HTTP, `noindex`, image de partage (aperçu Open Graph), Lighthouse (26/11 : A+ sur securityheaders.com, PageSpeed mobile 100 / 100 / 100 / 69 sur l'accueil et Le studio, aperçu correct sur opengraph.xyz et LinkedIn).
+- [x] `README` complet (but, stack, qualité, lien vers la démo ; sans captures, décidé le 26/11).
+- [x] Ajouter le lien du site et du code dans le portfolio (`docs/projets.md`, 26/11).
 
 ## 8. Étude de cas
 
